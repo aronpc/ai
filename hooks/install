@@ -1,0 +1,165 @@
+#!/bin/bash
+# Instalar hooks do Sprint Management
+# Configura atalhos do git para usar os scripts
+
+HOOKS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/bin"
+PROJECT_ROOT="$(git rev-parse --show-topoplevel 2>/dev/null)"
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+print_banner() {
+    echo -e "${BLUE}"
+    echo "╔══════════════════════════════════════════════════════════════════╗"
+    echo "║  📋 Sprint Management - Hooks Installer            ║"
+    echo "╠════════════════════════════════════════════════════════════════════╝"
+    echo -e "${NC}"
+}
+
+print_success() {
+    echo -e "${GREEN}✅ $@${NC}"
+}
+
+print_error() {
+    echo -e "${RED}❌ $@${NC}" >&2
+}
+
+print_info() {
+    echo -e "${YELLOW}ℹ $@${NC}"
+}
+
+check_git_repo() {
+    if [ -z "$PROJECT_ROOT" ]; then
+        print_error "Não está em um repositório Git"
+        exit 1
+    fi
+}
+
+install_hooks() {
+    local hooks_dir="$PROJECT_ROOT/.git/hooks"
+
+    print_info "Hooks são scripts bash que podem ser usados via atalhos git"
+    print_info "Scripts instalados em: ${GREEN}$HOOKS_DIR${NC}"
+}
+
+create_git_aliases() {
+    print_info "Criando atalhos git..."
+
+    # Atalho para aber tracking
+    if ! git config --local --get alias.sprint-track >/dev/null 2>&1; then
+        git config --local alias.sprint-track "!bash $HOOKS_DIR/sprint-track"
+        print_success "Atalho 'git sprint-track' criado"
+    else
+        print_info "Atalho 'git sprint-track' já existe"
+    fi
+
+    # Atalho para aber último sprint
+    if ! git config --local --get alias.sprint-last >/dev/null 2>&1; then
+        git config --local alias.sprint-last "!bash $HOOKS_DIR/sprint-last"
+        print_success "Atalho 'git sprint-last' criado"
+    else
+        print_info "Atalho 'git sprint-last' já existe"
+    fi
+
+    # Atalho para atualizar tracking
+    if ! git config --local --get alias.sprint-update-tracking >/dev/null 2>&1; then
+        git config --local alias.sprint-update-tracking "!bash $HOOKS_DIR/sprint-update-tracking"
+        print_success "Atalho 'git sprint-update-tracking' criado"
+    else
+        print_info "Atalho 'git sprint-update-tracking' já existe"
+    fi
+
+    # Atalho para criar novo sprint
+    if ! git config --local --get alias.sprint-new >/dev/null 2>&1; then
+        git config --local alias.sprint-new "!f() { bash $HOOKS_DIR/sprint-new \"\$@\"; };"
+        print_success "Atalho 'git sprint-new [nome]' criado"
+    else
+        print_info "Atalho 'git sprint-new' já existe"
+    fi
+}
+
+create_sprints_structure() {
+    local sprints_dir="$PROJECT_ROOT/sprints"
+
+    if [ ! -d "$sprints_dir" ]; then
+        print_info "Criando estrutura de sprints/..."
+        mkdir -p "$sprints_dir"
+
+        cat > "$sprints_dir/tracking.md" <<'EOF'
+# Sprints Tracking
+
+Este arquivo rastreia todos os sprints planejados e em andamento para o projeto.
+
+## Status dos Sprints
+
+| Sprint | Status | Data Início | Data Fim | Descrição |
+|--------|--------|-------------|----------|-----------|
+
+## Legenda de Status
+
+- **Planejado**: Sprint planejado, aguardando início
+- **Em Andamento**: Sprint em execução
+- **Concluído**: Sprint finalizado e implementado
+- **Cancelado**: Sprint cancelado
+
+## Como Criar Novo Sprint
+
+1. Criar arquivo \`sprints/XXX-nome-do-sprint.md\` onde XXX é o número sequencial
+2. Adicionar entrada neste arquivo de tracking
+3. Atualizar status conforme progresso
+EOF
+
+        print_success "Estrutura de sprints/ criada com tracking.md básico"
+    else
+        print_info "Estrutura de sprints/ já existe"
+    fi
+}
+
+show_usage_info() {
+    echo ""
+    echo -e "${BLUE}══════════════════════════════════════════════════════════════════${NC}"
+    echo -e "${BLUE}║  Comandos Disponíveis                                  ║${NC}"
+    echo -e "${BLUE}════════════════════════════════════════════════════════════════════╝${NC}"
+    echo ""
+    echo -e "${GREEN}Comandos Git:${NC}"
+    echo "  git sprint-track             - Aber tracking.md no editor"
+    echo "  git sprint-last              - Aber último sprint modificado"
+    echo "  git sprint-update-tracking    - Atualizar tracking.md com sprints recentes"
+    echo "  git sprint-new <nome>        - Criar novo sprint com template"
+    echo ""
+    echo -e "${GREEN}Scripts Diretos:${NC}"
+    echo "  $HOOKS_DIR/sprint-track             - Script para aber tracking"
+    echo "  $HOOKS_DIR/sprint-last               - Script para aber último sprint"
+    echo "  $HOOKS_DIR/sprint-update-tracking      - Script para atualizar tracking"
+    echo "  $HOOKS_DIR/sprint-new <nome>         - Script para criar novo sprint"
+    echo ""
+    echo -e "${YELLOW}💡 Dica: Os scripts também podem ser executados diretamente!${NC}"
+}
+
+# Main
+main() {
+    print_banner
+
+    cd "$PROJECT_ROOT" 2>/dev/null || {
+        print_error "Não foi possível mudar para raiz do projeto"
+        exit 1
+    }
+
+    check_git_repo
+    install_hooks
+    create_git_aliases
+    create_sprints_structure
+
+    show_usage_info
+
+    echo ""
+    print_success "Instalação concluída!"
+    echo ""
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@"
+fi

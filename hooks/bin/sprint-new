@@ -1,0 +1,90 @@
+#!/bin/bash
+# Hook: Criar novo sprint com template
+# Uso: git sprint-new [nome] ou manualmente
+
+SPRINTS_DIR="sprints"
+
+if [ ! -d "$SPRINTS_DIR" ]; then
+    echo "Criando diretório $SPRINTS_DIR..."
+    mkdir -p "$SPRINTS_DIR"
+fi
+
+# Encontrar próximo número sequencial
+last_num=0
+for f in "$SPRINTS_DIR"/*.md; do
+    if [ "$(basename "$f")" != "tracking.md" ]; then
+        if [[ "$f" =~ [0-9][0-9][0-9]- ]]; then
+            num=${f%%/$(basename "$f" .md)*}
+            if [ $num -gt $last_num ]; then
+                last_num=$num
+            fi
+        fi
+    fi
+done
+
+next_num=$(printf "%03d" $((last_num + 1)))
+
+# Nome do sprint (passado como argumento ou interativo)
+sprint_name="$1"
+if [ -z "$sprint_name" ]; then
+    echo -n "Nome do sprint (ex: 012-nome-descritivo): "
+    read -r sprint_name
+fi
+
+if [ -z "$sprint_name" ]; then
+    echo "Nome do sprint não pode ser vazio!"
+    exit 1
+fi
+
+# Criar arquivo
+sprint_file="$SPRINTS_DIR/${next_num}-${sprint_name}.md"
+
+if [ -f "$sprint_file" ]; then
+    echo "Arquivo $sprint_file já existe!"
+    exit 1
+fi
+
+# Criar template
+cat > "$sprint_file" << EOF
+# Sprint ${next_num}: $(echo "$sprint_name" | sed 's/-/ /g; s/\b\([[:upper:]]\b/\u\0/g; s/\b\([[:upper:]]\b/\l\0/g') | sed 's/\b/_/ /g' | tr '[:lower:]' ' ')
+
+## Status
+**Status**: Planejado 📋
+
+## Descrição
+Descrição detalhada do objetivo deste sprint.
+
+## Requisitos
+- Requisito 1
+- Requisito 2
+
+## Implementação
+
+### Tarefas
+- [ ] Tarefa 1
+- [ ] Tarefa 2
+
+### Alterações
+- **Backend**:
+  - \`app/Models/...\`
+  - \`database/migrations/...\`
+
+- **Frontend**:
+  - \`resources/js/Pages/...\`
+  - \`resources/views/...\`
+
+## Testes
+- [ ] Testes unitários
+- [ ] Testes de feature
+- [ ] Testes de browser
+
+## Notas
+Notas adicionais sobre implementação.
+EOF
+
+echo "✅ Sprint criado: $sprint_file"
+echo ""
+echo "📝 Próximos passos:"
+echo "  1. Abrir o sprint para adicionar detalhes: code $sprint_file"
+echo "  2. Atualizar o tracking.md para inclir este sprint: git sprint-update-tracking"
+echo ""

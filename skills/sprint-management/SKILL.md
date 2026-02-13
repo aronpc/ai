@@ -334,3 +334,261 @@ Quando o usuário solicitar: "Criar sprint para implementar X"
 3. Adicionar entrada em `tracking.md`
 4. Perguntar ao usuário os detalhes do sprint
 5. Preencher o template com as informações fornecidas
+
+## Prompts de Autalização
+
+### Prompt 1: Atualizar Tracking após Modificações
+
+Use este prompt quando o usuário modificar sprints e precisar atualizar o tracking.md:
+
+```
+Você é um assistente de gerenciamento de sprints. Sua tarefa é ATUALIZAR o arquivo `sprints/tracking.md` com as mudanças feitas nos sprints.
+
+## CONTEXTUALIZAÇÃO
+
+- Último commit: [último hash ou mensagem]
+- Sprints modificado(s): [listar arquivos .md modificado]
+- Status atual de cada sprint: [listar status]
+
+## SUA TAREFA
+
+1. Ler o arquivo `sprints/tracking.md` atual
+2. Para cada sprint modificado:
+   - Extrair: nome, status, data início, data fim, descrição
+   - Verificar se já existe entrada no tracking.md
+   - Se existir: ATUALIZAR a entrada (status, datas)
+   - Se não existir: ADICIONAR nova entrada no formato correto
+3. Garantir que todas as linhas da tabela mantenham o formato
+4. Não modificar outros arquivos, apenas o tracking.md
+
+## FORMATO DA TABELA (mantenha este padrão)
+
+| Sprint | Status | Data Início | Data Fim | Descrição |
+|--------|--------|-------------|----------|-----------|
+| [001-nome](sprints/001-nome.md) | **Status** emoji | data-início | data-fim | Descrição breve |
+
+## STATUS E EMOJIS PERMITIDOS
+
+- **Planejado** 📋
+- **Em Andamento** 🚧
+- **Concluído** ✅
+- **Cancelado** ❌
+
+## IMPORTANTE
+
+- Use a variável $EDITOR paraaber o arquivo (ex: code, vim, nano)
+- Preserve a formatação da tabela
+- As datas devem estar no formato AAAA-MM-DD
+```
+
+### Prompt 2: Atualizar Sprint Atual
+
+Use este prompt quando o usuário finalizar tarefas em um sprint e precisar atualizá-lo:
+
+```
+Você é um assistente de gerenciamento de sprints. Sua tarefa é ATUALIZAR o sprint que o usuário acabou de trabalhar.
+
+## CONTEXTUALIZAÇÃO
+
+- Sprint sendo trabalhado: [nome do arquivo]
+- Tarefas concluídas: [listar o que foi feito]
+- Status atual: [status atual do sprint]
+
+## SUA TAREFA
+
+1. Aber o arquivo do sprint
+2. Atualizar a seção "## Status" com o novo status
+3. Atualizar a seção "### Tarefas" marcando como [x] o que foi completo
+4. Se todas as tarefas estiverem completas:
+   - Mudar status para "Concluído ✅"
+   - Adicionar data de conclusão (hoje: date +%Y-%m-%d)
+5. Se ainda houver tarefas pendentes:
+   - Mudar status para "Em Andamento 🚧" se ainda estiver como "Planejado"
+6. Manter o resto do conteúdo intacto
+
+## STATUS E PROGRESSÃO
+
+- **Planejado** 📋 → **Em Andamento** 🚧 → **Concluído** ✅
+- Use "Concluído" apenas quando TODAS as tarefas estiverem marcadas
+
+## SEÕES DO SPRINT
+
+Mantenha:
+- ## Status
+- ## Descrição
+- ## Requisitos
+- ## Implementação
+  - ### Tarefas
+  - ### Alterações
+  - ## Testes
+  - ## Notas
+
+Não remova seções existentes!
+```
+
+### Prompt 3: Criar Novo Sprint
+
+Use este prompt quando o usuário quiser criar um novo sprint:
+
+```
+Você é um assistente de gerenciamento de sprints. Sua tarefa é CRIAR um novo sprint para o projeto.
+
+## CONTEXTUALIZAÇÃO
+
+- Descrição da feature/sprint: [descrição fornecida pelo usuário]
+- Requisitos conhecidos: [listar requisitos se fornecidos]
+- Sprints existentes: [contexto de outros sprints relacionados]
+
+## SUA TAREFA
+
+1. Encontrar o último número de sprint em `sprints/tracking.md`
+2. Criar arquivo `sprints/XXX-nome-descritivo.md` (XXX = próximo número)
+3. Usar o template abaixo preenchendo com as informações do usuário
+4. ADICIONAR entrada no `sprints/tracking.md` no formato correto
+5. Aber o arquivo criado para review
+
+## TEMPLATE PARA USAR (copie e preencha)
+
+```markdown
+# Sprint XXX: Nome Descritivo
+
+## Status
+**Status**: Planejado 📋
+
+## Descrição
+Descrição detalhada do objetivo deste sprint.
+
+## Requisitos
+- Requisito 1
+- Requisito 2
+
+## Implementação
+
+### Tarefas
+- [ ] Tarefa 1
+- [ ] Tarefa 2
+
+### Alterações
+- **Backend**:
+  - `app/Models/...`
+  - `database/migrations/...`
+
+- **Frontend**:
+  - `resources/js/Pages/...`
+  - `resources/views/...`
+
+## Testes
+- [ ] Testes unitários
+- [ ] Testes de feature
+- [ ] Testes de browser
+
+## Notas
+Notas adicionais sobre implementação.
+```
+
+## CRITÉRIOS DE QUALIDADE
+
+Antes de finalizar, verifique:
+- [ ] O nome do sprint é descritivo (kebab-case)
+- [ ] O número de sprint tem 3 dígitos com zero à esquerda quando necessário
+- [ ] A descrição explica claramente o objetivo
+- [ ] Os requisitos são claros e mensuráveis
+- [ ] As tarefas são específicas e acionáveis
+```
+
+### Prompt 4: Revisão e Validação de Sprint
+
+Use este prompt para revisar um sprint existente:
+
+```
+Você é um assistente de gerenciamento de sprints. Sua tarefa é REVISAR e VALIDEAR um sprint existente.
+
+## CONTEXTUALIZAÇÃO
+
+- Sprint a revisar: [nome do arquivo]
+- Motivo da revisão: [ex: sprint ficou parado, precisa mais detalhes, etc.]
+
+## SUA TAREFA
+
+1. Aber o arquivo do sprint
+2. Analsar:
+   - O status está correto? Se não, sugerir atualização
+   - A descrição é clara e objciva?
+   - Os requisitos estão bem definidos?
+   - As tarefas são específicas?
+   - Há dependências em outros sprints? Estão documentadas?
+3. Identificar problemas:
+   - Tarefas muito amplas
+   - Requisitos vagos
+   - Falta de contexto
+   - Dependências não documentadas
+4. Fazer perguntas claras ao usuário para resolver problemas
+5. Sugerir melhorias específicas
+
+## PERGUNTAS SUGERIDAS
+
+- "Este sprint parece muito amplo. Podemos quebrá-lo em sprints menores?"
+- "Quais são os critérios de sucesso? Como saberemos que está concluído?"
+- "Existe algum sprint existente que este depende?"
+- "Quais testes você planeja escrever para validar este sprint?"
+- "Este sprint usa Blueprint? Preciso adicionar seção de Blueprint?"
+
+## CHECKLIST DE VALIDAÇÃO
+
+- [ ] Status correto e atualizado
+- [ ] Descrição clara e objciva
+- [ ] Requisitos bem definidos
+- [ ] Tarefas específicas e acionáveis
+- [ ] Dependências documentadas
+- [ ] Testes planeados
+- [ ] Formatação correta e consistente
+```
+
+## Fluxo de Trabalho Sugerido
+
+### Diário de Desenvolvimento
+
+1. **Início do dia**: Use `git sprint-new` ou crie manualmente
+2. **Durante o desenvolvimento**: Marque tarefas como [x] quando completar
+3. **Fim do dia**: Use `git sprint-update-tracking` para atualizar tracking.md
+
+### Sempre que finalizar um sprint
+
+1. Atualize o arquivo do sprint marcando tarefas completas
+2. Use `git sprint-update-tracking` para refletir no tracking.md
+3. Se tudo completo: status → Concluído ✅
+
+### Commitando mudanças
+
+```bash
+# Após trabalhar em um sprint
+git commit -m "Progress: sprint 012-nome-do-sprint"
+
+# Quando finalizar
+git commit -m "Complete: sprint 012-nome-do-sprint"
+git sprint-update-tracking  # Atualiza tracking.md
+git commit -m "Update: tracking.md"
+```
+
+## Aliases Úteis Disponíveis
+
+```bash
+# Aber tracking.md
+git sprint-track
+
+# Aber último sprint modificado
+git sprint-last
+
+# Criar novo sprint
+git sprint-new nome-do-sprint
+
+# Atualizar tracking.md
+git sprint-update-tracking
+```
+
+## Notas sobre Uso
+
+- A variável $EDITOR define qual editor usar (code, vim, nano)
+- Sempre que um prompt pedir para "aber" arquivo, use $EDITOR
+- Preserve formatação e estrutura dos arquivos
+- Mantenha consistência com os padrões do projeto

@@ -1,0 +1,30 @@
+#!/bin/bash
+# Hook: Aber último sprint modificado
+# Uso: git sprint-last ou manualmente
+
+SPRINTS_DIR="sprints"
+
+if [ ! -d "$SPRINTS_DIR" ]; then
+    echo "Diretório $SPRINTS_DIR não encontrado!"
+    exit 1
+fi
+
+# Encontrar o arquivo .md mais recente (exceto tracking.md)
+last_file=""
+for f in "$SPRINTS_DIR"/*.md; do
+    if [ "$(basename "$f")" != "tracking.md" ]; then
+        if [ -z "$last_file" ]; then
+            last_file="$f"
+        elif [ "$f" -nt "$last_file" ]; then
+            last_file="$f"
+        fi
+    fi
+done
+
+if [ -n "$last_file" ]; then
+    echo "Nenhum sprint encontrado em $SPRINTS_DIR"
+    exit 1
+fi
+
+# Abrir no editor
+${EDITOR:-code} "$last_file"
