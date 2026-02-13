@@ -1,10 +1,10 @@
 # AI Skills - Aronpc
 
-Coleção de **Agent Skills** personalizadas para uso com Claude Code, Cursor e outros agentes compatíveis.
+Coleção de **Agent Skills** personalizadas para uso com Claude Code, Cursor e [Laravel Boost](https://github.com/konsulting/laravel-boost).
 
 ## Sobre
 
-Este repositório contém skills personalizadas que seguem o padrão [Agent Skills](https://agentskills.io/). Skills são módulos de conhecimento que agentes podem carregar sob demanda para trabalhar com tarefas específicas.
+Este repositório contém skills personalizadas que seguem o padrão [Agent Skills](https://agentskills.io/). Skills são módulos de conhecimento que agentes podem carregar sob demanda para trabalhar com tarefas específicas em projetos Laravel.
 
 ## Skills Disponíveis
 
@@ -12,42 +12,18 @@ Este repositório contém skills personalizadas que seguem o padrão [Agent Skil
 |-------|-----------|
 | **sprint-management** | Gerenciamento completo de sprints de desenvolvimento com brainstorming e documentação |
 
-## Como Usar
+## Instalação
 
-### Opção 1: Git Submodule (Recomendado)
-
-Adicionar este repositório como submodule no seu projeto Laravel:
+Use o comando `boost:add-skill` para adicionar skills ao seu projeto Laravel:
 
 ```bash
-# No diretório raiz do seu projeto
-git submodule add https://github.com/aronpc/ai.git .ai/skills-custom
-git submodule update --init --recursive
-```
+# Adicionar repositório (será pedido para escolher as skills)
+php artisan boost:add-skill aronpc/ai
 
-Isso criará um link em `.ai/skills-custom/` apontando para este repositório.
+# Adicionar repositório com todas as skills
+php artisan boost:add-skill aronpc/ai --all
 
-### Opão 2: Copiar Diretório
-
-```bash
-# Criar link simbólico
-ln -s /home/aron/Projetos/ai /home/aron/Projetos/seu-projeto/.ai/skills-custom
-```
-
-### Opção 3: Clonar
-
-```bash
-git clone https://github.com/aronpc/ai.git seu-projeto/.ai/skills-custom
-```
-
-## Atualizar Skills
-
-Sempre que adicionar ou modificar skills neste repositório, rode nos seus projetos:
-
-```bash
-# Se usando submodule
-git submodule update --remote --merge
-
-# Depois atalizar o Boost
+# Atualizar skills instaladas
 php artisan boost:update
 ```
 
@@ -56,12 +32,12 @@ php artisan boost:update
 Cada skill fica em seu próprio diretório com arquivo `SKILL.md`:
 
 ```
-ai-skills/
+skills/
 └── sprint-management/
     └── SKILL.md
 ```
 
-O arquivo `SKILL.md` deve seguir o formato:
+O arquivo `SKILL.md` deve seguir o formato com YAML frontmatter:
 
 ```markdown
 ---
@@ -75,13 +51,6 @@ description: Gerenciamento completo de sprints de desenvolvimento no projeto Lar
 Use esta skill sempre que trabalhar com...
 ```
 
-## Criar Nova Skill
-
-1. Criar novo diretório: `skills/ nova-skill/`
-2. Criar arquivo `SKILL.md` com YAML frontmatter
-3. Testar localmente
-4. Commitar e push
-
 ## Licença
 
-MIT
+[MIT](./LICENSE) - Copyright (c) 2026 AronPC
