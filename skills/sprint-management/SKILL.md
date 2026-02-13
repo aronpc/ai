@@ -190,12 +190,133 @@ php artisan boost:update
 - [ ] Datas estão preenchidas (se aplicável)
 - [ ] Links estão funcionando
 
-## Blueprint para Sprints Complexos
+## Filament Blueprint Integration
 
-Para sprints que usam Filament Blueprint:
-1. Salvar plano detalhado em `storage/blueprint/plans/`
-2. Criar sprint correspondente em `sprints/`
-3. Referenciar plano no arquivo do sprint
+### Quando usar Blueprint com Sprints
+
+Use Filament Blueprint quando o sprint envolver:
+- Múltiplas tabelas/relacionamentos
+- Formulários complexos
+- Recursos Filament (Resources, Widgets, etc.)
+- Estruturas de banco de dados com múltiplas migrations
+
+### Estrutura com Blueprint
+
+```
+sprints/
+├── XXX-nome-do-sprint.md          ← Documentação do sprint
+└── blueprints/                         ← Planos Blueprint (dentro do sprint)
+    └── XXX-nome-do-sprint/
+        ├── blueprint.yaml             ← Arquivo principal do plano
+        ├── migrations/                 ← Migrations geradas
+        └── resources/                 ← Resources Filament
+            ├── Models/
+            └── Resources/
+```
+
+### Template de Sprint com Blueprint
+
+```markdown
+# Sprint XXX: Nome Descritivo
+
+## Status
+**Status**: Planejado 📋
+
+## Descrição
+Descrição detalhada do objetivo deste sprint.
+
+## Blueprint
+**Arquivo**: `sprints/XXX-nome-do-sprint/blueprints/blueprint.yaml`
+
+Este sprint usa Filament Blueprint para gerar:
+- [ ] Modelos e migrations
+- [ ] Resources Filament
+- [ ] Relacionamentos
+- [ ] Formulários
+
+### Comandos Blueprint
+```bash
+# Gerar código a partir do blueprint
+php artisan blueprint:build sprints/XXX-nome-do-sprint/blueprints/blueprint.yaml
+
+# Gerar e aplicar migrations
+php artisan blueprint:build sprints/XXX-nome-do-sprint/blueprints/blueprint.yaml --migrate
+```
+
+### Estrutura Gerada
+Após executar o blueprint:
+- Modelos em `app/Models/`
+- Migrations em `database/migrations/`
+- Resources em `app/Filament/Resources/`
+- Factories em `database/factories/`
+
+## Requisitos
+- Requisito 1
+- Requisito 2
+
+## Implementação
+
+### 1. Preparação
+- [ ] Revisar blueprint.yaml
+- [ ] Ajustar campos/relacionamentos se necessário
+- [ ] Executar `php artisan blueprint:build`
+
+### 2. Tarefas
+- [ ] Tarefa 1
+- [ ] Tarefa 2
+
+### 3. Alterações Manuais (se necessário)
+- **Backend**:
+  - `app/Models/...`
+  - `database/migrations/...`
+
+- **Frontend**:
+  - `resources/js/Pages/...`
+  - `resources/views/...`
+
+## Testes
+- [ ] Testes unitários
+- [ ] Testes de feature
+- [ ] Testes de browser
+- [ ] Testes de Resources Filament
+
+## Notas
+Notas adicionais sobre implementação.
+```
+
+### Exemplo Prático
+
+**Sprint**: Sistema de tags para turmas
+
+```
+sprints/
+├── 005-class-group-tags.md
+└── blueprints/
+    └── 005-class-group-tags/
+        ├── blueprint.yaml
+        ├── migrations/
+        │   └── 2026_02_03_000001_create_class_groups_table.php
+        └── resources/
+            └── ClassGroupResource/
+                ├── ClassGroupResource.php
+                └── Pages/
+                    ├── ListClassGroups.php
+                    ├── CreateClassGroup.php
+                    └── EditClassGroup.php
+```
+
+No arquivo do sprint (`005-class-group-tags.md`), referenciar o blueprint:
+
+```markdown
+## Blueprint
+**Arquivo**: `sprints/005-class-group-tags/blueprints/blueprint.yaml`
+**Comando**: `php artisan blueprint:build sprints/005-class-group-tags/blueprints/blueprint.yaml --migrate`
+
+Este sprint gera:
+- Model `ClassGroup` com relacionamento `hasMany(ClassGroupTag)`
+- Resource `ClassGroupResource` com table e forms
+- Tags com cores e prioridades
+```
 
 ## Convenções
 
