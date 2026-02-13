@@ -10,10 +10,102 @@ description: Gerenciamento completo de sprints de desenvolvimento no projeto Lar
 Use esta skill sempre que trabalhar com:
 - Criar novos sprints de desenvolvimento
 - Atualizar status de sprints existentes
+- Executar tarefas de um sprint
 - Manter o arquivo `sprints/tracking.md`
 - Validar estrutura e nomenclatura de sprints
 - Documentar implementações e progresso
 - Brainstorming e refinamento de ideias para sprints
+
+## Execução Natural de Sprints
+
+### Prompt: Executar Tarefa de Sprint
+
+Use este prompt automaticamente quando o usuário pedir para executar algo relacionado a um sprint existente:
+
+```
+Você está ajudando o usuário a executar tarefas de um sprint. Sua tarefa é TRABALHAR na tarefa E ATUALIZAR o sprint automaticamente.
+
+## CONTEXTO
+
+- Tarefa solicitada: [descrição do que o usuário pediu]
+- Sprints existentes: [listar sprints encontrados em sprints/]
+- Commit mais recente: [mostrar último commit]
+
+## SUA TAREFA
+
+1. Primeiro, encontre o sprint ativo (status "Em Andamento 🚧") ou o último sprint modificado
+2. Leia o arquivo do sprint completo
+3. Execute a tarefa solicitada pelo usuário
+4. **CRÍTICO**: Após completar a tarefa, ATUALIZE o arquivo do sprint:
+   - Marque [x] na tarefa correspondente que foi completada
+   - Se era a última tarefa pendente, mude status para "Concluído ✅" e adicione data de conclusão
+   - Se ainda há tarefas pendentes mas estava como "Planejado", mude para "Em Andamento 🚧"
+5. Salve o arquivo atualizado
+
+## IMPORTANTE
+
+- Sempre atualize o sprint após executar qualquer tarefa
+- Não peça confirmação - a atualização é automática
+- Use o formato de data AAAA-MM-DD
+- Preserve todo o resto do conteúdo do sprint
+
+## EXEMPLO
+
+Se o usuário pediu "criar a migration de usuários" e isso é a tarefa "- [ ] Criar migration de usuários" no sprint 001:
+1. Execute: php artisan make:migration create_users_table
+2. Abra sprints/001-nome.md
+3. Mude "- [ ] Criar migration de usuários" para "- [x] Criar migration de usuários"
+4. Se era a última tarefa: mude status para "Concluído ✅" e adicione "**Data Fim**: 2026-02-13"
+5. Salve e informe o usuário que o sprint foi atualizado
+```
+
+### Prompt: Iniciar Sprint
+
+Use quando o usuário começar a trabalhar em um sprint planejado:
+
+```
+O usuário está começando a trabalhar em um sprint. ATUALIZE o status automaticamente.
+
+## CONTEXTO
+
+- Sprint sendo iniciado: [nome do arquivo]
+- Status atual: [deve ser "Planejado"]
+
+## SUA TAREFA
+
+1. Abra o arquivo do sprint
+2. Mude "**Status**: Planejado 📋" para "**Status**: Em Andamento 🚧"
+3. Adicione "**Data Início**: [data de hoje em AAAA-MM-DD]" abaixo da linha de status
+4. Salve o arquivo
+5. Informe o usuário que o sprint foi iniciado
+
+Não peça confirmação - faça automaticamente.
+```
+
+### Prompt: Finalizar Sprint
+
+Use quando todas as tarefas de um sprint forem completadas:
+
+```
+O usuário completou todas as tarefas de um sprint. FINALIZE o sprint automaticamente.
+
+## CONTEXTO
+
+- Sprint sendo finalizado: [nome do arquivo]
+- Status atual: [deve ser "Em Andamento"]
+
+## SUA TAREFA
+
+1. Abra o arquivo do sprint
+2. Verifique que TODAS as tarefas estão marcadas como [x]
+3. Mude "**Status**: Em Andamento 🚧" para "**Status**: Concluído ✅"
+4. Adicione "**Data Fim**: [data de hoje em AAAA-MM-DD]" (se não existir)
+5. Salve o arquivo
+6. ATUALIZE sprints/tracking.md com o novo status
+7. Sugira commit: "git add sprints/[arquivo] sprints/tracking.md && git commit -m 'Complete: sprint [nome]'"
+
+Não peça confirmação - faça automaticamente.
+```
 
 ## Brainstorming de Sprints
 
@@ -64,10 +156,10 @@ Todos os sprints são mantidos em `sprints/`:
 
 | Status | Descrição |
 |--------|-----------|
-| **Planejado** | Sprint planejado, aguardando início |
+| **Planejado** 📋 | Sprint planejado, aguardando início |
 | **Em Andamento** 🚧 | Sprint em execução ativa |
 | **Concluído** ✅ | Sprint finalizado e implementado |
-| **Cancelado** | Sprint cancelado |
+| **Cancelado** ❌ | Sprint cancelado |
 
 ## Criar Novo Sprint
 
@@ -86,13 +178,13 @@ Você é um assistente de gerenciamento de sprints. Sua tarefa é CRIAR um novo 
 
 ## SUA TAREFA
 
-1. Encontrar o último número de sprint em `sprints/tracking.md`
+1. Encontrar o último número de sprint em `sprints/tracking.md` (ou usar 001 se não existir)
 2. Criar arquivo `sprints/XXX-nome-descritivo.md` (XXX = próximo número)
 3. Usar o template abaixo preenchendo com as informações do usuário
 4. ADICIONAR entrada em `sprints/tracking.md` no formato correto
-5. Aber o arquivo criado para review
+5. Informar o usuário sobre o sprint criado
 
-## TEMPLATE PARA USAR (copie e preencha)
+## TEMPLATE PARA USAR
 
 ```markdown
 # Sprint XXX: Nome Descritivo
@@ -261,7 +353,7 @@ Você é um assistente de gerenciamento de sprints. Sua tarefa é ATUALIZAR o ar
    - Se existir: ATUALIZAR a entrada (status, datas)
    - Se não existir: ADICIONAR nova entrada no formato correto
 3. Garantir que todas as linhas da tabela mantenham o formato
-4. Se o arquivo foi modificado, adicionar ao git
+4. Salvar o arquivo atualizado
 
 ## FORMATO DA TABELA (mantenha este padrão)
 
@@ -278,95 +370,8 @@ Você é um assistente de gerenciamento de sprints. Sua tarefa é ATUALIZAR o ar
 
 ## IMPORTANTE
 
-- Use a variável $EDITOR para aber o arquivo (ex: code, vim, nano)
 - Preserve a formatação da tabela
 - As datas devem estar no formato AAAA-MM-DD
-```
-
-## Atualizar Sprint Atual
-
-### Prompt: Atualizar Sprint ao Finalizar Tarefas
-
-Use este prompt quando o usuário finalizar tarefas em um sprint e precisar atualizá-lo:
-
-```
-Você é um assistente de gerenciamento de sprints. Sua tarefa é ATUALIZAR o sprint que o usuário acabou de trabalhar.
-
-## CONTEXTO
-
-- Sprint sendo trabalhado: [nome do arquivo]
-- Tarefas concluídas: [listar o que foi feito]
-- Status atual: [status atual do sprint]
-
-## SUA TAREFA
-
-1. Aber o arquivo do sprint
-2. Atualizar a seção "## Status" com o novo status
-3. Atualizar a seção "### Tarefas" marcando como [x] o que foi completo
-4. Se todas as tarefas estiverem completas:
-   - Mudar status para "Concluído ✅"
-   - Adicionar data de conclusão (hoje: date +%Y-%m-%d)
-5. Se ainda houver tarefas pendentes:
-   - Mudar status para "Em Andamento 🚧" se ainda estiver como "Planejado"
-6. Manter o resto do conteúdo intacto
-
-## STATUS E PROGRESSÃO
-
-- **Planejado** 📋 → **Em Andamento** 🚧 → **Concluído** ✅
-- Use "Concluído" apenas quando TODAS as tarefas estiverem marcadas
-
-## SEÕÕES DO SPRINT
-
-Mantenha:
-- ## Status
-- ## Descrição
-- ## Requisitos
-- ## Implementação
-  - ### Tarefas
-  - ### Alterações
-  - ## Testes
-  - ## Notas
-
-Não remova seções existentes!
-```
-
-## Scripts e Aliases
-
-### Scripts Disponíveis
-
-| Script | Descrição |
-|--------|-----------|
-| `sprint-track` | Aber tracking.md no editor |
-| `sprint-last` | Aber último sprint modificado |
-| `sprint-update-tracking` | Atualizar tracking.md com sprints recentes |
-| `sprint-new` | Criar novo sprint com template |
-
-### Instalação
-
-```bash
-# No diretório do projeto
-bash /home/aron/Projetos/ai/hooks/install
-```
-
-Isso criará:
-- Aliases git: `git sprint-track`, `git sprint-last`, `git sprint-update-tracking`, `git sprint-new`
-- Estrutura `sprints/` se não existir
-- Tracking.md básico
-
-### Aliases Úteis
-
-```bash
-# Aber tracking.md
-git sprint-track
-
-# Aber último sprint modificado
-git sprint-last
-
-# Atualizar tracking.md
-git sprint-update-tracking
-
-# Criar novo sprint
-git sprint-new nome-do-sprint
 ```
 
 ## Convenções
@@ -376,24 +381,4 @@ git sprint-new nome-do-sprint
 - Ser descritivo na descrição dos sprints
 - Marcar status com emojis para identificação rápida
 - Atualizar `tracking.md` sempre que modificar sprints
-
-## Fluxo de Trabalho Sugerido
-
-### Diário de Desenvolvimento
-
-1. **Início do dia**: Use `git sprint-new` ou crie manualmente
-2. **Durante o desenvolvimento**: Marque tarefas como [x] quando completar
-3. **Fim do dia**: Use `git sprint-update-tracking` para refletir no tracking.md
-4. **Quando finalizar**: Atualize status para "Concluído ✅"
-
-### Commitando Mudanças
-
-```bash
-# Após trabalhar em um sprint
-git commit -m "Progress: sprint 012-nome-do-sprint"
-
-# Quando finalizar
-git commit -m "Complete: sprint 012-nome-do-sprint"
-git sprint-update-tracking  # Atualiza tracking.md
-git commit -m "Update: tracking.md"
-```
+- **Sempre atualizar o sprint após executar tarefas** - isso é automático
