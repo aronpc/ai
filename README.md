@@ -38,7 +38,7 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 | `laravel-realtime` | Laravel Reverb (WebSockets), Broadcasting, Canais presence/private |
 | `laravel-ux`        | Laravel Precognition, Prompts, Turbo (HMR) para UX otimizada |
 
-**Total: 14 skills Laravel** (atualizado para PHP 8.2+, Laravel 11+, sem conflitos com Boost nativo)
+**Total: 14 skills Laravel** (atualizado para PHP 8.5+, Laravel 12, Filament 5)
 
 ## Instalação
 

@@ -2,7 +2,7 @@
 name: laravel-architecture
 description: Arquitetura limpa Laravel com Actions, DTOs, Policies following strict separation of concerns
 license: MIT
-compatibility: Requer PHP 8.2+, Laravel 11+, Laravel Actions (lorisleiva/laravel-actions)
+compatibility: Requer PHP 8.5+, Laravel 12, Laravel Actions (lorisleiva/laravel-actions)
 metadata:
   author: aronpc
   version: 1.0.0
@@ -27,11 +27,11 @@ Use esta skill sempre que:
 
 ## Stack Tecnológico
 
-**Stack:** Laravel 11+ + React + Inertia.js + Filament 3.x + Tailwind 4
+**Stack:** Laravel 12 + React + Inertia.js + Filament 5 + Tailwind 4
 
 ### Pontos Chave
 
-- **Admin Panel:** Filament 3.x (Super Admin)
+- **Admin Panel:** Filament 5 (Super Admin)
 - **Actions Pattern:** Laravel Actions (lorisleiva/laravel-actions)
 - **Testing:** Pest PHP
 - **i18n:** English, Spanish, Portuguese BR
@@ -40,7 +40,7 @@ Use esta skill sempre que:
 
 ### Core Rules
 
-- PHP 8.2+, strict types: `declare(strict_types=1);`
+- PHP 8.5+, strict types: `declare(strict_types=1);`
 - Siga pint.json, PHPStan max level
 - Não use `DB::`, use `Model::query()`
 - Não use `env()` fora de arquivos de configuração
@@ -49,7 +49,7 @@ Use esta skill sempre que:
 
 ### Laravel 12 Específico
 
-- Não use `app\Console\Kernel.php` - use `bootstrap/app.php`
+- Commands são registrados automaticamente de `app/Console/Commands/`
 - Commands são registrados automaticamente de `app/Console/Commands/`
 - Use `config('app.name')` não `env('APP_NAME')`
 

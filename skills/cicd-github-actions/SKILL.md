@@ -64,7 +64,7 @@ on:
 - name: Install PHP & Composer
   uses: shivammathur/setup-php@v2
   with:
-    php-version: '8.4'
+    php-version: '8.5'
     extensions: mbstring, dom, fileinfo, pdo, pdo_mysql
 ```
 
@@ -256,7 +256,7 @@ jobs:
       - name: Install PHP & Composer
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.5'
           extensions: mbstring, dom, fileinfo, pdo, pdo_mysql
 
       - name: Install Composer Dependencies
