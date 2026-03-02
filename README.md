@@ -8,18 +8,19 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 
 ## Skills Disponíveis
 
-### Skills Core Laravel (8 skills)
+### Skills Core Laravel (9 skills)
 
-| Skill                      | Descrição                                                         |
-|----------------------------|-------------------------------------------------------------------|
-| `sprint-management`        | Gerenciamento completo de sprints de desenvolvimento Laravel      |
+| Skill | Descrição |
+|-------|-----------|
+| `sprint-management` | Gerenciamento completo de sprints de desenvolvimento Laravel |
 | `laravel-coding-standards` | Padrões de código Laravel e PHP baseados nas diretrizes da Spatie |
-| `laravel-architecture`     | Arquitetura limpa Laravel com Actions, DTOs, Policies             |
-| `laravel-actions-events`   | Laravel Actions, Events, Jobs e Observers                          |
-| `laravel-exceptions`       | Exceções customizadas com interfaces renderable/reportable        |
-| `laravel-i18n`             | Internacionalização completa (EN, ES, PT-BR)                       |
-| `laravel-models`           | Models Eloquent, relações, scopes, factories, multi-tenancy       |
-| `laravel-testing-pest`     | Testes completos com Pest PHP (Feature, Unit, HTTP, Datasets)     |
+| `laravel-architecture` | Arquitetura limpa Laravel com Actions, DTOs, Policies |
+| `laravel-actions-events` | Laravel Actions, Events, Jobs e Observers |
+| `laravel-exceptions` | Exceções customizadas com interfaces renderable/reportable |
+| `laravel-i18n` | Internacionalização completa (EN, ES, PT-BR) |
+| `laravel-models` | Models Eloquent, relações, scopes, factories, multi-tenancy |
+| `laravel-testing-pest` | Testes completos com Pest PHP (Feature, Unit, HTTP, Datasets) |
+| `laravel-enums` | Enums PHP 8.1+ com archtechx/enums: 7 traits para invocação, nomes, valores, opções e metadados |
 
 > **Nota:** `laravel-filament` não incluído - use a skill nativa do Laravel Boost para Filament 3.x/4.x
 
@@ -28,7 +29,7 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 | Skill | Descrição |
 |-------|-----------|
 | `git-workflow-laravel` | Fluxo Git e commits atômicos para projetos Laravel |
-| `cicd-github-actions`  | CI/CD com GitHub Actions para Laravel        |
+| `cicd-github-actions` | CI/CD com GitHub Actions para Laravel |
 | `documentation-updates` | Atualização de documentação (IMPLEMENTATION.md) |
 
 ### Skills Realtime & UX (2 skills)
@@ -36,9 +37,24 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 | Skill | Descrição |
 |-------|-----------|
 | `laravel-realtime` | Laravel Reverb (WebSockets), Broadcasting, Canais presence/private |
-| `laravel-ux`        | Laravel Precognition, Prompts, Turbo (HMR) para UX otimizada |
+| `laravel-ux` | Laravel Precognition, Prompts, Turbo (HMR) para UX otimizada |
 
-**Total: 14 skills Laravel** (atualizado para PHP 8.5+, Laravel 12, Filament 5)
+### Skills Agentes & Automação (10 skills)
+
+| Skill | Descrição |
+|-------|-----------|
+| `codebase-ideation` | Identificação de oportunidades de melhoria no codebase baseada em padrões existentes |
+| `github-issue-analysis` | Análise e classificação de issues do GitHub com detecção de duplicados, spam e priorização |
+| `github-pr-review` | Revisão completa de Pull Requests com análise multi-aspecto (security, quality, logic, patterns) |
+| `implementation-coder` | Agente implementador de código passo-a-passo com verificação obrigatória e autocrítica |
+| `implementation-planner` | Planejamento de implementação com workflows estruturados (feature, refactor, investigation, migration) |
+| `mcp-validation` | Validação de aplicações usando MCP tools (Electron, Browser, API, Database) |
+| `qa-validation` | Sistema completo de validação de qualidade com 11 fases de QA e workflow de correção |
+| `roadmap-strategy` | Planejamento estratégico de roadmap e análise competitiva para produtos |
+| `spec-creation` | Pipeline completo de criação de especificações técnicas para implementação |
+| `ui-ux-ideation` | Identificação de melhorias de UI/UX com validação visual usando browser automation |
+
+**Total: 24 skills** (atualizado para PHP 8.5+, Laravel 12, Filament 5)
 
 ## Instalação
 
