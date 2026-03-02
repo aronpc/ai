@@ -8,13 +8,24 @@ description: Gerenciamento completo de sprints de desenvolvimento no projeto Lar
 ## Quando usar esta skill
 
 Use esta skill sempre que trabalhar com:
-- Criar novos sprints de desenvolvimento
+- **Criar novos sprints** → Inicia brainstorm interativo (negócio, arquitetura, dados)
 - Atualizar status de sprints existentes
 - Executar tarefas de um sprint
+- Documentar casos de uso e cenários de teste
 - Manter o arquivo `sprints/tracking.md`
 - Validar estrutura e nomenclatura de sprints
 - Documentar implementações e progresso
 - Brainstorming e refinamento de ideias para sprints
+
+## Comportamento Interativo
+
+Ao criar um novo sprint, esta skill:
+1. **FAZ PERGUNTAS** sobre negócio, dados, arquitetura, UX (uma por vez)
+2. **APRESENTA PROPOSTA** estruturada antes de criar
+3. **INTEGRA COM OUTRAS SKILLS** (laravel-architecture, pest-testing, etc.)
+4. **CRIA SPRINT COMPLETO** com todos os detalhes técnicos
+
+Não crie sprints sem antes fazer o brainstorm!
 
 ## Execução Natural de Sprints
 
@@ -107,9 +118,62 @@ O usuário completou todas as tarefas de um sprint. FINALIZE o sprint automatica
 Não peça confirmação - faça automaticamente.
 ```
 
+### Prompt: Pausar Sprint
+
+Use quando o usuário precisar pausar um sprint em andamento:
+
+```
+O usuário está pausando um sprint. ATUALIZE o status automaticamente.
+
+## CONTEXTO
+
+- Sprint sendo pausado: [nome do arquivo]
+- Motivo: [bloqueio externo, dependência, etc.]
+- Status atual: [deve ser "Em Andamento"]
+
+## SUA TAREFA
+
+1. Abra o arquivo do sprint
+2. Mude "**Status**: Em Andamento 🚧" para "**Status**: Pausado ⏸️"
+3. Adicione seção "## Bloqueios" se não existir e documente o motivo
+4. Adicione "**Data Pausa**: [data de hoje em AAAA-MM-DD]"
+5. Salve o arquivo
+6. ATUALIZE sprints/tracking.md
+
+Não peça confirmação - faça automaticamente.
+```
+
+### Prompt: Retomar Sprint
+
+Use quando o usuário retomar um sprint pausado:
+
+```
+O usuário está retomando um sprint pausado. ATUALIZE o status automaticamente.
+
+## CONTEXTO
+
+- Sprint sendo retomado: [nome do arquivo]
+- Status atual: [deve ser "Pausado"]
+
+## SUA TAREFA
+
+1. Abra o arquivo do sprint
+2. Mude "**Status**: Pausado ⏸️" para "**Status**: Em Andamento 🚧"
+3. Remova ou atualize bloqueios resolvidos
+4. Adicione "**Data Retomada**: [data de hoje em AAAA-MM-DD]"
+5. Salve o arquivo
+6. ATUALIZE sprints/tracking.md
+
+Não peça confirmação - faça automaticamente.
+```
+
+> Para prompts adicionais (Adicionar Tarefa, Listar Sprints, Dividir Sprint, Clonar Sprint, Retrospectiva, Criar Sprint Interativo, Refinamento, Casos de Uso, Bloqueios, Detalhar Técnico, Relatório), veja `references/prompts-avancados.md`.
+
 ## Brainstorming de Sprints
 
-Use o brainstorming quando estiver planejando ou refinando um sprint.
+**NOTA**: Ao criar um novo sprint, o brainstorm é automático e interativo (ver `references/prompts-avancados.md` para o prompt completo de criação interativa).
+
+Use esta seção para **refinar** sprints existentes ou fazer brainstorm manual.
 
 ### Ask (uma de cada vez)
 
@@ -137,6 +201,12 @@ Apresente um design de 200–300 palavras, cobrindo:
 
 Sugerir um plano de implementação breve; então use `laravel:writing-plans` para formalizar.
 
+## Casos de Uso
+
+Casos de uso descrevem como um usuário interage com o sistema para alcançar um objetivo específico. Eles conectam **requisitos** → **implementação** → **testes**.
+
+Para estrutura completa, exemplos, boas práticas e mapeamento para testes, veja `references/templates.md`.
+
 ## Estrutura de Sprints
 
 ### Diretório Base
@@ -158,83 +228,56 @@ Todos os sprints são mantidos em `sprints/`:
 |--------|-----------|
 | **Planejado** 📋 | Sprint planejado, aguardando início |
 | **Em Andamento** 🚧 | Sprint em execução ativa |
+| **Pausado** ⏸️ | Sprint temporariamente suspenso (bloqueio externo) |
+| **Em Revisão** 👀 | Sprint em code review ou QA |
 | **Concluído** ✅ | Sprint finalizado e implementado |
+| **Arquivado** 📦 | Sprint antigo/obsoleto, mantido para histórico |
 | **Cancelado** ❌ | Sprint cancelado |
+
+## Metadados de Sprints
+
+### Campos Recomendados
+
+```markdown
+## Metadados
+- **Prioridade**: 🔴 Alta / 🟡 Média / 🟢 Baixa
+- **Complexidade**: X pontos ou X horas estimadas
+- **Tags**: feature, bugfix, refactor, chore, infra, docs
+- **Depende de**: [000-outro-sprint.md]
+- **Branch Git**: feature/sprint-XXX-nome
+- **Stakeholder**: @responsável
+- **Sprint relacionado**: [YYY-sprint-relacionado.md]
+```
+
+Para tabelas completas de tags e prioridades, veja `references/templates.md`.
 
 ## Criar Novo Sprint
 
-### Prompt: Criar Novo Sprint
+Ao criar um novo sprint, INICIE UM BRAINSTORM INTERATIVO. Veja `references/prompts-avancados.md` para o prompt completo de criação interativa com fases de Descoberta, Proposta, Confirmação e Criação.
 
-Use este prompt quando o usuário quiser criar um novo sprint:
+Após o brainstorm, use os templates de `references/templates.md` (Template Padrão ou Template com Blueprint).
 
-```
-Você é um assistente de gerenciamento de sprints. Sua tarefa é CRIAR um novo sprint para o projeto.
-
-## CONTEXTO
-
-- Descrição da feature/sprint: [descrição fornecida pelo usuário]
-- Requisitos conhecidos: [listar requisitos se fornecidos]
-- Sprints existentes: [contexto de outros sprints relacionados]
-
-## SUA TAREFA
-
-1. Encontrar o último número de sprint em `sprints/tracking.md` (ou usar 001 se não existir)
-2. Criar arquivo `sprints/XXX-nome-descritivo.md` (XXX = próximo número)
-3. Usar o template abaixo preenchendo com as informações do usuário
-4. ADICIONAR entrada em `sprints/tracking.md` no formato correto
-5. Informar o usuário sobre o sprint criado
-
-## TEMPLATE PARA USAR
-
-```markdown
-# Sprint XXX: Nome Descritivo
-
-## Status
-**Status**: Planejado 📋
-
-## Descrição
-Descrição detalhada do objetivo deste sprint.
-
-## Requisitos
-- Requisito 1
-- Requisito 2
-
-## Implementação
-
-### Tarefas
-- [ ] Tarefa 1
-- [ ] Tarefa 2
-
-### Alterações
-- **Backend**:
-  - `app/Models/...`
-  - `database/migrations/...`
-
-- **Frontend**:
-  - `resources/js/Pages/...`
-  - `resources/views/...`
-
-## Testes
-- [ ] Testes unitários
-- [ ] Testes de feature
-- [ ] Testes de browser
-
-## Notas
-Notas adicionais sobre implementação.
-```
-
-## CRITÉRIOS DE QUALIDADE
+### CRITÉRIOS DE QUALIDADE
 
 Antes de finalizar, verifique:
 - [ ] O nome do sprint é descritivo (kebab-case)
 - [ ] O número de sprint tem 3 dígitos com zero à esquerda quando necessário
 - [ ] A descrição explica claramente o objetivo
 - [ ] Os requisitos são claros e mensuráveis
+- [ ] Cada requisito funcional tem um caso de uso correspondente
+- [ ] Casos de uso seguem a estrutura: Como/Quero/Para Que
+- [ ] Cada caso de uso tem cenário principal + alternativos + exceções
+- [ ] Regras de negócio estão documentadas
+- [ ] **Estrutura de dados documentada** (models, migrations, relacionamentos)
+- [ ] **API endpoints com contratos** (se aplicável)
+- [ ] **Telas/componentes descritos** (se frontend)
+- [ ] **Fluxos de integração mapeados** (se complexo)
+- [ ] **Exemplos de testes fornecidos**
+- [ ] Há mapeamento de casos de uso para testes
 - [ ] As tarefas são específicas e acionáveis
 - [ ] Há dependências documentadas
 - [ ] Testes planejados
 - [ ] Formatação correta e consistente
-```
 
 ## Filament Blueprint Integration
 
@@ -259,75 +302,7 @@ sprints/
             └── Resources/
 ```
 
-### Template de Sprint com Blueprint
-
-```markdown
-# Sprint XXX: Nome Descritivo
-
-## Status
-**Status**: Planejado 📋
-
-## Descrição
-Descrição detalhada do objetivo deste sprint.
-
-## Blueprint
-**Arquivo**: `sprints/XXX-nome-do-sprint/blueprints/blueprint.yaml`
-
-Este sprint usa Filament Blueprint para gerar:
-- [ ] Modelos e migrations
-- [ ] Resources Filament
-- [ ] Relacionamentos
-- [ ] Formulários
-
-### Comandos Blueprint
-```bash
-# Gerar código a partir do blueprint
-php artisan blueprint:build sprints/XXX-nome-do-sprint/blueprints/blueprint.yaml
-
-# Gerar e aplicar migrations
-php artisan blueprint:build sprints/XXX-nome-do-sprint/blueprints/blueprint.yaml --migrate
-```
-
-### Estrutura Gerada
-Após executar o blueprint:
-- Modelos em `app/Models/`
-- Migrations em `database/migrations/`
-- Resources em `app/Filament/Resources/`
-- Factories em `database/factories/`
-
-## Requisitos
-- Requisito 1
-- Requisito 2
-
-## Implementação
-
-### 1. Preparação
-- [ ] Revisar blueprint.yaml
-- [ ] Ajustar campos/relacionamentos se necessário
-- [ ] Executar `php artisan blueprint:build`
-
-### 2. Tarefas
-- [ ] Tarefa 1
-- [ ] Tarefa 2
-
-### 3. Alterações Manuais (se necessário)
-- **Backend**:
-  - `app/Models/...`
-  - `database/migrations/...`
-
-- **Frontend**:
-  - `resources/js/Pages/...`
-  - `resources/views/...`
-
-## Testes
-- [ ] Testes unitários
-- [ ] Testes de feature
-- [ ] Testes de browser
-- [ ] Testes de Resources Filament
-
-## Notas
-Notas adicionais sobre implementação.
-```
+Para o template completo de sprint com Blueprint, veja `references/templates.md`.
 
 ## Atualizar Tracking
 
@@ -365,7 +340,10 @@ Você é um assistente de gerenciamento de sprints. Sua tarefa é ATUALIZAR o ar
 
 - **Planejado** 📋
 - **Em Andamento** 🚧
+- **Pausado** ⏸️
+- **Em Revisão** 👀
 - **Concluído** ✅
+- **Arquivado** 📦
 - **Cancelado** ❌
 
 ## IMPORTANTE
