@@ -8,51 +8,51 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 
 ## Skills Disponíveis
 
-### Skills Core Laravel (9 skills)
+### Skills Core Laravel (10 skills)
 
 | Skill | Descrição |
 |-------|-----------|
-| `sprint-management` | Gerenciamento completo de sprints de desenvolvimento Laravel |
-| `laravel-coding-standards` | Padrões de código Laravel e PHP baseados nas diretrizes da Spatie |
-| `laravel-architecture` | Arquitetura limpa Laravel com Actions, DTOs, Policies |
-| `laravel-actions-events` | Laravel Actions, Events, Jobs e Observers |
-| `laravel-exceptions` | Exceções customizadas com interfaces renderable/reportable |
-| `laravel-i18n` | Internacionalização completa (EN, ES, PT-BR) |
-| `laravel-models` | Models Eloquent, relações, scopes, factories, multi-tenancy |
-| `laravel-testing-pest` | Testes completos com Pest PHP (Feature, Unit, HTTP, Datasets) |
-| `laravel-enums` | Enums PHP 8.1+ com archtechx/enums: 7 traits para invocação, nomes, valores, opções e metadados |
+| `architecture` | Arquitetura limpa Laravel com Actions, DTOs, Policies |
+| `models` | Models Eloquent, relações, scopes, factories, multi-tenancy |
+| `enums` | Enums PHP 8.1+ com archtechx/enums: 7 traits para invocação, nomes, valores, opções e metadados |
+| `exceptions` | Exceções customizadas com interfaces renderable/reportable |
+| `actions` | Laravel Actions, Events, Jobs e Observers |
+| `i18n` | Internacionalização completa (EN, ES, PT-BR) |
+| `ux` | Laravel Precognition, Prompts, Turbo (HMR) para UX otimizada |
+| `realtime` | Laravel Reverb (WebSockets), Broadcasting, Canais presence/private |
+| `testing` | Testes completos com Pest PHP (Feature, Unit, HTTP, Datasets) |
+| `standards` | Padrões de código Laravel e PHP baseados nas diretrizes da Spatie |
 
 > **Nota:** `laravel-filament` não incluído - use a skill nativa do Laravel Boost para Filament 3.x/4.x
 
-### Skills Integração & DevOps (3 skills)
+### Skills Planejamento & Estratégia (4 skills)
 
 | Skill | Descrição |
 |-------|-----------|
-| `git-workflow-laravel` | Fluxo Git e commits atômicos para projetos Laravel |
-| `cicd-github-actions` | CI/CD com GitHub Actions para Laravel |
-| `documentation-updates` | Atualização de documentação (IMPLEMENTATION.md) |
+| `sprint` | Gerenciamento completo de sprints de desenvolvimento Laravel |
+| `planner` | Planejamento de implementação com workflows estruturados (feature, refactor, investigation, migration) |
+| `spec` | Pipeline completo de criação de especificações técnicas para implementação |
+| `roadmap` | Planejamento estratégico de roadmap e análise competitiva para produtos |
 
-### Skills Realtime & UX (2 skills)
-
-| Skill | Descrição |
-|-------|-----------|
-| `laravel-realtime` | Laravel Reverb (WebSockets), Broadcasting, Canais presence/private |
-| `laravel-ux` | Laravel Precognition, Prompts, Turbo (HMR) para UX otimizada |
-
-### Skills Agentes & Automação (10 skills)
+### Skills GitHub & DevOps (5 skills)
 
 | Skill | Descrição |
 |-------|-----------|
-| `codebase-ideation` | Identificação de oportunidades de melhoria no codebase baseada em padrões existentes |
-| `github-issue-analysis` | Análise e classificação de issues do GitHub com detecção de duplicados, spam e priorização |
-| `github-pr-review` | Revisão completa de Pull Requests com análise multi-aspecto (security, quality, logic, patterns) |
-| `implementation-coder` | Agente implementador de código passo-a-passo com verificação obrigatória e autocrítica |
-| `implementation-planner` | Planejamento de implementação com workflows estruturados (feature, refactor, investigation, migration) |
-| `mcp-validation` | Validação de aplicações usando MCP tools (Electron, Browser, API, Database) |
-| `qa-validation` | Sistema completo de validação de qualidade com 11 fases de QA e workflow de correção |
-| `roadmap-strategy` | Planejamento estratégico de roadmap e análise competitiva para produtos |
-| `spec-creation` | Pipeline completo de criação de especificações técnicas para implementação |
-| `ui-ux-ideation` | Identificação de melhorias de UI/UX com validação visual usando browser automation |
+| `workflow` | Fluxo Git e commits atômicos para projetos Laravel |
+| `cicd` | CI/CD com GitHub Actions para Laravel |
+| `issues` | Análise e classificação de issues do GitHub com detecção de duplicados, spam e priorização |
+| `pr-review` | Revisão completa de Pull Requests com análise multi-aspecto (security, quality, logic, patterns) |
+| `mcp` | Validação de aplicações usando MCP tools (Electron, Browser, API, Database) |
+
+### Skills Qualidade & Implementação (5 skills)
+
+| Skill | Descrição |
+|-------|-----------|
+| `qa` | Sistema completo de validação de qualidade com 11 fases de QA e workflow de correção |
+| `docs` | Atualização de documentação (IMPLEMENTATION.md) |
+| `coder` | Agente implementador de código passo-a-passo com verificação obrigatória e autocrítica |
+| `codebase` | Identificação de oportunidades de melhoria no codebase baseada em padrões existentes |
+| `ui-ux` | Identificação de melhorias de UI/UX com validação visual usando browser automation |
 
 **Total: 24 skills** (atualizado para PHP 8.5+, Laravel 12, Filament 5)
 
@@ -97,20 +97,11 @@ Use o comando `boost:add-skill` para adicionar skills ao seu projeto Laravel:
 php artisan boost:add-skill
 
 # Adicionar skill específica
-php artisan boost:add-skill laravel-coding-standards
+php artisan boost:add-skill standards
 
 # Adicionar todas as skills
 php artisan boost:add-skill --all
 ```
-
-## Pacotes Disponíveis no Marketplace
-
-| Pacote | Skills Incluídas |
-|--------|------------------|
-| `laravel-development` | 10 skills: architecture, models, enums, exceptions, i18n, ux, testing-pest, actions-events, coding-standards, realtime |
-| `project-management` | 8 skills: sprint-management, implementation-planner, spec-creation, qa-validation, implementation-coder, roadmap-strategy, codebase-ideation, ui-ux-ideation |
-| `github-workflows` | 4 skills: github-issue-analysis, github-pr-review, cicd-github-actions, git-workflow-laravel |
-| `devops-tools` | 2 skills: mcp-validation, documentation-updates |
 
 ## Estrutura de uma Skill
 
