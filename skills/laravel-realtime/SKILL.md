@@ -16,6 +16,15 @@ allowed-tools:
 
 # Laravel Realtime (Reverb)
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `laravel-actions-events` | Para broadcasting de events |
+| `laravel-testing-pest` | Para testar WebSockets |
+| `mcp-validation` | Para validar realtime no browser |
+| `cicd-github-actions` | Para deploy com Reverb |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

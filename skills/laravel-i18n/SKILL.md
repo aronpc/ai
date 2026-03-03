@@ -16,6 +16,15 @@ allowed-tools:
 
 # Laravel Internacionalização (i18n)
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `laravel-enums` | Para criar enums traduzíveis |
+| `laravel-ux` | Para UX com mensagens traduzidas |
+| `implementation-coder` | Para implementar traduções |
+| `laravel-testing-pest` | Para testar localização |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

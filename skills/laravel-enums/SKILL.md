@@ -20,6 +20,15 @@ allowed-tools:
 
 Skill para trabalhar com enums PHP 8.1+ usando o pacote `archtechx/enums`.
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `laravel-models` | Para usar enums em cast de Models |
+| `laravel-i18n` | Para enums traduzíveis |
+| `laravel-testing-pest` | Para testar enums |
+| `laravel-architecture` | Para usar enums em DTOs |
+
 ## Instalação
 
 ```bash

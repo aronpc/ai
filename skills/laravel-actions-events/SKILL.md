@@ -16,6 +16,16 @@ allowed-tools:
 
 # Laravel Actions, Events & Jobs
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `laravel-architecture` | Para usar Actions na arquitetura limpa |
+| `laravel-realtime` | Para broadcasting de events |
+| `laravel-testing-pest` | Para testar Actions e Events |
+| `laravel-exceptions` | Para tratamento de erros em Actions |
+| `implementation-coder` | Para implementar Actions |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

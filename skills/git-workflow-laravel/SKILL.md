@@ -16,6 +16,16 @@ allowed-tools:
 
 # Git Workflow Laravel
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `implementation-coder` | Para commits após implementação |
+| `sprint-management` | Para commits de tarefas do sprint |
+| `github-pr-review` | Para preparar PRs bem estruturados |
+| `cicd-github-actions` | Para triggers de CI/CD |
+| `laravel-coding-standards` | Para pre-commit hooks |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

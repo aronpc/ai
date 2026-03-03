@@ -16,6 +16,16 @@ allowed-tools:
 
 # Laravel Coding Standards
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `implementation-coder` | Para seguir padrões durante implementação |
+| `github-pr-review` | Para verificar aderência em reviews |
+| `qa-validation` | Para validação de estilo |
+| `git-workflow-laravel` | Para pre-commit hooks |
+| `laravel-architecture` | Para padrões arquiteturais |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

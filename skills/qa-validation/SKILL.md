@@ -19,6 +19,16 @@ allowed-tools:
 
 Sistema de validacao de qualidade de codigo baseado no padrao de 11 fases de QA do Auto Claude.
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `laravel-testing-pest` | Para execução de testes automatizados |
+| `github-pr-review` | Para review de PR com foco em qualidade |
+| `mcp-validation` | Para validação visual da aplicação |
+| `implementation-coder` | Para corrigir issues encontradas |
+| `sprint-management` | Para atualizar status após validação |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que precisar:

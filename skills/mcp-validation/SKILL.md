@@ -15,6 +15,15 @@ allowed-tools:
 
 # MCP Validation
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `qa-validation` | Para validação completa de qualidade |
+| `ui-ux-ideation` | Para validação visual de melhorias |
+| `implementation-coder` | Para validar implementações |
+| `github-pr-review` | Para evidências visuais em reviews |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

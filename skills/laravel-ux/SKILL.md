@@ -16,6 +16,15 @@ allowed-tools:
 
 # Laravel UX
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `ui-ux-ideation` | Para identificar melhorias de UX |
+| `laravel-i18n` | Para UX com traduções |
+| `mcp-validation` | Para validar UX visualmente |
+| `laravel-testing-pest` | Para testar flows de UX |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

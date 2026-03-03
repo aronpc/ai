@@ -16,6 +16,15 @@ allowed-tools:
 
 # Laravel Exceptions
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `laravel-architecture` | Para exceções de domínio na arquitetura |
+| `laravel-actions-events` | Para tratamento em Actions |
+| `laravel-testing-pest` | Para testar exceções |
+| `qa-validation` | Para verificar tratamento de erros |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

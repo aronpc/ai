@@ -17,6 +17,15 @@ allowed-tools:
 
 # Roadmap Strategy
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `spec-creation` | Para transformar features do roadmap em specs técnicas |
+| `sprint-management` | Para criar sprints a partir do roadmap |
+| `codebase-ideation` | Para descobrir melhorias técnicas |
+| `ui-ux-ideation` | Para descobrir melhorias de interface |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

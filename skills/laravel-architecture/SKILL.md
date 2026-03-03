@@ -16,6 +16,17 @@ allowed-tools:
 
 # Laravel Architecture
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `implementation-coder` | Para implementar seguindo a arquitetura |
+| `laravel-actions-events` | Para Actions, Events e Jobs |
+| `laravel-models` | Para Models e relações |
+| `laravel-exceptions` | Para exceções de domínio |
+| `laravel-testing-pest` | Para testar Actions e Policies |
+| `implementation-planner` | Para planejar arquitetura de features |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

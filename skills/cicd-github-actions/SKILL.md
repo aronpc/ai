@@ -16,6 +16,15 @@ allowed-tools:
 
 # CI/CD GitHub Actions para Laravel
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `git-workflow-laravel` | Para integrar com branches e commits |
+| `qa-validation` | Para pipelines de qualidade |
+| `laravel-testing-pest` | Para pipelines de teste |
+| `documentation-updates` | Para atualizar docs pós-deploy |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

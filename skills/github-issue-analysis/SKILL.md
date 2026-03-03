@@ -15,6 +15,15 @@ allowed-tools:
 
 # GitHub Issue Analysis
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `spec-creation` | Para converter issues válidos em specs |
+| `sprint-management` | Para adicionar issues a sprints |
+| `implementation-planner` | Para planejar implementação de bugs |
+| `github-pr-review` | Para relacionar issues com PRs |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

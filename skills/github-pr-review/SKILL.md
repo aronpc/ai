@@ -15,6 +15,15 @@ allowed-tools:
 
 # GitHub PR Review
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `qa-validation` | Para validação de qualidade antes do review |
+| `laravel-coding-standards` | Para verificar aderência aos padrões |
+| `git-workflow-laravel` | Para verificar convenções de commit |
+| `implementation-coder` | Para corrigir issues encontradas |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

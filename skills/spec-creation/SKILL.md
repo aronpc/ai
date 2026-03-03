@@ -17,6 +17,17 @@ allowed-tools:
 
 # Spec Creation
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `roadmap-strategy` | Para usar features do roadmap como input |
+| `codebase-ideation` | Para descobrir melhorias baseadas no código |
+| `ui-ux-ideation` | Para descobrir melhorias de interface |
+| `implementation-planner` | Para transformar spec em plano de implementação |
+| `sprint-management` | Para criar sprint a partir da spec |
+| `github-issue-analysis` | Para converter issues em requisitos |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

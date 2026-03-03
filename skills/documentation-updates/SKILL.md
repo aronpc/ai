@@ -16,6 +16,15 @@ allowed-tools:
 
 # Documentation Updates
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `sprint-management` | Para documentar progresso do sprint |
+| `implementation-coder` | Para atualizar docs pós-implementação |
+| `cicd-github-actions` | Para atualizar docs pós-deploy |
+| `spec-creation` | Para criar specs a partir de docs |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

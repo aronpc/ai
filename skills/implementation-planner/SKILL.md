@@ -16,6 +16,16 @@ allowed-tools:
 
 # Implementation Planner
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `spec-creation` | Para usar specs como source de requisitos |
+| `sprint-management` | Para usar sprints como source de tarefas |
+| `implementation-coder` | Para executar o plano criado |
+| `qa-validation` | Para validar a qualidade da implementação |
+| `laravel-architecture` | Para definir arquitetura no plano |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

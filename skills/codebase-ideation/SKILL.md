@@ -16,6 +16,15 @@ allowed-tools:
 
 # Codebase Ideation
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `spec-creation` | Para criar specs a partir das melhorias identificadas |
+| `ui-ux-ideation` | Para combinar melhorias técnicas e visuais |
+| `laravel-architecture` | Para identificar melhorias arquiteturais |
+| `qa-validation` | Para avaliar debt técnico |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

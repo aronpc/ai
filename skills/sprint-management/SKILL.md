@@ -5,6 +5,17 @@ description: Gerenciamento completo de sprints de desenvolvimento no projeto Lar
 
 # Sprint Management
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `spec-creation` | Para criar specs técnicas detalhadas das features do sprint |
+| `implementation-planner` | Para planejamento técnico com phases e subtasks |
+| `implementation-coder` | Para executar as tarefas do sprint |
+| `github-issue-analysis` | Para converter issues em tarefas de sprint |
+| `qa-validation` | Para validar entregas antes de fechar o sprint |
+| `git-workflow-laravel` | Para commits e branches do sprint |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que trabalhar com:

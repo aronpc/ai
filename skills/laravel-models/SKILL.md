@@ -16,6 +16,16 @@ allowed-tools:
 
 # Laravel Models
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `laravel-architecture` | Para estruturar Models na arquitetura |
+| `laravel-enums` | Para usar enums nos Models |
+| `laravel-testing-pest` | Para criar Factories e testar Models |
+| `laravel-coding-standards` | Para padrões de código nos Models |
+| `sprint-management` | Para planejar Models no sprint |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

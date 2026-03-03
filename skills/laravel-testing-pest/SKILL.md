@@ -16,6 +16,17 @@ allowed-tools:
 
 # Laravel Testing com Pest
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `qa-validation` | Para validação completa de qualidade |
+| `implementation-coder` | Para criar testes durante implementação |
+| `laravel-architecture` | Para testar Actions e Policies |
+| `laravel-models` | Para criar Factories e testar Models |
+| `cicd-github-actions` | Para pipelines de teste |
+| `github-pr-review` | Para verificar cobertura em PRs |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que:

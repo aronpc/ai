@@ -16,6 +16,15 @@ allowed-tools:
 
 # UI/UX Ideation
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `mcp-validation` | Para validação visual com browser automation |
+| `spec-creation` | Para criar specs a partir das melhorias visuais |
+| `codebase-ideation` | Para combinar melhorias visuais e técnicas |
+| `laravel-ux` | Para implementar melhorias com Precognition/Prompts |
+
 ## Quando usar esta skill
 
 Use esta skill quando precisar:

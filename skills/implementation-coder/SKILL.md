@@ -18,6 +18,18 @@ allowed-tools:
 
 # Implementation Coder
 
+## Skills Relacionadas
+
+| Skill | Quando usar junto |
+|-------|-------------------|
+| `implementation-planner` | Para usar planos estruturados como input |
+| `sprint-management` | Para executar tarefas de um sprint |
+| `laravel-architecture` | Para seguir padrões arquiteturais |
+| `laravel-coding-standards` | Para seguir padrões de código |
+| `laravel-testing-pest` | Para criar testes durante implementação |
+| `qa-validation` | Para validação final do código |
+| `git-workflow-laravel` | Para commits atômicos |
+
 ## Quando usar esta skill
 
 Use esta skill sempre que precisar:
