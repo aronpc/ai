@@ -5,64 +5,88 @@
     "email": "contato@aronpc.com.br"
   },
   "metadata": {
-    "description": "Coleção de skills para desenvolvimento Laravel e gestão de projetos",
-    "version": "1.0.0"
+    "description": "Coleção de Agent Skills organizadas por namespace para desenvolvimento Laravel",
+    "version": "2.0.0"
   },
   "plugins": [
     {
-      "name": "laravel-development",
-      "description": "Skills especializadas para desenvolvimento Laravel: arquitetura, models, enums, exceptions, i18n, UX, testes com Pest e muito mais",
-      "source": "./",
+      "name": "@laravel",
+      "description": "Skills Laravel: architecture, models, enums, exceptions, actions, i18n, ux, realtime, testing, standards",
+      "source": "./skills/laravel",
       "strict": false,
       "skills": [
-        "./skills/laravel-architecture",
-        "./skills/laravel-models",
-        "./skills/laravel-enums",
-        "./skills/laravel-exceptions",
-        "./skills/laravel-i18n",
-        "./skills/laravel-ux",
-        "./skills/laravel-testing-pest",
-        "./skills/laravel-actions-events",
-        "./skills/laravel-coding-standards",
-        "./skills/laravel-realtime"
+        "./skills/laravel/architecture",
+        "./skills/laravel/models",
+        "./skills/laravel/enums",
+        "./skills/laravel/exceptions",
+        "./skills/laravel/actions",
+        "./skills/laravel/i18n",
+        "./skills/laravel/ux",
+        "./skills/laravel/realtime",
+        "./skills/laravel/testing",
+        "./skills/laravel/standards"
       ]
     },
     {
-      "name": "project-management",
-      "description": "Skills para gestão de projetos e sprints: planejamento, spec creation, validação QA e estratégia de roadmap",
-      "source": "./",
+      "name": "@plan",
+      "description": "Skills de planejamento: sprint, spec, planner, roadmap",
+      "source": "./skills/plan",
       "strict": false,
       "skills": [
-        "./skills/sprint-management",
-        "./skills/implementation-planner",
-        "./skills/spec-creation",
-        "./skills/qa-validation",
-        "./skills/implementation-coder",
-        "./skills/roadmap-strategy",
-        "./skills/codebase-ideation",
-        "./skills/ui-ux-ideation"
+        "./skills/plan/sprint",
+        "./skills/plan/spec",
+        "./skills/plan/planner",
+        "./skills/plan/roadmap"
       ]
     },
     {
-      "name": "github-workflows",
-      "description": "Skills para automação GitHub: análise de issues, review de PRs, CI/CD com GitHub Actions e workflow Git",
-      "source": "./",
+      "name": "@gh",
+      "description": "Skills GitHub: pr-review, issues, workflow",
+      "source": "./skills/gh",
       "strict": false,
       "skills": [
-        "./skills/github-issue-analysis",
-        "./skills/github-pr-review",
-        "./skills/cicd-github-actions",
-        "./skills/git-workflow-laravel"
+        "./skills/gh/pr-review",
+        "./skills/gh/issues",
+        "./skills/gh/workflow"
       ]
     },
     {
-      "name": "devops-tools",
-      "description": "Ferramentas DevOps: validação MCP e atualização de documentação",
-      "source": "./",
+      "name": "@ideation",
+      "description": "Skills de ideação: codebase, ui-ux",
+      "source": "./skills/ideation",
       "strict": false,
       "skills": [
-        "./skills/mcp-validation",
-        "./skills/documentation-updates"
+        "./skills/ideation/codebase",
+        "./skills/ideation/ui-ux"
+      ]
+    },
+    {
+      "name": "@quality",
+      "description": "Skills de qualidade: qa, docs",
+      "source": "./skills/quality",
+      "strict": false,
+      "skills": [
+        "./skills/quality/qa",
+        "./skills/quality/docs"
+      ]
+    },
+    {
+      "name": "@devops",
+      "description": "Skills DevOps: cicd, mcp",
+      "source": "./skills/devops",
+      "strict": false,
+      "skills": [
+        "./skills/devops/cicd",
+        "./skills/devops/mcp"
+      ]
+    },
+    {
+      "name": "@dev",
+      "description": "Skill de implementação: coder",
+      "source": "./skills/dev",
+      "strict": false,
+      "skills": [
+        "./skills/dev/coder"
       ]
     }
   ]
