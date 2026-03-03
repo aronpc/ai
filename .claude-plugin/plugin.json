@@ -1,0 +1,24 @@
+{
+  "name": "aronpc-skills",
+  "description": "Coleção de Agent Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub. Segue o padrão Agent Skills (agentskills.io).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Aron PC",
+    "email": "contato@aronpc.com.br"
+  },
+  "homepage": "https://github.com/aronpc/ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aronpc/ai.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "php",
+    "agent-skills",
+    "claude-code",
+    "sprint-management",
+    "github-workflows",
+    "devops"
+  ]
+}

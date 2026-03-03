@@ -1,0 +1,69 @@
+{
+  "name": "aronpc-skills",
+  "owner": {
+    "name": "Aron PC",
+    "email": "contato@aronpc.com.br"
+  },
+  "metadata": {
+    "description": "Coleção de skills para desenvolvimento Laravel e gestão de projetos",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "laravel-development",
+      "description": "Skills especializadas para desenvolvimento Laravel: arquitetura, models, enums, exceptions, i18n, UX, testes com Pest e muito mais",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/laravel-architecture",
+        "./skills/laravel-models",
+        "./skills/laravel-enums",
+        "./skills/laravel-exceptions",
+        "./skills/laravel-i18n",
+        "./skills/laravel-ux",
+        "./skills/laravel-testing-pest",
+        "./skills/laravel-actions-events",
+        "./skills/laravel-coding-standards",
+        "./skills/laravel-realtime"
+      ]
+    },
+    {
+      "name": "project-management",
+      "description": "Skills para gestão de projetos e sprints: planejamento, spec creation, validação QA e estratégia de roadmap",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/sprint-management",
+        "./skills/implementation-planner",
+        "./skills/spec-creation",
+        "./skills/qa-validation",
+        "./skills/implementation-coder",
+        "./skills/roadmap-strategy",
+        "./skills/codebase-ideation",
+        "./skills/ui-ux-ideation"
+      ]
+    },
+    {
+      "name": "github-workflows",
+      "description": "Skills para automação GitHub: análise de issues, review de PRs, CI/CD com GitHub Actions e workflow Git",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/github-issue-analysis",
+        "./skills/github-pr-review",
+        "./skills/cicd-github-actions",
+        "./skills/git-workflow-laravel"
+      ]
+    },
+    {
+      "name": "devops-tools",
+      "description": "Ferramentas DevOps: validação MCP e atualização de documentação",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/mcp-validation",
+        "./skills/documentation-updates"
+      ]
+    }
+  ]
+}

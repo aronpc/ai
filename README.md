@@ -58,6 +58,38 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 
 ## Instalação
 
+### Opção 1: Claude Code Marketplace (Recomendado)
+
+Adicione este repositório como marketplace e instale os pacotes de skills:
+
+```bash
+# 1. Adicionar marketplace
+/plugin marketplace add aronpc/ai
+
+# 2. Instalar pacote de skills (escolha um ou mais)
+/plugin install laravel-development@aronpc-skills
+/plugin install project-management@aronpc-skills
+/plugin install github-workflows@aronpc-skills
+/plugin install devops-tools@aronpc-skills
+```
+
+### Opção 2: Instalação Manual
+
+Clone o repositório e copie as skills desejadas:
+
+```bash
+# Clonar repositório
+git clone https://github.com/aronpc/ai.git
+
+# Copiar skills para o diretório do Claude Code
+cp -r ai/skills/* ~/.claude/skills/
+
+# Ou para um projeto específico
+cp -r ai/skills/* seu-projeto/.claude/skills/
+```
+
+### Opção 3: Laravel Boost
+
 Use o comando `boost:add-skill` para adicionar skills ao seu projeto Laravel:
 
 ```bash
@@ -70,6 +102,15 @@ php artisan boost:add-skill laravel-coding-standards
 # Adicionar todas as skills
 php artisan boost:add-skill --all
 ```
+
+## Pacotes Disponíveis no Marketplace
+
+| Pacote | Skills Incluídas |
+|--------|------------------|
+| `laravel-development` | 10 skills: architecture, models, enums, exceptions, i18n, ux, testing-pest, actions-events, coding-standards, realtime |
+| `project-management` | 8 skills: sprint-management, implementation-planner, spec-creation, qa-validation, implementation-coder, roadmap-strategy, codebase-ideation, ui-ux-ideation |
+| `github-workflows` | 4 skills: github-issue-analysis, github-pr-review, cicd-github-actions, git-workflow-laravel |
+| `devops-tools` | 2 skills: mcp-validation, documentation-updates |
 
 ## Estrutura de uma Skill
 
