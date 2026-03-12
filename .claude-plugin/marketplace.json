@@ -13,7 +13,7 @@
       "name": "laravel-development",
       "description": "Skills especializadas para desenvolvimento Laravel: arquitetura, models, enums, exceptions, actions, i18n, UX, testes com Pest, padrões de código e realtime",
       "source": "./",
-      "strict": false,
+      "strict": true,
       "skills": [
         "./skills/architecture",
         "./skills/models",
@@ -31,7 +31,7 @@
       "name": "project-management",
       "description": "Skills para gestão de projetos e sprints: planejamento, spec, QA, implementação, roadmap e ideação",
       "source": "./",
-      "strict": false,
+      "strict": true,
       "skills": [
         "./skills/sprint",
         "./skills/planner",
@@ -47,7 +47,7 @@
       "name": "github-workflows",
       "description": "Skills para automação GitHub: análise de issues, review de PRs, CI/CD com GitHub Actions e workflow Git",
       "source": "./",
-      "strict": false,
+      "strict": true,
       "skills": [
         "./skills/issues",
         "./skills/pr-review",
@@ -59,7 +59,7 @@
       "name": "devops-tools",
       "description": "Ferramentas DevOps: validação MCP e atualização de documentação",
       "source": "./",
-      "strict": false,
+      "strict": true,
       "skills": [
         "./skills/mcp",
         "./skills/docs"
