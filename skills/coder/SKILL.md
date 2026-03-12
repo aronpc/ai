@@ -1,31 +1,12 @@
 ---
 name: coder
-command: /aronpc:dev:coder
-description: Implementador passo-a-passo com verificação e autocrítica
-version: 1.0.0
-author: aronpc
-license: MIT
-category: dev
-triggers:
-  - "implementar"
-  - "codar"
-  - "escrever código"
-  - "criar feature"
-  - "implementar feature"
-  - "desenvolver"
-aliases:
-  - coder
-  - implement
-  - dev
-related:
-  - planner
-  - sprint
-  - architecture
-  - standards
-  - testing
-  - qa
-  - workflow
+description: >-
+  Implementa código passo-a-passo com verificação obrigatória e autocrítica. Use quando precisar implementar features, fazer refatorações, ou desenvolver código seguindo um plano estruturado com quality checks.
 compatibility: Git, ambiente de desenvolvimento
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: dev
 allowed-tools:
   - Read
   - Write

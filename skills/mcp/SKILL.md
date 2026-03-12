@@ -1,26 +1,12 @@
 ---
 name: mcp
-command: /aronpc:devops:mcp
-description: Validação com MCP tools (Browser, API, Database)
-version: 1.0.0
-author: aronpc
-license: MIT
-category: devops
-triggers:
-  - "validar visualmente"
-  - "browser automation"
-  - "teste visual"
-  - "mcp validation"
-  - "validar app"
-aliases:
-  - mcp
-  - validation
-related:
-  - qa
-  - ui-ux
-  - coder
-  - pr-review
+description: >-
+  Valida funcionalidades usando MCP tools (Browser, API, Database). Use quando precisar validar implementações com ferramentas MCP, testar via browser, ou verificar integrações de API.
 compatibility: MCP tools
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: devops
 allowed-tools:
   - Read
   - Bash

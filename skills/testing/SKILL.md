@@ -1,30 +1,12 @@
 ---
 name: testing
-command: /aronpc:laravel:testing
-description: Testes com Pest PHP - Feature, Unit, HTTP, Datasets
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "criar teste"
-  - "pest"
-  - "testar"
-  - "feature test"
-  - "unit test"
-  - "cobertura de teste"
-aliases:
-  - testing
-  - pest
-  - tests
-related:
-  - qa
-  - coder
-  - architecture
-  - models
-  - cicd
-  - pr-review
+description: >-
+  Cria testes com Pest PHP incluindo Feature, Unit, HTTP e Datasets. Use quando precisar escrever testes, criar test suites, ou implementar TDD em projetos Laravel com Pest.
 compatibility: PHP 8.2+, Laravel 11+, Pest 2.x+
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

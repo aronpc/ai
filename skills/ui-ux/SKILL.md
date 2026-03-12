@@ -1,28 +1,12 @@
 ---
 name: ui-ux
-command: /aronpc:ideation:ui-ux
-description: Descoberta de melhorias visuais com validação browser
-version: 1.0.0
-author: aronpc
-license: MIT
-category: ideation
-triggers:
-  - "melhorar UI"
-  - "melhorar UX"
-  - "análise visual"
-  - "acessibilidade"
-  - "design inconsistente"
-  - "ux audit"
-aliases:
-  - ui-ux
-  - ux
-  - design
-related:
-  - mcp
-  - spec
-  - codebase
-  - ux
+description: >-
+  Descobre melhorias visuais e de usabilidade com validação via browser. Use quando precisar analisar interfaces, identificar problemas de UX, ou sugerir melhorias visuais e de interação.
 compatibility: Qualquer projeto web
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: ideation
 allowed-tools:
   - Read
   - Write

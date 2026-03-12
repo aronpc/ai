@@ -1,27 +1,12 @@
 ---
 name: roadmap
-command: /aronpc:plan:roadmap
-description: Estratégia de produto com features priorizadas MoSCoW
-version: 1.0.0
-author: aronpc
-license: MIT
-category: planning
-triggers:
-  - "criar roadmap"
-  - "estratégia de produto"
-  - "análise competitiva"
-  - "features priorizadas"
-  - "moscow"
-  - "product strategy"
-aliases:
-  - roadmap
-  - strategy
-related:
-  - spec
-  - sprint
-  - codebase
-  - ui-ux
+description: >-
+  Cria estratégia de produto com features priorizadas usando método MoSCoW. Use quando precisar definir roadmap, priorizar features, ou planejar a evolução do produto.
 compatibility: Qualquer projeto
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: planning
 allowed-tools:
   - Read
   - Write

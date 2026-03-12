@@ -1,29 +1,12 @@
 ---
 name: standards
-command: /aronpc:laravel:standards
-description: Padrões de código Spatie + Pint para consistência
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "padrão de código"
-  - "code style"
-  - "pint"
-  - "formatar código"
-  - "spatie"
-  - "laravel pint"
-aliases:
-  - standards
-  - pint
-  - style
-related:
-  - coder
-  - pr-review
-  - qa
-  - workflow
-  - architecture
+description: >-
+  Aplica padrões de código Spatie + Laravel Pint para consistência. Use quando precisar verificar ou configurar code style, padrões de nomenclatura, ou formatação de código PHP.
 compatibility: PHP 8.2+, Laravel 11+
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

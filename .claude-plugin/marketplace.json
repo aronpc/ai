@@ -5,88 +5,64 @@
     "email": "contato@aronpc.com.br"
   },
   "metadata": {
-    "description": "Coleção de Agent Skills organizadas por namespace para desenvolvimento Laravel",
-    "version": "2.0.0"
+    "description": "Coleção de Agent Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub",
+    "version": "3.0.0"
   },
   "plugins": [
     {
-      "name": "@laravel",
-      "description": "Skills Laravel: architecture, models, enums, exceptions, actions, i18n, ux, realtime, testing, standards",
-      "source": "./skills/laravel",
+      "name": "laravel-development",
+      "description": "Skills especializadas para desenvolvimento Laravel: arquitetura, models, enums, exceptions, actions, i18n, UX, testes com Pest, padrões de código e realtime",
+      "source": "./",
       "strict": false,
       "skills": [
-        "./skills/laravel/architecture",
-        "./skills/laravel/models",
-        "./skills/laravel/enums",
-        "./skills/laravel/exceptions",
-        "./skills/laravel/actions",
-        "./skills/laravel/i18n",
-        "./skills/laravel/ux",
-        "./skills/laravel/realtime",
-        "./skills/laravel/testing",
-        "./skills/laravel/standards"
+        "./skills/architecture",
+        "./skills/models",
+        "./skills/enums",
+        "./skills/exceptions",
+        "./skills/i18n",
+        "./skills/ux",
+        "./skills/testing",
+        "./skills/actions",
+        "./skills/standards",
+        "./skills/realtime"
       ]
     },
     {
-      "name": "@plan",
-      "description": "Skills de planejamento: sprint, spec, planner, roadmap",
-      "source": "./skills/plan",
+      "name": "project-management",
+      "description": "Skills para gestão de projetos e sprints: planejamento, spec, QA, implementação, roadmap e ideação",
+      "source": "./",
       "strict": false,
       "skills": [
-        "./skills/plan/sprint",
-        "./skills/plan/spec",
-        "./skills/plan/planner",
-        "./skills/plan/roadmap"
+        "./skills/sprint",
+        "./skills/planner",
+        "./skills/spec",
+        "./skills/qa",
+        "./skills/coder",
+        "./skills/roadmap",
+        "./skills/codebase",
+        "./skills/ui-ux"
       ]
     },
     {
-      "name": "@gh",
-      "description": "Skills GitHub: pr-review, issues, workflow",
-      "source": "./skills/gh",
+      "name": "github-workflows",
+      "description": "Skills para automação GitHub: análise de issues, review de PRs, CI/CD com GitHub Actions e workflow Git",
+      "source": "./",
       "strict": false,
       "skills": [
-        "./skills/gh/pr-review",
-        "./skills/gh/issues",
-        "./skills/gh/workflow"
+        "./skills/issues",
+        "./skills/pr-review",
+        "./skills/cicd",
+        "./skills/workflow"
       ]
     },
     {
-      "name": "@ideation",
-      "description": "Skills de ideação: codebase, ui-ux",
-      "source": "./skills/ideation",
+      "name": "devops-tools",
+      "description": "Ferramentas DevOps: validação MCP e atualização de documentação",
+      "source": "./",
       "strict": false,
       "skills": [
-        "./skills/ideation/codebase",
-        "./skills/ideation/ui-ux"
-      ]
-    },
-    {
-      "name": "@quality",
-      "description": "Skills de qualidade: qa, docs",
-      "source": "./skills/quality",
-      "strict": false,
-      "skills": [
-        "./skills/quality/qa",
-        "./skills/quality/docs"
-      ]
-    },
-    {
-      "name": "@devops",
-      "description": "Skills DevOps: cicd, mcp",
-      "source": "./skills/devops",
-      "strict": false,
-      "skills": [
-        "./skills/devops/cicd",
-        "./skills/devops/mcp"
-      ]
-    },
-    {
-      "name": "@dev",
-      "description": "Skill de implementação: coder",
-      "source": "./skills/dev",
-      "strict": false,
-      "skills": [
-        "./skills/dev/coder"
+        "./skills/mcp",
+        "./skills/docs"
       ]
     }
   ]

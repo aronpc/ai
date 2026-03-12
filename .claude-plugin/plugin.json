@@ -1,37 +1,8 @@
 {
   "name": "aronpc-skills",
-  "owner": {
+  "description": "Coleção de Agent Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub",
+  "author": {
     "name": "Aron PC",
     "email": "contato@aronpc.com.br"
-  },
-  "metadata": {
-    "description": "Coleção de Agent Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub",
-    "version": "3.0.0"
-  },
-  "skills": [
-    "./skills/exceptions",
-    "./skills/i18n",
-    "./skills/enums",
-    "./skills/models",
-    "./skills/realtime",
-    "./skills/actions",
-    "./skills/standards",
-    "./skills/testing",
-    "./skills/architecture",
-    "./skills/ux",
-    "./skills/docs",
-    "./skills/qa",
-    "./skills/planner",
-    "./skills/sprint",
-    "./skills/spec",
-    "./skills/roadmap",
-    "./skills/cicd",
-    "./skills/mcp",
-    "./skills/codebase",
-    "./skills/ui-ux",
-    "./skills/workflow",
-    "./skills/issues",
-    "./skills/pr-review",
-    "./skills/coder"
-  ]
+  }
 }

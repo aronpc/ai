@@ -1,28 +1,12 @@
 ---
 name: cicd
-command: /aronpc:devops:cicd
-description: CI/CD com GitHub Actions, Docker e deploy automatizado
-version: 1.0.0
-author: aronpc
-license: MIT
-category: devops
-triggers:
-  - "configurar CI"
-  - "configurar CD"
-  - "pipeline"
-  - "deploy"
-  - "github actions"
-  - "docker build"
-aliases:
-  - cicd
-  - pipeline
-  - deploy
-related:
-  - workflow
-  - qa
-  - testing
-  - docs
+description: >-
+  Configura CI/CD com GitHub Actions, Docker e deploy automatizado. Use quando precisar criar pipelines de CI/CD, configurar Docker, ou automatizar deploys de projetos Laravel.
 compatibility: GitHub Actions, Docker, Laravel 11+
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: devops
 allowed-tools:
   - Read
   - Write

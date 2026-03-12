@@ -1,26 +1,12 @@
 ---
 name: exceptions
-command: /aronpc:laravel:exceptions
-description: Exceções customizadas renderable/reportable para HTTP e logging
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "criar exceção"
-  - "exception customizada"
-  - "erro de domínio"
-  - "renderable exception"
-  - "reportable exception"
-aliases:
-  - exceptions
-  - errors
-related:
-  - architecture
-  - actions
-  - testing
-  - qa
+description: >-
+  Cria exceções customizadas renderable e reportable para HTTP e logging em Laravel. Use quando precisar criar exception handlers, exceções de domínio, ou melhorar o tratamento de erros.
 compatibility: PHP 8.2+, Laravel 11+
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

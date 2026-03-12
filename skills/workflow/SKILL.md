@@ -1,29 +1,12 @@
 ---
 name: workflow
-command: /aronpc:gh:workflow
-description: Fluxo Git com commits atômicos e Conventional Commits
-version: 1.0.0
-author: aronpc
-license: MIT
-category: github
-triggers:
-  - "fazer commit"
-  - "criar branch"
-  - "git workflow"
-  - "atomic commit"
-  - "conventional commit"
-  - "commit message"
-aliases:
-  - workflow
-  - git
-  - commit
-related:
-  - coder
-  - sprint
-  - pr-review
-  - cicd
-  - standards
+description: >-
+  Gerencia fluxo Git com commits atômicos seguindo Conventional Commits. Use quando precisar organizar commits, gerenciar branches, ou seguir padrões de versionamento Git.
 compatibility: Git, projetos Laravel
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: github
 allowed-tools:
   - Read
   - Write

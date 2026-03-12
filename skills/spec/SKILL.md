@@ -1,29 +1,12 @@
 ---
 name: spec
-command: /aronpc:plan:spec
-description: Especificações técnicas com requisitos, design e testes
-version: 1.0.0
-author: aronpc
-license: MIT
-category: planning
-triggers:
-  - "criar spec"
-  - "especificação técnica"
-  - "documentar feature"
-  - "requisitos"
-  - "tech spec"
-  - "rfc"
-aliases:
-  - spec
-  - specification
-related:
-  - roadmap
-  - codebase
-  - ui-ux
-  - planner
-  - sprint
-  - issues
+description: >-
+  Escreve especificações técnicas com requisitos, design e critérios de teste. Use quando precisar criar specs técnicas, documentar requisitos, ou definir contratos de API.
 compatibility: Qualquer projeto
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: planning
 allowed-tools:
   - Read
   - Write

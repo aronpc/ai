@@ -1,29 +1,12 @@
 ---
 name: qa
-command: /aronpc:quality:qa
-description: Validação de qualidade com 11 fases de QA e tiers de complexidade
-version: 1.0.0
-author: aronpc
-license: MIT
-category: quality
-triggers:
-  - "validar qualidade"
-  - "QA"
-  - "verificar código"
-  - "quality check"
-  - "code review"
-  - "quality gate"
-aliases:
-  - qa
-  - quality
-  - validation
-related:
-  - testing
-  - pr-review
-  - mcp
-  - coder
-  - sprint
+description: >-
+  Executa validação de qualidade com 11 fases de QA e tiers de complexidade. Use quando precisar validar qualidade de código, rodar QA checks, ou garantir que o código está pronto para produção.
 compatibility: Projetos Laravel
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: quality
 allowed-tools:
   - Read
   - Write

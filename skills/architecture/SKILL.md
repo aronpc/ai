@@ -1,27 +1,12 @@
 ---
 name: architecture
-command: /aronpc:laravel:architecture
-description: Arquitetura limpa Laravel com Actions, DTOs, Policies
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "arquitetura laravel"
-  - "clean architecture"
-  - "criar action"
-  - "criar DTO"
-  - "definir política"
-  - "separation of concerns"
-aliases:
-  - architecture
-  - clean-arch
-related:
-  - actions
-  - models
-  - testing
-  - coder
+description: >-
+  Define a arquitetura limpa de projetos Laravel com Actions, DTOs, Policies e Service Layer. Use quando precisar organizar estrutura de diretórios, definir padrões arquiteturais, ou planejar a organização de um projeto Laravel.
 compatibility: PHP 8.5+, Laravel 12, laravel-actions
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

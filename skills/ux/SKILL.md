@@ -1,27 +1,12 @@
 ---
 name: ux
-command: /aronpc:laravel:ux
-description: UX otimizada com Precognition, Prompts e Turbo
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "precognition"
-  - "validação em tempo real"
-  - "prompts"
-  - "artisan interativo"
-  - "HMR"
-  - "vite"
-aliases:
-  - ux
-  - precognition
-related:
-  - ui-ux
-  - i18n
-  - mcp
-  - testing
+description: >-
+  Otimiza UX com Laravel Precognition, Prompts e Turbo para interações fluidas. Use quando precisar melhorar experiência do usuário, adicionar validação em tempo real, ou implementar Turbo/HTMX.
 compatibility: PHP 8.2+, Laravel 11+
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

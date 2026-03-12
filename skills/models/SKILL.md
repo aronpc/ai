@@ -1,28 +1,12 @@
 ---
 name: models
-command: /aronpc:laravel:models
-description: Models Eloquent - Relações, Scopes, Factories, Multi-tenancy
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "criar model"
-  - "eloquent"
-  - "relação"
-  - "factory"
-  - "scope"
-  - "accessor"
-  - "mutator"
-aliases:
-  - models
-  - eloquent
-related:
-  - architecture
-  - enums
-  - testing
-  - coder
+description: >-
+  Define Models Eloquent com relações, scopes, factories e multi-tenancy. Use quando precisar criar ou modificar models Laravel, definir relacionamentos, scopes, ou implementar multi-tenancy.
 compatibility: PHP 8.2+, Laravel 11+
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

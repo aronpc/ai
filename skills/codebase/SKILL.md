@@ -1,27 +1,12 @@
 ---
 name: codebase
-command: /aronpc:ideation:codebase
-description: Descoberta de melhorias baseada em padrões do código
-version: 1.0.0
-author: aronpc
-license: MIT
-category: ideation
-triggers:
-  - "melhorar código"
-  - "oportunidades de melhoria"
-  - "quick wins"
-  - "refatoração"
-  - "technical debt"
-aliases:
-  - codebase
-  - ideation
-  - improvements
-related:
-  - spec
-  - ui-ux
-  - architecture
-  - qa
+description: >-
+  Descobre melhorias e oportunidades de refatoração baseada em padrões existentes no código. Use quando quiser analisar o codebase para encontrar melhorias, inconsistências, ou áreas que precisam de atenção.
 compatibility: Qualquer projeto
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: ideation
 allowed-tools:
   - Read
   - Write

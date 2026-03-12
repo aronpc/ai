@@ -1,26 +1,12 @@
 ---
 name: i18n
-command: /aronpc:laravel:i18n
-description: Internacionalização EN/ES/PT-BR com traduções e enums
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "traduzir"
-  - "internacionalização"
-  - "i18n"
-  - "outro idioma"
-  - "multilíngue"
-aliases:
-  - i18n
-  - translation
-related:
-  - enums
-  - ux
-  - coder
-  - testing
+description: >-
+  Implementa internacionalização EN/ES/PT-BR com traduções e integração de enums em Laravel. Use quando precisar adicionar traduções, localização, ou suporte multi-idioma.
 compatibility: PHP 8.2+, Laravel 11+
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

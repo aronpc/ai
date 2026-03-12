@@ -1,26 +1,12 @@
 ---
 name: pr-review
-command: /aronpc:gh:pr-review
-description: Review de PRs com análise de segurança, qualidade e padrões
-version: 1.0.0
-author: aronpc
-license: MIT
-category: github
-triggers:
-  - "revisar PR"
-  - "code review"
-  - "analisar pull request"
-  - "review de código"
-  - "PR review"
-aliases:
-  - pr-review
-  - review
-related:
-  - qa
-  - standards
-  - workflow
-  - coder
+description: >-
+  Faz review de Pull Requests analisando segurança, qualidade e aderência a padrões. Use quando precisar revisar PRs, verificar qualidade de código, ou garantir conformidade com padrões do projeto.
 compatibility: GitHub, GitLab
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: github
 allowed-tools:
   - Read
   - Grep

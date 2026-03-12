@@ -1,27 +1,12 @@
 ---
 name: issues
-command: /aronpc:gh:issues
-description: Análise e classificação de issues com detecção de duplicados
-version: 1.0.0
-author: aronpc
-license: MIT
-category: github
-triggers:
-  - "analisar issue"
-  - "classificar issue"
-  - "triagem de issues"
-  - "issue duplicado"
-  - "bug report"
-  - "feature request"
-aliases:
-  - issues
-  - triage
-related:
-  - spec
-  - sprint
-  - planner
-  - pr-review
+description: >-
+  Analisa e classifica issues com detecção de duplicados. Use quando precisar gerenciar issues do GitHub/GitLab, classificar bugs, ou organizar backlog de tarefas.
 compatibility: GitHub, GitLab
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: github
 allowed-tools:
   - Read
   - Grep

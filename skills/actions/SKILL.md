@@ -1,30 +1,12 @@
 ---
 name: actions
-command: /aronpc:laravel:actions
-description: Actions, Events, Jobs e Observers para lógica de negócio
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "criar action"
-  - "laravel actions"
-  - "evento"
-  - "listener"
-  - "job"
-  - "observer"
-  - "lorisleiva"
-aliases:
-  - actions
-  - events
-  - jobs
-related:
-  - architecture
-  - realtime
-  - testing
-  - exceptions
-  - coder
+description: >-
+  Implementa lógica de negócio em Laravel usando Actions (lorisleiva/laravel-actions), Events, Listeners, Jobs e Observers. Use quando precisar criar actions, despachar eventos, jobs em background, ou implementar padrões event-driven em projetos Laravel.
 compatibility: PHP 8.2+, Laravel 11+, laravel-actions
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write

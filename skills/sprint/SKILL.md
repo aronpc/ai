@@ -1,29 +1,12 @@
 ---
 name: sprint
-command: /aronpc:plan:sprint
-description: Gestão de sprints com brainstorm, tracking e tarefas
-version: 1.0.0
-author: aronpc
-license: MIT
-category: planning
-triggers:
-  - "criar sprint"
-  - "novo sprint"
-  - "planejar sprint"
-  - "gerenciar sprint"
-  - "sprint planning"
-  - "tracking de sprint"
-aliases:
-  - sprint
-  - sprint-mgmt
-related:
-  - spec
-  - planner
-  - coder
-  - issues
-  - qa
-  - workflow
+description: >-
+  Gerencia sprints de desenvolvimento com brainstorm interativo, tracking e tarefas. Use quando precisar criar sprints, planejar iterações, atualizar progresso, ou gerenciar tarefas de desenvolvimento.
 compatibility: Projetos Laravel
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: planning
 allowed-tools:
   - Read
   - Write

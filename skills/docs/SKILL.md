@@ -1,26 +1,12 @@
 ---
 name: docs
-command: /aronpc:quality:docs
-description: Atualização de documentação (README, IMPLEMENTATION, CHANGELOG)
-version: 1.0.0
-author: aronpc
-license: MIT
-category: quality
-triggers:
-  - "atualizar documentação"
-  - "atualizar README"
-  - "atualizar docs"
-  - "CHANGELOG"
-  - "documentar feature"
-aliases:
-  - docs
-  - documentation
-related:
-  - sprint
-  - coder
-  - cicd
-  - spec
+description: >-
+  Atualiza documentação do projeto incluindo README, IMPLEMENTATION e CHANGELOG. Use quando precisar gerar ou atualizar documentação técnica, changelogs, ou documentação de API.
 compatibility: Qualquer projeto
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: quality
 allowed-tools:
   - Read
   - Write

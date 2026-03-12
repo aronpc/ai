@@ -1,28 +1,12 @@
 ---
 name: realtime
-command: /aronpc:laravel:realtime
-description: WebSockets com Reverb para tempo real
-version: 1.0.0
-author: aronpc
-license: MIT
-category: laravel
-triggers:
-  - "websocket"
-  - "tempo real"
-  - "realtime"
-  - "reverb"
-  - "broadcasting"
-  - "notificação em tempo real"
-aliases:
-  - realtime
-  - websocket
-  - reverb
-related:
-  - actions
-  - testing
-  - mcp
-  - cicd
+description: >-
+  Implementa WebSockets com Laravel Reverb para funcionalidades em tempo real. Use quando precisar adicionar WebSockets, broadcasting, eventos em tempo real, ou notificações push.
 compatibility: PHP 8.2+, Laravel 11+, Laravel Reverb
+metadata:
+  author: aronpc
+  version: 1.0.0
+  category: laravel
 allowed-tools:
   - Read
   - Write
