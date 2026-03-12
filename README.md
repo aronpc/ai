@@ -1,10 +1,17 @@
 # AI Skills - AronPC
 
-Coleção de **Agent Skills** personalizadas para uso com Claude Code, Cursor e [Laravel Boost](https://github.com/consulting/laravel-boost).
+Coleção de **24 Agent Skills** personalizadas para uso com Claude Code, Cursor e [Laravel Boost](https://github.com/consulting/laravel-boost).
 
 ## Sobre
 
 Este repositório contém **Agent Skills** personalizadas que seguem o padrão [Agent Skills](https://agentskills.io/). Skills são módulos de conhecimento que agentes podem carregar sob demanda para trabalhar com tarefas específicas em projetos Laravel.
+
+### Funcionalidades
+
+- **24 skills** organizadas em 4 categorias (Laravel, Planejamento, GitHub/DevOps, Qualidade)
+- **Autocomplete** integrado via command wrappers para Claude Code
+- **Marketplace** configurado como plugin único com auto-discovery
+- **Progressive disclosure** seguindo o padrão Agent Skills (metadados → instruções → referências)
 
 ## Skills Disponíveis
 
@@ -58,24 +65,30 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 
 ## Instalação
 
-### Opção 1: Claude Code Marketplace (Recomendado)
+### Opção 1: Claude Code Plugin (Recomendado)
 
-Adicione este repositório como marketplace e instale os pacotes de skills:
+Instale como plugin do Claude Code com autocomplete integrado:
+
+```bash
+# Instalar plugin (inclui todas as 24 skills + autocomplete)
+claude plugin add aronpc/ai
+```
+
+Após a instalação, todas as skills ficam disponíveis via `/aronpc:nome-da-skill` com autocomplete.
+
+### Opção 2: Claude Code Marketplace
+
+Adicione via marketplace para gerenciamento de pacotes:
 
 ```bash
 # 1. Adicionar marketplace
 /plugin marketplace add aronpc/ai
 
-# 2. Instalar pacote de skills (escolha um ou mais)
-/plugin install laravel-development@aronpc-skills
-/plugin install project-management@aronpc-skills
-/plugin install github-workflows@aronpc-skills
-/plugin install devops-tools@aronpc-skills
+# 2. Instalar plugin
+/plugin install aronpc@aronpc-skills
 ```
 
-### Opção 2: Instalação Manual
-
-Clone o repositório e copie as skills desejadas:
+### Opção 3: Instalação Manual
 
 ```bash
 # Clonar repositório
@@ -88,14 +101,9 @@ cp -r ai/skills/* ~/.claude/skills/
 cp -r ai/skills/* seu-projeto/.claude/skills/
 ```
 
-### Opção 3: Laravel Boost
-
-Use o comando `boost:add-skill` para adicionar skills ao seu projeto Laravel:
+### Opção 4: Laravel Boost
 
 ```bash
-# Adicionar repositório (será pedido para escolher skills)
-php artisan boost:add-skill
-
 # Adicionar skill específica
 php artisan boost:add-skill standards
 
@@ -103,17 +111,42 @@ php artisan boost:add-skill standards
 php artisan boost:add-skill --all
 ```
 
-## Estrutura de uma Skill
-
-Cada skill segue o padrão [Agent Skills](https://agentskills.io/):
+## Estrutura do Projeto
 
 ```
-skills/
-└── [nome-skill]/
-    ├── SKILL.md              # Obrigatório - Documentação principal da skill
-    ├── scripts/              # Opcional - Scripts executáveis relacionados
-    ├── references/           # Opcional - Documentação adicional
-    └── assets/              # Opcional - Templates, exemplos, dados
+ai/
+├── .claude-plugin/
+│   ├── plugin.json           # Configuração do plugin Claude Code
+│   └── marketplace.json      # Configuração do marketplace
+├── commands/                 # 24 command wrappers (autocomplete)
+├── skills/                   # 24 Agent Skills
+│   └── [nome-skill]/
+│       ├── SKILL.md          # Obrigatório - Documentação principal
+│       ├── scripts/          # Opcional - Scripts executáveis
+│       ├── references/       # Opcional - Documentação adicional
+│       └── assets/           # Opcional - Templates e exemplos
+├── scripts/                  # Scripts de manutenção
+├── CLAUDE.md                 # Instruções para agentes AI
+├── INTEGRATION-MAP.md        # Mapa de relações entre skills
+└── RESTRUCTURE-PLAN.md       # Plano de namespaces futuros
+```
+
+## Uso
+
+Após instalar, invoque qualquer skill via comando:
+
+```
+/aronpc:architecture    # Arquitetura Laravel
+/aronpc:testing         # Testes com Pest PHP
+/aronpc:sprint          # Gerenciamento de sprints
+/aronpc:pr-review       # Review de Pull Requests
+```
+
+Cada skill aceita argumentos opcionais com instruções específicas:
+
+```
+/aronpc:coder implementar CRUD de produtos
+/aronpc:spec criar spec para API de pagamentos
 ```
 
 ## Licença
