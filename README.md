@@ -1,6 +1,6 @@
 # AI Skills - AronPC
 
-Coleção de **24 Agent Skills** personalizadas para uso com Claude Code, Cursor e [Laravel Boost](https://github.com/consulting/laravel-boost).
+Coleção de **24 Agent Skills**, **5 agentes autônomos** e **8 hooks** para uso com Claude Code, Cursor e [Laravel Boost](https://github.com/consulting/laravel-boost).
 
 ## Sobre
 
@@ -9,6 +9,8 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 ### Funcionalidades
 
 - **24 skills** organizadas em 4 categorias (Laravel, Planejamento, GitHub/DevOps, Qualidade)
+- **5 agentes autônomos** que orquestram múltiplas skills (feature, bugfix, refactor, sprint, PR)
+- **8 hooks** de guardrails e automação (convenções, qualidade, segurança, sprint)
 - **Autocomplete** integrado via command wrappers para Claude Code
 - **Marketplace** configurado como plugin único com auto-discovery
 - **Progressive disclosure** seguindo o padrão Agent Skills (metadados → instruções → referências)
@@ -62,6 +64,33 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 | `ui-ux` | Identificação de melhorias de UI/UX com validação visual usando browser automation |
 
 **Total: 24 skills** (atualizado para PHP 8.5+, Laravel 12, Filament 5)
+
+## Agentes Autônomos
+
+Agentes orquestram múltiplas skills para executar workflows completos de forma autônoma:
+
+| Agente | Propósito | Skills Orquestradas |
+|--------|-----------|---------------------|
+| `feature-lifecycle` | Pipeline completo: spec → code → test → QA → PR | 14 skills |
+| `bugfix` | Investigação → fix → testes de regressão → commit | 7 skills |
+| `refactor-safe` | Refatoração com verificação contínua de testes | 7 skills |
+| `sprint-executor` | Executa tarefas do sprint ativo sequencialmente | 7 skills |
+| `pr-guard` | Validação pre-merge adaptativa por complexidade | 6 skills |
+
+## Hooks
+
+Guardrails e automações que rodam em eventos do Claude Code:
+
+| Hook | Evento | Descrição |
+|------|--------|-----------|
+| `laravel-convention-guard` | Write/Edit | Bloqueia anti-patterns Laravel (Services, env() fora de config) |
+| `post-commit-doc-check` | git commit | Avisa se docs não foram atualizados |
+| `pre-push-quality-gate` | git push | Roda Pint + PHPStan + Pest antes do push |
+| `sprint-context-loader` | Início de sessão | Mostra sprint ativo e próxima tarefa |
+| `skill-auto-suggest` | Prompt do usuário | Sugere skills relevantes por keywords |
+| `sprint-auto-update` | Fim de resposta | Lembra de atualizar sprint tracking |
+| `tenancy-safety-check` | Write/Edit | Detecta queries sem tenant scoping |
+| `ai-attribution-scrubber` | git commit | Remove atribuição AI dos commits |
 
 ## Instalação
 
@@ -118,6 +147,8 @@ ai/
 ├── .claude-plugin/
 │   ├── plugin.json           # Configuração do plugin Claude Code
 │   └── marketplace.json      # Configuração do marketplace
+├── agents/                   # 5 agentes autônomos
+├── hooks/                    # 8 hooks de guardrails e automação
 ├── commands/                 # 24 command wrappers (autocomplete)
 ├── skills/                   # 24 Agent Skills
 │   └── [nome-skill]/

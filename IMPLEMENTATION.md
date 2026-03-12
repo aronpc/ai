@@ -1,20 +1,22 @@
 # Implementation - Agent Skills Collection
 
-**Versão:** v4.0.0
+**Versão:** v5.0.0
 **Última Atualização:** 2026-03-12
 
 ---
 
 ## Progresso Geral
 
-| Categoria | Skills | Completas | Progresso |
-|-----------|--------|-----------|-----------|
+| Categoria | Itens | Completos | Progresso |
+|-----------|-------|-----------|-----------|
 | Laravel Development | 10 | 10 | 100% |
 | Planejamento & Estratégia | 4 | 4 | 100% |
 | GitHub & DevOps | 5 | 5 | 100% |
 | Qualidade & Implementação | 5 | 5 | 100% |
 | Infraestrutura (Plugin/Marketplace) | 3 | 3 | 100% |
-| **Total** | **27** | **27** | **100%** |
+| Agentes Autônomos | 5 | 5 | 100% |
+| Hooks (Guardrails & Automação) | 8 | 8 | 100% |
+| **Total** | **40** | **40** | **100%** |
 
 ---
 
@@ -191,9 +193,122 @@
 
 ---
 
-## 6. Melhorias Futuras 📋
+## 6. Agentes Autônomos ✅
 
-### 6.1 Reestruturação por Namespaces 📋
+### 6.1 feature-lifecycle ✅
+
+- [x] Agent definition com system prompt completo
+- [x] Orquestra 14 skills: spec → planner → coder → testing → qa → workflow → docs → pr-review
+- [x] 7 fases: Especificação, Planejamento, Implementação, Testes, QA, Commit, PR
+- [x] Trigger: "implement feature", "new feature", "implementar feature"
+
+### 6.2 bugfix ✅
+
+- [x] Agent definition com system prompt completo
+- [x] Orquestra 7 skills: issues → planner → coder → testing → qa → workflow
+- [x] 7 fases: Classificação, Investigação, Planejamento, Fix, Testes Regressão, Validação, Commit
+- [x] Trigger: "fix bug", "corrigir bug", "investigar erro"
+
+### 6.3 refactor-safe ✅
+
+- [x] Agent definition com system prompt completo
+- [x] Orquestra 7 skills: codebase → planner → coder → standards → testing
+- [x] 5 fases: Análise, Planejamento, Execução Incremental (com rollback), Validação Final, Documentação
+- [x] Verificação contínua de testes entre cada passo (green-to-green)
+- [x] Trigger: "refactor", "refatorar", "extract", "simplificar"
+
+### 6.4 sprint-executor ✅
+
+- [x] Agent definition com system prompt completo
+- [x] Orquestra 7 skills: sprint → planner → coder → testing → qa → workflow → docs
+- [x] 5 fases: Carregar Sprint, Classificar Tarefa, Executar, Atualizar Sprint, Continuar/Finalizar
+- [x] Classifica tarefas automaticamente (feature, bugfix, refactor, docs)
+- [x] Trigger: "execute sprint", "next task", "proxima tarefa"
+
+### 6.5 pr-guard ✅
+
+- [x] Agent definition com system prompt completo
+- [x] Orquestra 6 skills: qa → pr-review → standards → testing → docs → workflow
+- [x] 5 fases: Análise, Avaliação de Complexidade, Validação por Tier, Checks Transversais, Relatório
+- [x] Tiers adaptativos: Trivial, Low, Medium, High, Critical
+- [x] Trigger: "validate PR", "review PR", "PR ready?"
+
+**Status:** Agentes 100% completo - 5/5 agentes implementados.
+
+---
+
+## 7. Hooks (Guardrails & Automação) ✅
+
+### 7.1 laravel-convention-guard ✅
+
+- [x] Hook PreToolUse em Write/Edit
+- [x] Bloqueia: Services pattern, env() fora de config, credenciais hardcoded
+- [x] Avisa: DB facade, strict_types ausente, controller com lógica, nomenclatura incorreta
+- [x] Aplica apenas em projetos Laravel (detecta `artisan`)
+
+### 7.2 post-commit-doc-check ✅
+
+- [x] Hook PostToolUse em Bash (git commit)
+- [x] Verifica se IMPLEMENTATION.md foi atualizado junto com código
+- [x] Valida formato Conventional Commits
+- [x] Lembra de atualizar sprint tracking
+- [x] Nunca bloqueia - apenas avisos
+
+### 7.3 pre-push-quality-gate ✅
+
+- [x] Hook PreToolUse em Bash (git push)
+- [x] Detecta arquivos sensíveis (.env, chaves privadas)
+- [x] Detecta debug code (dd, dump, ray, var_dump)
+- [x] Executa Pint, PHPStan e Pest antes do push
+- [x] Bloqueia push se qualquer verificação falhar
+
+### 7.4 sprint-context-loader ✅
+
+- [x] Hook SessionStart
+- [x] Detecta sprint ativo automaticamente
+- [x] Mostra progresso e próxima tarefa
+- [x] Reporta mudanças não commitadas
+- [x] Output conciso (máx 4 linhas)
+
+### 7.5 skill-auto-suggest ✅
+
+- [x] Hook UserPromptSubmit
+- [x] Mapa completo de keywords → 24 skills
+- [x] Máximo 2 sugestões por prompt
+- [x] Requer match de 2+ keywords (evita falsos positivos)
+- [x] Nunca bloqueia - apenas sugestões discretas
+
+### 7.6 sprint-auto-update ✅
+
+- [x] Hook Stop
+- [x] Detecta modificações em arquivos de sprint
+- [x] Verifica se tracking.md está atualizado
+- [x] Reporta mudanças não commitadas
+- [x] Nunca bloqueia - apenas lembretes
+
+### 7.7 tenancy-safety-check ✅
+
+- [x] Hook PreToolUse em Write/Edit
+- [x] Detecta automaticamente se projeto é multi-tenant
+- [x] Verifica tenant scoping em Models, Actions, Controllers
+- [x] Verifica Policies com autorização por tenant
+- [x] Avisa sobre queries sem filtro de tenant
+
+### 7.8 ai-attribution-scrubber ✅
+
+- [x] Hook PreToolUse em Bash (git commit)
+- [x] Detecta e bloqueia atribuição AI em commits
+- [x] Padrões: Co-authored-by Claude/Anthropic, AI-generated, emojis
+- [x] Sugere mensagem limpa ao bloquear
+- [x] Valida formato Conventional Commits (aviso)
+
+**Status:** Hooks 100% completo - 8/8 hooks implementados.
+
+---
+
+## 8. Melhorias Futuras 📋
+
+### 8.1 Reestruturação por Namespaces 📋
 
 **Descrição:** Reorganizar skills em namespaces semânticos (@laravel/, @github/, etc.)
 
@@ -216,7 +331,7 @@
 
 **Progresso:** 0% - Planejado
 
-### 6.2 Filament Check Pro 📋
+### 8.2 Filament Check Pro 📋
 
 - [ ] Reintegrar skill filament-check-pro (removida na reestruturação)
 - [ ] Branch: `feat/filament-check-pro-skill` disponível
@@ -229,6 +344,7 @@
 
 | Versão | Data | Descrição |
 |--------|------|-----------|
+| v5.0.0 | 2026-03 | 5 agentes autônomos + 8 hooks de guardrails e automação |
 | v4.0.0 | 2026-03 | Marketplace simplificado, commands para autocomplete |
 | v3.0.0 | 2026-02 | Reestruturação flat (sem namespaces) |
 | v2.0.0 | 2026-02 | Reestruturação semântica com namespaces |
