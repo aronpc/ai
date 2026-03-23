@@ -5,55 +5,39 @@
     "email": "contato@aronpc.com.br"
   },
   "metadata": {
-    "description": "Coleção de Agent Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub",
+    "description": "Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub",
     "version": "4.0.0"
   },
   "plugins": [
     {
-      "name": "laravel-dev",
-      "description": "Skills para desenvolvimento Laravel: arquitetura, models, actions, enums, exceções, i18n, UX e código em tempo real",
+      "name": "laravel-toolkit",
+      "description": "Skills para desenvolvimento Laravel, qualidade, testes, gestão de projetos, CI/CD e workflow Git",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/actions",
         "./skills/architecture",
+        "./skills/cicd",
+        "./skills/codebase",
         "./skills/coder",
+        "./skills/docs",
         "./skills/enums",
         "./skills/exceptions",
         "./skills/i18n",
-        "./skills/models",
-        "./skills/realtime",
-        "./skills/standards",
-        "./skills/ux"
-      ]
-    },
-    {
-      "name": "laravel-quality",
-      "description": "Skills para qualidade, testes, review de PRs, QA e análise de codebase em projetos Laravel",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/codebase",
-        "./skills/pr-review",
-        "./skills/qa",
-        "./skills/testing",
-        "./skills/ui-ux"
-      ]
-    },
-    {
-      "name": "laravel-project",
-      "description": "Skills para gestão de projetos: planejamento, sprints, roadmap, specs, documentação, CI/CD, issues e workflow Git",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/cicd",
-        "./skills/docs",
         "./skills/issues",
         "./skills/mcp",
+        "./skills/models",
         "./skills/planner",
+        "./skills/pr-review",
+        "./skills/qa",
+        "./skills/realtime",
         "./skills/roadmap",
         "./skills/spec",
         "./skills/sprint",
+        "./skills/standards",
+        "./skills/testing",
+        "./skills/ui-ux",
+        "./skills/ux",
         "./skills/workflow"
       ]
     }
