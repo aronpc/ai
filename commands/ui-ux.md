@@ -3,6 +3,6 @@ description: Descobre melhorias visuais e de usabilidade com validação via bro
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/ui-ux/SKILL.md and follow them to complete the user's request.
+Follow the ui-ux skill instructions to complete the user's request.
 
 $ARGUMENTS

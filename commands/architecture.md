@@ -3,6 +3,6 @@ description: Define a arquitetura limpa de projetos Laravel com Actions, DTOs, P
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/architecture/SKILL.md and follow them to complete the user's request.
+Follow the architecture skill instructions to complete the user's request.
 
 $ARGUMENTS

@@ -3,6 +3,6 @@ description: Cria testes com Pest PHP incluindo Feature, Unit, HTTP e Datasets. 
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/testing/SKILL.md and follow them to complete the user's request.
+Follow the testing skill instructions to complete the user's request.
 
 $ARGUMENTS

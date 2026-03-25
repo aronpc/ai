@@ -3,6 +3,6 @@ description: Cria exceções customizadas renderable e reportable para HTTP e lo
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/exceptions/SKILL.md and follow them to complete the user's request.
+Follow the exceptions skill instructions to complete the user's request.
 
 $ARGUMENTS

@@ -3,6 +3,6 @@ description: Cria estratégia de produto com features priorizadas usando método
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/roadmap/SKILL.md and follow them to complete the user's request.
+Follow the roadmap skill instructions to complete the user's request.
 
 $ARGUMENTS

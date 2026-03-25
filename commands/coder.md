@@ -3,6 +3,6 @@ description: Implementa código passo-a-passo com verificação obrigatória e a
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/coder/SKILL.md and follow them to complete the user's request.
+Follow the coder skill instructions to complete the user's request.
 
 $ARGUMENTS

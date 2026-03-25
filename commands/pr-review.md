@@ -3,6 +3,6 @@ description: Faz review de Pull Requests analisando segurança, qualidade e ader
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/pr-review/SKILL.md and follow them to complete the user's request.
+Follow the pr-review skill instructions to complete the user's request.
 
 $ARGUMENTS

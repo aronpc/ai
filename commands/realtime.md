@@ -3,6 +3,6 @@ description: Implementa WebSockets com Laravel Reverb para funcionalidades em te
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/realtime/SKILL.md and follow them to complete the user's request.
+Follow the realtime skill instructions to complete the user's request.
 
 $ARGUMENTS

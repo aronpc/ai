@@ -3,6 +3,6 @@ description: Cria planos estruturados para features, refatorações e investiga�
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/planner/SKILL.md and follow them to complete the user's request.
+Follow the planner skill instructions to complete the user's request.
 
 $ARGUMENTS

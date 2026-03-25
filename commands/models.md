@@ -3,6 +3,6 @@ description: Define Models Eloquent com relações, scopes, factories e multi-te
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/models/SKILL.md and follow them to complete the user's request.
+Follow the models skill instructions to complete the user's request.
 
 $ARGUMENTS

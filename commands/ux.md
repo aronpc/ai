@@ -3,6 +3,6 @@ description: Otimiza UX com Laravel Precognition, Prompts e Turbo para interaç�
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/ux/SKILL.md and follow them to complete the user's request.
+Follow the ux skill instructions to complete the user's request.
 
 $ARGUMENTS

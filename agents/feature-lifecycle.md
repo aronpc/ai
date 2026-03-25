@@ -14,32 +14,32 @@ Execute cada fase em ordem. Se uma fase falhar, tente corrigir antes de prossegu
 
 ### Fase 1: Especificacao
 
-1. Leia a skill de spec: `${CLAUDE_PLUGIN_ROOT}/skills/spec/SKILL.md`
+1. Leia a skill de spec: `the spec skill`
 2. Se o usuario forneceu apenas uma descricao curta, formalize os requisitos
 3. Defina criterios de aceite claros
 4. Identifique dependencias e riscos
 
 ### Fase 2: Planejamento
 
-1. Leia a skill de planner: `${CLAUDE_PLUGIN_ROOT}/skills/planner/SKILL.md`
+1. Leia a skill de planner: `the planner skill`
 2. Crie um plano estruturado com fases de implementacao
 3. Defina a ordem dos arquivos a criar/modificar
-4. Identifique quais patterns do projeto seguir (leia `${CLAUDE_PLUGIN_ROOT}/skills/architecture/SKILL.md`)
+4. Identifique quais patterns do projeto seguir (leia `the architecture skill`)
 
 ### Fase 3: Implementacao
 
-1. Leia a skill de coder: `${CLAUDE_PLUGIN_ROOT}/skills/coder/SKILL.md`
+1. Leia a skill de coder: `the coder skill`
 2. Para cada fase do plano:
-   a. Implemente o codigo seguindo os padroes de `${CLAUDE_PLUGIN_ROOT}/skills/standards/SKILL.md`
-   b. Use Actions pattern (nunca Services) conforme `${CLAUDE_PLUGIN_ROOT}/skills/architecture/SKILL.md`
-   c. Se criar Models, siga `${CLAUDE_PLUGIN_ROOT}/skills/models/SKILL.md`
-   d. Se criar Enums, siga `${CLAUDE_PLUGIN_ROOT}/skills/enums/SKILL.md`
-   e. Se criar Events/Jobs/Listeners, siga `${CLAUDE_PLUGIN_ROOT}/skills/actions/SKILL.md`
-   f. Se precisar de i18n, siga `${CLAUDE_PLUGIN_ROOT}/skills/i18n/SKILL.md`
+   a. Implemente o codigo seguindo os padroes de `the standards skill`
+   b. Use Actions pattern (nunca Services) conforme `the architecture skill`
+   c. Se criar Models, siga `the models skill`
+   d. Se criar Enums, siga `the enums skill`
+   e. Se criar Events/Jobs/Listeners, siga `the actions skill`
+   f. Se precisar de i18n, siga `the i18n skill`
 
 ### Fase 4: Testes
 
-1. Leia a skill de testing: `${CLAUDE_PLUGIN_ROOT}/skills/testing/SKILL.md`
+1. Leia a skill de testing: `the testing skill`
 2. Escreva testes Pest para cada componente implementado:
    - Unit tests para Actions e regras de negocio
    - Feature tests para endpoints HTTP
@@ -48,7 +48,7 @@ Execute cada fase em ordem. Se uma fase falhar, tente corrigir antes de prossegu
 
 ### Fase 5: Validacao de Qualidade
 
-1. Leia a skill de qa: `${CLAUDE_PLUGIN_ROOT}/skills/qa/SKILL.md`
+1. Leia a skill de qa: `the qa skill`
 2. Execute as fases de QA aplicaveis:
    - Code style: `./vendor/bin/pint --test`
    - Static analysis: `./vendor/bin/phpstan analyse`
@@ -57,15 +57,15 @@ Execute cada fase em ordem. Se uma fase falhar, tente corrigir antes de prossegu
 
 ### Fase 6: Commit e Documentacao
 
-1. Leia a skill de workflow: `${CLAUDE_PLUGIN_ROOT}/skills/workflow/SKILL.md`
+1. Leia a skill de workflow: `the workflow skill`
 2. Crie commits atomicos com prefixo `feat:` seguindo Conventional Commits
-3. Leia a skill de docs: `${CLAUDE_PLUGIN_ROOT}/skills/docs/SKILL.md`
+3. Leia a skill de docs: `the docs skill`
 4. Atualize IMPLEMENTATION.md com o progresso
 5. Se houver sprint ativo, atualize o arquivo do sprint
 
 ### Fase 7: Pull Request
 
-1. Leia a skill de pr-review: `${CLAUDE_PLUGIN_ROOT}/skills/pr-review/SKILL.md`
+1. Leia a skill de pr-review: `the pr-review skill`
 2. Faca auto-review do codigo
 3. Gere o corpo do PR com:
    - Resumo das mudancas

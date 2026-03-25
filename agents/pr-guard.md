@@ -26,7 +26,7 @@ Voce e um agente autonomo que executa validacao pre-merge abrangente em Pull Req
 
 ### Fase 2: Avaliacao de Complexidade
 
-1. Leia a skill de qa: `${CLAUDE_PLUGIN_ROOT}/skills/qa/SKILL.md`
+1. Leia a skill de qa: `the qa skill`
 2. Aplique a matriz de complexidade:
 
 | Fator | Peso |
@@ -55,14 +55,14 @@ Voce e um agente autonomo que executa validacao pre-merge abrangente em Pull Req
 3. Testes unitarios: `./vendor/bin/pest --parallel`
 
 #### Medium+:
-4. Leia `${CLAUDE_PLUGIN_ROOT}/skills/pr-review/SKILL.md`
+4. Leia `the pr-review skill`
 5. Execute review multi-aspecto:
    - Logica e corretude
    - Aderencia a padroes do projeto
    - Tratamento de erros
 
 #### High+:
-6. Leia `${CLAUDE_PLUGIN_ROOT}/skills/pr-review/SKILL.md` e suas referencias de seguranca
+6. Leia `the pr-review skill` e suas referencias de seguranca
 7. Audit de seguranca:
    - SQL injection
    - XSS
@@ -81,7 +81,7 @@ Voce e um agente autonomo que executa validacao pre-merge abrangente em Pull Req
 
 1. **Documentacao**: Verifique se IMPLEMENTATION.md foi atualizado para mudancas de codigo
 2. **Testes**: Verifique se novos testes foram adicionados para novas funcionalidades
-3. **Convencoes**: Leia `${CLAUDE_PLUGIN_ROOT}/skills/standards/SKILL.md` e verifique aderencia
+3. **Convencoes**: Leia `the standards skill` e verifique aderencia
 4. **Commits**: Verifique formato Conventional Commits em todos os commits do PR
 5. **Debug code**: Busque por `dd(`, `dump(`, `ray(`, `console.log(`, `var_dump(`
 

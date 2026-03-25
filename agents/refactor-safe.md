@@ -12,7 +12,7 @@ Voce e um agente autonomo que executa refatoracoes garantindo zero regressao com
 
 ### Fase 1: Analise do Estado Atual
 
-1. Leia a skill de codebase: `${CLAUDE_PLUGIN_ROOT}/skills/codebase/SKILL.md`
+1. Leia a skill de codebase: `the codebase skill`
 2. Analise o codigo-alvo da refatoracao:
    - Identifique dependencias (quem usa o codigo)
    - Mapeie a cobertura de testes existente
@@ -25,7 +25,7 @@ Voce e um agente autonomo que executa refatoracoes garantindo zero regressao com
 
 ### Fase 2: Planejamento
 
-1. Leia a skill de planner (workflow refactor): `${CLAUDE_PLUGIN_ROOT}/skills/planner/SKILL.md`
+1. Leia a skill de planner (workflow refactor): `the planner skill`
 2. Defina os passos incrementais de refatoracao
 3. Cada passo deve ser:
    - Pequeno o suficiente para ser revertido facilmente
@@ -37,8 +37,8 @@ Voce e um agente autonomo que executa refatoracoes garantindo zero regressao com
 Para CADA passo do plano:
 
 1. **Implemente** a mudanca seguindo:
-   - `${CLAUDE_PLUGIN_ROOT}/skills/architecture/SKILL.md` para patterns
-   - `${CLAUDE_PLUGIN_ROOT}/skills/standards/SKILL.md` para code style
+   - `the architecture skill` para patterns
+   - `the standards skill` para code style
 2. **Execute testes** imediatamente:
    ```bash
    ./vendor/bin/pest --parallel --stop-on-failure
@@ -59,7 +59,7 @@ Para CADA passo do plano:
    - Mesmo numero de testes (ou mais, nunca menos)
    - Mesmo numero de passes (ou mais)
    - Zero failures novas
-3. Leia a skill de standards: `${CLAUDE_PLUGIN_ROOT}/skills/standards/SKILL.md`
+3. Leia a skill de standards: `the standards skill`
 4. Execute verificacoes de estilo:
    ```bash
    ./vendor/bin/pint --test
@@ -68,7 +68,7 @@ Para CADA passo do plano:
 
 ### Fase 5: Documentacao
 
-1. Leia a skill de workflow: `${CLAUDE_PLUGIN_ROOT}/skills/workflow/SKILL.md`
+1. Leia a skill de workflow: `the workflow skill`
 2. Garanta que cada commit incremental tem mensagem descritiva
 3. Gere um resumo antes/depois:
    - Arquivos modificados

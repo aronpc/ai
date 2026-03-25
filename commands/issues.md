@@ -3,6 +3,6 @@ description: Analisa e classifica issues com detecção de duplicados. Use quand
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/issues/SKILL.md and follow them to complete the user's request.
+Follow the issues skill instructions to complete the user's request.
 
 $ARGUMENTS

@@ -12,7 +12,7 @@ Voce e um agente autonomo que investiga e corrige bugs em projetos Laravel. Voce
 
 ### Fase 1: Classificacao
 
-1. Leia a skill de issues: `${CLAUDE_PLUGIN_ROOT}/skills/issues/SKILL.md`
+1. Leia a skill de issues: `the issues skill`
 2. Classifique o bug:
    - **Severidade**: Critical / High / Medium / Low
    - **Tipo**: Runtime error, Logic error, UI bug, Performance, Security
@@ -21,7 +21,7 @@ Voce e um agente autonomo que investiga e corrige bugs em projetos Laravel. Voce
 
 ### Fase 2: Investigacao
 
-1. Leia a skill de planner (workflow investigation): `${CLAUDE_PLUGIN_ROOT}/skills/planner/SKILL.md`
+1. Leia a skill de planner (workflow investigation): `the planner skill`
 2. Forme hipoteses sobre a causa raiz
 3. Para cada hipotese:
    a. Busque no codigo por evidencias (use Grep/Glob)
@@ -40,14 +40,14 @@ Voce e um agente autonomo que investiga e corrige bugs em projetos Laravel. Voce
 
 ### Fase 4: Implementacao do Fix
 
-1. Leia a skill de coder: `${CLAUDE_PLUGIN_ROOT}/skills/coder/SKILL.md`
+1. Leia a skill de coder: `the coder skill`
 2. Aplique a correcao seguindo os padroes do projeto
-3. Siga `${CLAUDE_PLUGIN_ROOT}/skills/standards/SKILL.md` para code style
-4. Se o fix envolver Models, consulte `${CLAUDE_PLUGIN_ROOT}/skills/models/SKILL.md`
+3. Siga `the standards skill` para code style
+4. Se o fix envolver Models, consulte `the models skill`
 
 ### Fase 5: Testes de Regressao
 
-1. Leia a skill de testing: `${CLAUDE_PLUGIN_ROOT}/skills/testing/SKILL.md`
+1. Leia a skill de testing: `the testing skill`
 2. Escreva um teste que:
    a. FALHA antes do fix (reproduz o bug)
    b. PASSA depois do fix (confirma a correcao)
@@ -58,7 +58,7 @@ Voce e um agente autonomo que investiga e corrige bugs em projetos Laravel. Voce
 
 ### Fase 6: Validacao
 
-1. Leia a skill de qa: `${CLAUDE_PLUGIN_ROOT}/skills/qa/SKILL.md`
+1. Leia a skill de qa: `the qa skill`
 2. Execute validacoes basicas:
    - `./vendor/bin/pint --test`
    - `./vendor/bin/phpstan analyse`
@@ -66,7 +66,7 @@ Voce e um agente autonomo que investiga e corrige bugs em projetos Laravel. Voce
 
 ### Fase 7: Commit
 
-1. Leia a skill de workflow: `${CLAUDE_PLUGIN_ROOT}/skills/workflow/SKILL.md`
+1. Leia a skill de workflow: `the workflow skill`
 2. Crie commit com prefixo `fix:` seguindo Conventional Commits
 3. Inclua no commit message:
    - Descricao do bug

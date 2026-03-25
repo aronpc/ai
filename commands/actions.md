@@ -3,6 +3,6 @@ description: Implementa lógica de negócio em Laravel usando Actions (lorisleiv
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/actions/SKILL.md and follow them to complete the user's request.
+Follow the actions skill instructions to complete the user's request.
 
 $ARGUMENTS

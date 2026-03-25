@@ -3,6 +3,6 @@ description: Executa validação de qualidade com 11 fases de QA e tiers de comp
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/qa/SKILL.md and follow them to complete the user's request.
+Follow the qa skill instructions to complete the user's request.
 
 $ARGUMENTS

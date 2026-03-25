@@ -3,6 +3,6 @@ description: Gerencia sprints de desenvolvimento com brainstorm interativo, trac
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/sprint/SKILL.md and follow them to complete the user's request.
+Follow the sprint skill instructions to complete the user's request.
 
 $ARGUMENTS

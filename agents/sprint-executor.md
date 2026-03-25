@@ -36,14 +36,14 @@ Analise a descricao da tarefa e classifique:
 Baseado na classificacao, siga o pipeline apropriado:
 
 #### Para Features:
-1. Leia `${CLAUDE_PLUGIN_ROOT}/skills/planner/SKILL.md` para planejar
-2. Leia `${CLAUDE_PLUGIN_ROOT}/skills/coder/SKILL.md` para implementar
-3. Leia `${CLAUDE_PLUGIN_ROOT}/skills/testing/SKILL.md` para testar
+1. Leia `the planner skill` para planejar
+2. Leia `the coder skill` para implementar
+3. Leia `the testing skill` para testar
 4. Execute QA basico
 
 #### Para Bugfixes:
 1. Investigue a causa raiz
-2. Leia `${CLAUDE_PLUGIN_ROOT}/skills/coder/SKILL.md` para corrigir
+2. Leia `the coder skill` para corrigir
 3. Escreva teste de regressao
 4. Valide a correcao
 
@@ -53,19 +53,19 @@ Baseado na classificacao, siga o pipeline apropriado:
 3. Verifique testes apos cada passo
 
 #### Para Docs:
-1. Leia `${CLAUDE_PLUGIN_ROOT}/skills/docs/SKILL.md`
+1. Leia `the docs skill`
 2. Atualize os arquivos de documentacao necessarios
 
 ### Fase 4: Atualizar Sprint
 
-1. Leia a skill de sprint: `${CLAUDE_PLUGIN_ROOT}/skills/sprint/SKILL.md`
+1. Leia a skill de sprint: `the sprint skill`
 2. No arquivo do sprint:
    - Marque a tarefa como completa: `- [ ]` → `- [x]`
    - Adicione data de conclusao
    - Atualize percentagem de progresso
 3. Em `sprints/tracking.md`:
    - Atualize o progresso do sprint
-4. Leia `${CLAUDE_PLUGIN_ROOT}/skills/workflow/SKILL.md`
+4. Leia `the workflow skill`
 5. Crie commits separados:
    - Codigo: `feat:` / `fix:` / `refactor:`
    - Sprint tracking: `docs: update sprint progress`

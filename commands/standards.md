@@ -3,6 +3,6 @@ description: Aplica padrões de código Spatie + Laravel Pint para consistência
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/standards/SKILL.md and follow them to complete the user's request.
+Follow the standards skill instructions to complete the user's request.
 
 $ARGUMENTS

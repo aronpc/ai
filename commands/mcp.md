@@ -3,6 +3,6 @@ description: Valida funcionalidades usando MCP tools (Browser, API, Database). U
 argument-hint: "[instrução]"
 ---
 
-Read the skill instructions at ${CLAUDE_PLUGIN_ROOT}/skills/mcp/SKILL.md and follow them to complete the user's request.
+Follow the mcp skill instructions to complete the user's request.
 
 $ARGUMENTS
