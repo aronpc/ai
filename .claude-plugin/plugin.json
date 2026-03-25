@@ -1,8 +1,9 @@
 {
   "name": "aronpc",
-  "version": "4.0.0",
-  "description": "Skills para desenvolvimento Laravel, gestão de projetos, GitHub workflows e DevOps",
+  "version": "1.0.0",
+  "description": "Laravel development skills for actions, architecture, testing, CI/CD and project management",
   "author": {
-    "name": "Aron PC"
-  }
+    "name": "aronpc"
+  },
+  "keywords": ["laravel", "php", "development"]
 }

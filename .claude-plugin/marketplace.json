@@ -1,19 +1,20 @@
 {
-  "name": "aronpc-skills",
+  "name": "aronpc",
   "owner": {
-    "name": "Aron PC"
+    "name": "aronpc"
   },
   "metadata": {
-    "description": "Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub",
-    "version": "4.0.0",
+    "description": "Laravel development skills for actions, architecture, testing, CI/CD and project management",
+    "version": "1.0.0",
     "pluginRoot": "."
   },
   "plugins": [
     {
       "name": "aronpc",
       "source": ".",
-      "description": "Skills para desenvolvimento Laravel, qualidade, testes, gestão de projetos, CI/CD e workflow Git",
-      "version": "4.0.0"
+      "description": "Laravel development skills for actions, architecture, testing, CI/CD and project management",
+      "version": "1.0.0",
+      "keywords": ["laravel", "php", "development"]
     }
   ]
 }
