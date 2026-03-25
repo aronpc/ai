@@ -1,6 +1,5 @@
 ---
 description: Aplica padrões de código Spatie + Laravel Pint para consistência. Use quando precisar verificar ou configurar code style, padrões de nomenclatura, ou formatação de código PHP.
-allowed-tools: Read, Write, Edit, Bash
 argument-hint: "[instrução]"
 ---
 

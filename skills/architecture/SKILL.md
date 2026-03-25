@@ -2,16 +2,6 @@
 name: architecture
 description: >-
   Define a arquitetura limpa de projetos Laravel com Actions, DTOs, Policies e Service Layer. Use quando precisar organizar estrutura de diretórios, definir padrões arquiteturais, ou planejar a organização de um projeto Laravel.
-compatibility: PHP 8.5+, Laravel 12, laravel-actions
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # architecture

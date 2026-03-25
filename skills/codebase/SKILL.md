@@ -2,17 +2,6 @@
 name: codebase
 description: >-
   Descobre melhorias e oportunidades de refatoração baseada em padrões existentes no código. Use quando quiser analisar o codebase para encontrar melhorias, inconsistências, ou áreas que precisam de atenção.
-compatibility: Qualquer projeto
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: ideation
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # codebase

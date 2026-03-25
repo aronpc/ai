@@ -2,16 +2,6 @@
 name: docs
 description: >-
   Atualiza documentação do projeto incluindo README, IMPLEMENTATION e CHANGELOG. Use quando precisar gerar ou atualizar documentação técnica, changelogs, ou documentação de API.
-compatibility: Qualquer projeto
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: quality
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # docs

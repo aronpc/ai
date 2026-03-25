@@ -2,16 +2,6 @@
 name: sprint
 description: >-
   Gerencia sprints de desenvolvimento com brainstorm interativo, tracking e tarefas. Use quando precisar criar sprints, planejar iterações, atualizar progresso, ou gerenciar tarefas de desenvolvimento.
-compatibility: Projetos Laravel
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: planning
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # sprint

@@ -2,17 +2,6 @@
 name: ui-ux
 description: >-
   Descobre melhorias visuais e de usabilidade com validação via browser. Use quando precisar analisar interfaces, identificar problemas de UX, ou sugerir melhorias visuais e de interação.
-compatibility: Qualquer projeto web
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: ideation
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # ui-ux

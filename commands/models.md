@@ -1,6 +1,5 @@
 ---
 description: Define Models Eloquent com relações, scopes, factories e multi-tenancy. Use quando precisar criar ou modificar models Laravel, definir relacionamentos, scopes, ou implementar multi-tenancy.
-allowed-tools: Read, Write, Edit, Bash
 argument-hint: "[instrução]"
 ---
 

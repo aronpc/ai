@@ -2,16 +2,6 @@
 name: testing
 description: >-
   Cria testes com Pest PHP incluindo Feature, Unit, HTTP e Datasets. Use quando precisar escrever testes, criar test suites, ou implementar TDD em projetos Laravel com Pest.
-compatibility: PHP 8.2+, Laravel 11+, Pest 2.x+
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # testing

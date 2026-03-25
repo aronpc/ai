@@ -2,18 +2,6 @@
 name: roadmap
 description: >-
   Cria estratégia de produto com features priorizadas usando método MoSCoW. Use quando precisar definir roadmap, priorizar features, ou planejar a evolução do produto.
-compatibility: Qualquer projeto
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: planning
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
-  - WebSearch
 ---
 
 # roadmap

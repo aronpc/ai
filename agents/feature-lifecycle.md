@@ -1,6 +1,7 @@
 ---
-description: "Use this agent for end-to-end feature implementation: from spec/planning through code, tests, QA, commit and PR. Trigger when user says 'implement feature', 'new feature', 'build feature', 'feature completa', 'implementar feature', or describes a feature to build from scratch."
-tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "Agent", "WebSearch"]
+name: feature-lifecycle
+description: >-
+  Use this agent for end-to-end feature implementation: from spec/planning through code, tests, QA, commit and PR. Trigger when user says 'implement feature', 'new feature', 'build feature', 'feature completa', 'implementar feature', or describes a feature to build from scratch.
 ---
 
 # Feature Lifecycle Agent

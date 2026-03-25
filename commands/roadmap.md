@@ -1,6 +1,5 @@
 ---
 description: Cria estratégia de produto com features priorizadas usando método MoSCoW. Use quando precisar definir roadmap, priorizar features, ou planejar a evolução do produto.
-allowed-tools: Read, Write, Bash, Grep, Glob, WebSearch
 argument-hint: "[instrução]"
 ---
 

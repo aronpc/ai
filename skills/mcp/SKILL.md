@@ -2,16 +2,6 @@
 name: mcp
 description: >-
   Valida funcionalidades usando MCP tools (Browser, API, Database). Use quando precisar validar implementações com ferramentas MCP, testar via browser, ou verificar integrações de API.
-compatibility: MCP tools
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: devops
-allowed-tools:
-  - Read
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # mcp

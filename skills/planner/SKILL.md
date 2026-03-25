@@ -2,17 +2,6 @@
 name: planner
 description: >-
   Cria planos estruturados para features, refatorações e investigações. Use quando precisar planejar uma implementação, definir tasks e subtasks, ou organizar o trabalho antes de começar a codar.
-compatibility: Qualquer projeto
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: planning
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # planner

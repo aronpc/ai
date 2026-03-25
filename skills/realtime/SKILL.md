@@ -2,16 +2,6 @@
 name: realtime
 description: >-
   Implementa WebSockets com Laravel Reverb para funcionalidades em tempo real. Use quando precisar adicionar WebSockets, broadcasting, eventos em tempo real, ou notificações push.
-compatibility: PHP 8.2+, Laravel 11+, Laravel Reverb
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # realtime

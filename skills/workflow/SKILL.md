@@ -2,16 +2,6 @@
 name: workflow
 description: >-
   Gerencia fluxo Git com commits atômicos seguindo Conventional Commits. Use quando precisar organizar commits, gerenciar branches, ou seguir padrões de versionamento Git.
-compatibility: Git, projetos Laravel
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: github
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # workflow

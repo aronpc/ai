@@ -1,6 +1,7 @@
 ---
-description: "Use this agent for safe refactoring with continuous test verification. Trigger when user says 'refactor', 'refatorar', 'extract', 'extrair', 'reorganizar', 'split', 'simplificar', or describes code restructuring without changing behavior."
-tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+name: refactor-safe
+description: >-
+  Use this agent for safe refactoring with continuous test verification. Trigger when user says 'refactor', 'refatorar', 'extract', 'extrair', 'reorganizar', 'split', 'simplificar', or describes code restructuring without changing behavior.
 ---
 
 # Refactor Safe Agent

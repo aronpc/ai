@@ -1,6 +1,5 @@
 ---
 description: Descobre melhorias visuais e de usabilidade com validação via browser. Use quando precisar analisar interfaces, identificar problemas de UX, ou sugerir melhorias visuais e de interação.
-allowed-tools: Read, Write, Bash, Grep, Glob
 argument-hint: "[instrução]"
 ---
 

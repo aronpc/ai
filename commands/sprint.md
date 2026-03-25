@@ -1,6 +1,5 @@
 ---
 description: Gerencia sprints de desenvolvimento com brainstorm interativo, tracking e tarefas. Use quando precisar criar sprints, planejar iterações, atualizar progresso, ou gerenciar tarefas de desenvolvimento.
-allowed-tools: Read, Write, Edit, Bash
 argument-hint: "[instrução]"
 ---
 

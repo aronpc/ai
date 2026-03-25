@@ -2,16 +2,6 @@
 name: standards
 description: >-
   Aplica padrões de código Spatie + Laravel Pint para consistência. Use quando precisar verificar ou configurar code style, padrões de nomenclatura, ou formatação de código PHP.
-compatibility: PHP 8.2+, Laravel 11+
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # standards

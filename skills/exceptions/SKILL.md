@@ -2,16 +2,6 @@
 name: exceptions
 description: >-
   Cria exceções customizadas renderable e reportable para HTTP e logging em Laravel. Use quando precisar criar exception handlers, exceções de domínio, ou melhorar o tratamento de erros.
-compatibility: PHP 8.2+, Laravel 11+
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # exceptions

@@ -2,16 +2,6 @@
 name: ux
 description: >-
   Otimiza UX com Laravel Precognition, Prompts e Turbo para interações fluidas. Use quando precisar melhorar experiência do usuário, adicionar validação em tempo real, ou implementar Turbo/HTMX.
-compatibility: PHP 8.2+, Laravel 11+
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # ux

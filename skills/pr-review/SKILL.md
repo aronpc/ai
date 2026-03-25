@@ -2,16 +2,6 @@
 name: pr-review
 description: >-
   Faz review de Pull Requests analisando segurança, qualidade e aderência a padrões. Use quando precisar revisar PRs, verificar qualidade de código, ou garantir conformidade com padrões do projeto.
-compatibility: GitHub, GitLab
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: github
-allowed-tools:
-  - Read
-  - Grep
-  - Glob
-  - Bash
 ---
 
 # pr-review

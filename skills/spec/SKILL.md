@@ -2,18 +2,6 @@
 name: spec
 description: >-
   Escreve especificações técnicas com requisitos, design e critérios de teste. Use quando precisar criar specs técnicas, documentar requisitos, ou definir contratos de API.
-compatibility: Qualquer projeto
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: planning
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - Grep
-  - Glob
-  - WebSearch
 ---
 
 # spec

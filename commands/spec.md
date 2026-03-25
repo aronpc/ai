@@ -1,6 +1,5 @@
 ---
 description: Escreve especificações técnicas com requisitos, design e critérios de teste. Use quando precisar criar specs técnicas, documentar requisitos, ou definir contratos de API.
-allowed-tools: Read, Write, Bash, Grep, Glob, WebSearch
 argument-hint: "[instrução]"
 ---
 

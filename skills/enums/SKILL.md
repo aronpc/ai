@@ -2,16 +2,6 @@
 name: enums
 description: >-
   Cria e gerencia Enums PHP 8.1+ com archtechx/enums e suas 7 traits helpers. Use quando precisar criar enums, adicionar traits de enum, ou trabalhar com enums tipados em Laravel.
-compatibility: PHP 8.1+, archtechx/enums
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # enums

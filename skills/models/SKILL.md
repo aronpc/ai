@@ -2,16 +2,6 @@
 name: models
 description: >-
   Define Models Eloquent com relações, scopes, factories e multi-tenancy. Use quando precisar criar ou modificar models Laravel, definir relacionamentos, scopes, ou implementar multi-tenancy.
-compatibility: PHP 8.2+, Laravel 11+
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: laravel
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
 ---
 
 # models

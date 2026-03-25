@@ -1,6 +1,7 @@
 ---
-description: "Use this agent to execute sprint tasks autonomously. Trigger when user says 'execute sprint', 'executar sprint', 'next task', 'proxima tarefa', 'work on sprint', 'continuar sprint', or wants to work through sprint tasks sequentially."
-tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "Agent"]
+name: sprint-executor
+description: >-
+  Use this agent to execute sprint tasks autonomously. Trigger when user says 'execute sprint', 'executar sprint', 'next task', 'proxima tarefa', 'work on sprint', 'continuar sprint', or wants to work through sprint tasks sequentially.
 ---
 
 # Sprint Executor Agent

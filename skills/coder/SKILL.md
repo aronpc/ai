@@ -2,18 +2,6 @@
 name: coder
 description: >-
   Implementa código passo-a-passo com verificação obrigatória e autocrítica. Use quando precisar implementar features, fazer refatorações, ou desenvolver código seguindo um plano estruturado com quality checks.
-compatibility: Git, ambiente de desenvolvimento
-metadata:
-  author: aronpc
-  version: 1.0.0
-  category: dev
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Grep
-  - Glob
 ---
 
 # coder

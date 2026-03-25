@@ -1,6 +1,5 @@
 ---
 description: Cria e gerencia Enums PHP 8.1+ com archtechx/enums e suas 7 traits helpers. Use quando precisar criar enums, adicionar traits de enum, ou trabalhar com enums tipados em Laravel.
-allowed-tools: Read, Write, Edit, Bash
 argument-hint: "[instrução]"
 ---
 
