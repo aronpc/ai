@@ -6,12 +6,12 @@
   "metadata": {
     "description": "Laravel development skills for actions, architecture, testing, CI/CD and project management",
     "version": "1.0.0",
-    "pluginRoot": "."
+    "pluginRoot": ".."
   },
   "plugins": [
     {
       "name": "aronpc",
-      "source": ".",
+      "source": "..",
       "description": "Laravel development skills for actions, architecture, testing, CI/CD and project management",
       "version": "1.0.0",
       "keywords": ["laravel", "php", "development"]
