@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Hooks (não suportados em plugins remotos do Desktop)
+hooks/
+
+# Arquivos locais de documentação/manutenção
+prompts.md
+CHECKPOINT.md
+IMPLEMENTATION.md
+INTEGRATION-MAP.md
+RESTRUCTURE-PLAN.md
+scripts/
