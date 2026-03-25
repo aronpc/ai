@@ -6,5 +6,5 @@
     "name": "aronpc"
   },
   "keywords": ["laravel", "php", "development"],
-  "skills": ["./.claude/skills/actions"]
+  "skills": ["./skills/actions"]
 }
