@@ -80,7 +80,7 @@ qa, docs, coder, codebase, ui-ux
 
 ## Próximos Passos
 
-- [ ] Reestruturação por namespaces (@laravel/, @github/, etc.) - ver RESTRUCTURE-PLAN.md
-- [ ] Reintegrar skill filament-check-pro
+- [x] Namespaces: decidido NÃO adotar — skills permanecem flat (RESTRUCTURE-PLAN.md mantido como histórico)
+- [x] Filament: decidido NÃO reintegrar filament-check-pro — usar a skill nativa do Laravel Boost (Filament 4.x)
 - [ ] Adicionar mais scripts executáveis às skills que precisam
 - [ ] Expandir referências para skills sem documentação adicional

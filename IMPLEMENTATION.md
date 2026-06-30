@@ -337,14 +337,13 @@
 - `@dev/` - 1 skill de implementação
 - `@ideation/` - 2 skills de ideação
 
-**Progresso:** 0% - Planejado
+**Status:** Decidido NÃO adotar — skills permanecem flat. RESTRUCTURE-PLAN.md mantido como histórico.
 
-### 8.2 Filament Check Pro 📋
+### 8.2 Filament Check Pro ✅
 
-- [ ] Reintegrar skill filament-check-pro (removida na reestruturação)
-- [ ] Branch: `feat/filament-check-pro-skill` disponível
+- [x] Decisão: NÃO reintegrar. Para Filament, use a skill nativa do Laravel Boost (Filament 4.x), conforme nota no README. A skill `filament-check-pro` foi descontinuada.
 
-**Progresso:** 0% - Planejado
+**Status:** Encerrado.
 
 ---
 
