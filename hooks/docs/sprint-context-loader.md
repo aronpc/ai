@@ -30,7 +30,7 @@ Emita um resumo conciso:
 ```
 Sprint ativo: [Nome do Sprint] ([X/Y] tarefas - [Z]%)
 Proxima tarefa: [descricao da tarefa]
-Use /aronpc:sprint para gerenciar o sprint.
+Use /laravel-toolkit:sprint para gerenciar o sprint.
 ```
 
 ### 4. Mudancas Pendentes
