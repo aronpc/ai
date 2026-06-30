@@ -34,7 +34,7 @@ qa, docs, coder, codebase, ui-ux
 | `sprint-executor` | Execução sequencial de tarefas do sprint | 7 skills |
 | `pr-guard` | Validação pre-merge adaptativa | 6 skills |
 
-### Hooks de Guardrails & Automação (8/8)
+### Hooks de Guardrails & Automação (8/8) — implementados via hooks/hooks.json + scripts
 
 | Hook | Evento | Tipo |
 |------|--------|------|
@@ -49,8 +49,9 @@ qa, docs, coder, codebase, ui-ux
 
 ### Infraestrutura
 
-- Plugin configuration (plugin.json + marketplace.json)
+- Plugin configuration (`.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json`, strict: false)
 - Command wrappers para autocomplete (24 commands)
+- Hooks implementados (hooks/hooks.json + scripts)
 - Documentação completa (CLAUDE.md, README.md, INTEGRATION-MAP.md)
 - Script de migração para namespaces
 
