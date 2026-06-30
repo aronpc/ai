@@ -488,21 +488,22 @@ it('syncs product inventory', function () {
 
 ### Pest Parallel
 
+O paralelismo é **nativo** no Pest. Basta passar a flag `--parallel` (o Pest usa o ParaTest internamente):
+
 ```bash
-composer require pestphp/pest-plugin-parallel --dev
+./vendor/bin/pest --parallel
 ```
 
-```php
-// tests/Pest.php
-use Pest\Parallel\Paratest;
+Só instale o `brianium/paratest` manualmente se o projeto exigir uma versão específica:
 
-Paratest::process();
+```bash
+composer require brianium/paratest --dev
 ```
 
 ### Coverage
 
 ```bash
-php artisan pest --coverage
+php artisan test --coverage
 ```
 
 ## Melhores Práticas
@@ -551,19 +552,19 @@ Antes de finalizar QUALQUER feature:
 
 ```bash
 # Gerar relatório de cobertura
-php artisan pest --coverage --min=80
+php artisan test --coverage --min=80
 
 # Gerar HTML coverage
-php artisan pest --coverage --coverage-html=coverage
+./vendor/bin/pest --coverage --coverage-html=coverage
 ```
 
 ## Referências Cruzadas
 
-- **Actions**: Teste Actions criadas com `laravel-actions-events`
-- **Policies**: Teste Policies definidas em `laravel-architecture`
-- **Exceptions**: Teste exceções de `laravel-exceptions`
-- **Filament**: Teste Resources de `laravel-filament`
-- **i18n**: Teste traduções de `laravel-i18n`
+- **Actions**: Teste Actions criadas com `actions`
+- **Policies**: Teste Policies definidas em `architecture`
+- **Exceptions**: Teste exceções de `exceptions`
+- **Filament**: para testar Resources, use a skill nativa do Laravel Boost (Filament)
+- **i18n**: Teste traduções de `i18n`
 
 ## Referências
 

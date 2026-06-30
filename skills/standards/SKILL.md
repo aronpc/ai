@@ -322,7 +322,7 @@ $name = "Hello, {$user->name}!";
 Use PascalCase para valores de enum:
 
 ```php
-enum BusinessTypeEnum: string
+enum BusinessType: string
 {
     case RESTAURANT = 'restaurant';
     case CAFE = 'cafe';

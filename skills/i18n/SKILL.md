@@ -284,7 +284,7 @@ namespace App\Enums;
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasLabel;
 
-enum BusinessTypeEnum: string implements HasLabel, HasColor
+enum BusinessType: string implements HasLabel, HasColor
 {
     case RESTAURANT = 'restaurant';
     case CAFE = 'cafe';
@@ -441,13 +441,13 @@ it('validates with translated error messages', function () {
 
 it('enum returns translated labels in all languages', function () {
     app()->setLocale('en');
-    expect(BusinessTypeEnum::RESTAURANT->label())->toBe('Restaurant');
+    expect(BusinessType::RESTAURANT->label())->toBe('Restaurant');
 
     app()->setLocale('es');
-    expect(BusinessTypeEnum::RESTAURANT->label())->toBe('Restaurante');
+    expect(BusinessType::RESTAURANT->label())->toBe('Restaurante');
 
     app()->setLocale('pt_BR');
-    expect(BusinessTypeEnum::RESTAURANT->label())->toBe('Restaurante');
+    expect(BusinessType::RESTAURANT->label())->toBe('Restaurante');
 });
 
 // Test that all translation keys exist
@@ -614,10 +614,10 @@ Notification::make()
 
 ## Referências Cruzadas
 
-- **Exceções**: Integrado com `laravel-exceptions` para traduções de mensagens de erro
-- **Filament**: Veja `laravel-filament` para tradução completa de Resources e Widgets
-- **Architecture**: Integrado com `laravel-architecture` para Enums traduzíveis
-- **Actions/Events**: Integrado com `laravel-actions-events` para traduções de eventos
+- **Exceções**: Integrado com `exceptions` para traduções de mensagens de erro
+- **Filament**: para traduzir Resources e Widgets, use a skill nativa do Laravel Boost (Filament)
+- **Architecture**: Integrado com `architecture` para Enums traduzíveis
+- **Actions/Events**: Integrado com `actions` para traduções de eventos
 
 ## Referências
 

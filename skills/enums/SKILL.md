@@ -281,7 +281,7 @@ use Illuminate\Validation\Rule;
 // Usando valores do enum
 'status' => 'required|in:' . implode(',', TaskStatus::values())
 
-// Usando Enum rule (Laravel 10+)
+// Usando Enum rule (Laravel 9.23+)
 'status' => ['required', Rule::enum(TaskStatus::class)];
 ```
 

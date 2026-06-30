@@ -49,23 +49,18 @@ Use esta skill sempre que:
 
 ## Estrutura de Exception
 
+> Ajuste os subdiretórios aos domínios do seu projeto. A árvore abaixo usa placeholders
+> genéricos (`Domain1/`, `Domain2/`); os exemplos de código nas seções seguintes usam um
+> domínio ilustrativo (`Business`, `Payment`) apenas para demonstração.
+
 ```
 app/
 ├── Exceptions/
-│   ├── Handler.php                    # Global exception handler
-│   ├── Business/
-│   │   ├── BusinessLimitExceededException.php
-│   │   ├── BusinessNotFoundException.php
-│   │   └── InvalidBusinessTypeException.php
-│   ├── Tenant/
-│   │   ├── TenantInactiveException.php
-│   │   ├── TenantSuspendedException.php
-│   │   └── UnauthorizedTenantAccessException.php
-│   ├── Menu/
-│   │   ├── MenuItemNotFoundException.php
-│   │   ├── InvalidPriceException.php
-│   │   └── MenuItemUnavailableException.php
-│   └── Billing/
+│   ├── Domain1/
+│   │   ├── ResourceLimitExceededException.php
+│   │   ├── ResourceNotFoundException.php
+│   │   └── InvalidResourceTypeException.php
+│   └── Domain2/
 │       ├── InsufficientCreditsException.php
 │       ├── PlanLimitExceededException.php
 │       └── PaymentFailedException.php
@@ -90,6 +85,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 final class BusinessLimitExceededException extends Exception
 {
@@ -134,7 +130,7 @@ final class BusinessLimitExceededException extends Exception
     public function report(): void
     {
         // Log or send to monitoring service
-        \Log::warning('Business limit exceeded', [
+        Log::warning('Business limit exceeded', [
             'current' => $this->currentCount,
             'max' => $this->maxAllowed,
             'plan' => $this->planName,
@@ -314,43 +310,44 @@ it('includes exception context in response', function () {
 
 ## Global Exception Handler
 
+No Laravel 11+ não existe mais o `app/Exceptions/Handler.php`. Toda a
+configuração de exceções vive em `bootstrap/app.php`, no callback
+`->withExceptions(...)`.
+
 ```php
 <?php
 
-declare(strict_types=1);
-
-namespace App\Exceptions;
-
 use App\Exceptions\Business\BusinessLimitExceededException;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Configuration\Exceptions;
+use Illuminate\Http\Request;
+use Illuminate\Log\LogLevel;
 use Throwable;
 
-final class Handler extends ExceptionHandler
-{
-    /**
-     * A list of exception types with their corresponding custom log levels.
-     */
-    protected $levels = [
-        BusinessLimitExceededException::class => 'warning',
-    ];
-
-    /**
-     * A list of exception types that are not reported.
-     */
-    protected $dontReport = [
-        // Exceptions that shouldn't be logged
-    ];
-
-    /**
-     * Register exception handling callbacks.
-     */
-    public function register(): void
-    {
-        $this->reportable(function (Throwable $e) {
+return Application::configure(basePath: dirname(__DIR__))
+    ->withExceptions(function (Exceptions $exceptions): void {
+        // Callback de report (substitui o antigo register()/reportable)
+        $exceptions->report(function (Throwable $e): void {
             // Send to monitoring service (Sentry, Bugsnag, etc.)
         });
-    }
-}
+
+        // Resposta HTTP customizada por tipo de exceção
+        $exceptions->render(function (BusinessLimitExceededException $e, Request $request) {
+            if ($request->expectsJson()) {
+                return response()->json(['message' => $e->getMessage()], 403);
+            }
+
+            return back()->with('error', $e->getMessage());
+        });
+
+        // Exceções que não devem ser reportadas (substitui $dontReport)
+        $exceptions->dontReport([
+            BusinessLimitExceededException::class,
+        ]);
+
+        // Nível de log customizado por tipo (substitui $levels)
+        $exceptions->level(BusinessLimitExceededException::class, LogLevel::WARNING);
+    })->create();
 ```
 
 ## Melhores Práticas
@@ -364,6 +361,9 @@ final class Handler extends ExceptionHandler
 - Use chaves de tradução para mensagens
 - Teste exceções sendo lançadas nas Actions
 - Mapeie exceções para códigos HTTP apropriados
+
+### ❌ NÃO FAÇA
+
 - NÃO coloque lógica de negócio nas classes de exceção
 - NÃO catch exceções apenas para relançar
 - NÃO esqueça de traduzir mensagens de erro
@@ -385,9 +385,9 @@ final class Handler extends ExceptionHandler
 
 ## Referências Cruzadas
 
-- **Traduções**: Veja `laravel-i18n` para traduções de mensagens de erro em EN, ES, PT-BR
-- **Actions**: Usado em Actions (veja `laravel-architecture` e `laravel-actions-events`)
-- **Testes**: Veja `laravel-testing-pest` para testar exceções sendo lançadas
+- **Traduções**: Veja `i18n` para traduções de mensagens de erro em EN, ES, PT-BR
+- **Actions**: Usado em Actions (veja `architecture` e `actions`)
+- **Testes**: Veja `testing` para testar exceções sendo lançadas
 
 ## Referências
 
