@@ -5,7 +5,7 @@ description: >-
 compatibility: MCP tools
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: devops
 allowed-tools:
   - Read

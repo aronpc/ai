@@ -5,7 +5,7 @@ description: >-
 compatibility: Git, ambiente de desenvolvimento
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: dev
 allowed-tools:
   - Read

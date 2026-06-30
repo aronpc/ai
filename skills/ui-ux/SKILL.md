@@ -5,7 +5,7 @@ description: >-
 compatibility: Qualquer projeto web
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: ideation
 allowed-tools:
   - Read

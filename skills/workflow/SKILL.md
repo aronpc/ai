@@ -5,7 +5,7 @@ description: >-
 compatibility: Git, projetos Laravel
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: github
 allowed-tools:
   - Read
