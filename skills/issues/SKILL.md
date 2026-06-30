@@ -38,8 +38,8 @@ Use esta skill quando precisar:
 - Extrair requisitos de issues para specs
 
 **Não use para:**
-- Code review (use github-pr-review)
-- Planejamento de features (use spec-creation)
+- Code review (use pr-review)
+- Planejamento de features (use spec)
 
 ---
 

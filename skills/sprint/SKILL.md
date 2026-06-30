@@ -47,7 +47,7 @@ Use esta skill sempre que trabalhar com:
 Ao criar um novo sprint, esta skill:
 1. **FAZ PERGUNTAS** sobre negócio, dados, arquitetura, UX (uma por vez)
 2. **APRESENTA PROPOSTA** estruturada antes de criar
-3. **INTEGRA COM OUTRAS SKILLS** (laravel-architecture, pest-testing, etc.)
+3. **INTEGRA COM OUTRAS SKILLS** (architecture, testing, etc.)
 4. **CRIA SPRINT COMPLETO** com todos os detalhes técnicos
 
 Não crie sprints sem antes fazer o brainstorm!
@@ -224,7 +224,7 @@ Apresente um design de 200–300 palavras, cobrindo:
 
 ### Prepare Next Steps
 
-Sugerir um plano de implementação breve; então use `laravel:writing-plans` para formalizar.
+Sugerir um plano de implementação breve; então use `planner` para formalizar.
 
 ## Casos de Uso
 

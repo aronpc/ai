@@ -609,10 +609,10 @@ Antes de finalizar feature com UX:
 
 ## Referências Cruzadas
 
-- **Validation**: Integrado com Form Requests de `laravel-architecture`
-- **i18n**: Mensagens de `laravel-i18n` em Prompts e forms
-- **Actions**: Commands usam Actions de `laravel-actions-events`
-- **Testing**: Testar UX com `laravel-testing-pest`
+- **Validation**: Integrado com Form Requests de `architecture`
+- **i18n**: Mensagens de `i18n` em Prompts e forms
+- **Actions**: Commands usam Actions de `actions`
+- **Testing**: Testar UX com `testing`
 
 ## Referências
 

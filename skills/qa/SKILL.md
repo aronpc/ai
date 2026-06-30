@@ -45,9 +45,9 @@ Use esta skill sempre que precisar:
 - Implementar padroes de qualidade
 
 **Nao use para:**
-- Code review social (use github-pr-review)
-- Planejamento de features (use spec-creation)
-- Analise arquitetural (use codebase-ideation)
+- Code review social (use pr-review)
+- Planejamento de features (use spec)
+- Analise arquitetural (use codebase)
 
 ---
 

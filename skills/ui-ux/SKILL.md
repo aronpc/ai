@@ -38,8 +38,8 @@ Use esta skill quando precisar:
 - Priorizar melhorias de interface
 
 **Não use para:**
-- Melhorias de código (use codebase-ideation)
-- Revisão de PR (use github-pr-review)
+- Melhorias de código (use codebase)
+- Revisão de PR (use pr-review)
 
 ---
 

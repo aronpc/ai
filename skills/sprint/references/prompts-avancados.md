@@ -189,7 +189,7 @@ Você é um Product Manager e Arquiteto de Software experiente. O usuário quer 
 ## CONTEXTO INICIAL
 
 - Ideia do sprint: [descrição fornecida pelo usuário]
-- Stack: Laravel 12, Filament v5, Inertia v2, Pest v4
+- Stack: Laravel 11+, Filament 4.x, Inertia v2, Pest v4
 - Skills disponíveis: [verificar skills instaladas no projeto]
 
 ## FASE 1: DESCOBERTA (Ask - uma por vez)
@@ -324,23 +324,23 @@ Ao criar um sprint, VERIFIQUE quais skills estão instaladas em `.ai/skills/` e 
 ls -la .ai/skills/
 
 # Ver se uma skill específica existe
-test -f .ai/skills/laravel-architecture/SKILL.md && echo "Instalada"
+test -f .ai/skills/architecture/SKILL.md && echo "Instalada"
 ```
 
 **Skills para integrar:**
 
 | Skill | Quando Usar | Ação |
 |-------|-------------|------|
-| `laravel-architecture` | Design da solução | Use padrões Actions/DTOs/Policies |
-| `laravel-models` | Models/relacionamentos | Aplique melhores práticas Eloquent |
-| `pest-testing` | Planejar testes | Use datasets, mocks, factories |
-| `laravel-coding-standards` | Código gerado | Siga padrões Spatie/Laravel |
+| `architecture` | Design da solução | Use padrões Actions/DTOs/Policies |
+| `models` | Models/relacionamentos | Aplique melhores práticas Eloquent |
+| `testing` | Planejar testes | Use datasets, mocks, factories |
+| `standards` | Código gerado | Siga padrões Spatie/Laravel |
 | `filament-check-pro` | Resources Filament | Valide estrutura após gerar |
-| `git-workflow-laravel` | Branch do sprint | Siga conventional commits |
-| `laravel-i18n` | Multi-idioma | Planeje traduções desde início |
-| `laravel-realtime` | WebSockets/broadcasting | Use Reverb para tempo real |
+| `workflow` | Branch do sprint | Siga conventional commits |
+| `i18n` | Multi-idioma | Planeje traduções desde início |
+| `realtime` | WebSockets/broadcasting | Use Reverb para tempo real |
 | `laravel-performance-*` | Performance críticas | Planeje cache, eager loading |
-| `laravel-exceptions` | Tratamento de erros | Use exceções customizadas |
+| `exceptions` | Tratamento de erros | Use exceções customizadas |
 
 ### Exemplo de Interação
 

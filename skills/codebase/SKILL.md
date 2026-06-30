@@ -38,8 +38,8 @@ Use esta skill quando precisar:
 - Priorizar melhorias por esforço/impacto
 
 **Não use para:**
-- Planejamento estratégico de produto (use roadmap-strategy)
-- Revisão de PR (use github-pr-review)
+- Planejamento estratégico de produto (use roadmap)
+- Revisão de PR (use pr-review)
 
 ---
 

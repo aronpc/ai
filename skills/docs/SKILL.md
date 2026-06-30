@@ -236,7 +236,7 @@ Antes de finalizar qualquer feature:
 
 ## Workflow Git
 
-**Integração com git-workflow-laravel:**
+**Integração com workflow:**
 
 Documentação deve ser commitada separadamente do código, seguindo Conventional Commits:
 
@@ -251,11 +251,11 @@ git add IMPLEMENTATION.md CHECKPOINT.md
 git commit -m "docs: Update implementation progress - Staff Management complete"
 ```
 
-Veja `git-workflow-laravel` para:
+Veja `workflow` para:
 - Formato de mensagens Conventional Commits
 - Regras de commits atômicos
 - Commits de documentação com prefixo `docs:`
-- Tracking de features em sprints (veja `sprint-management`)
+- Tracking de features em sprints (veja `sprint`)
 
 ## Referências
 

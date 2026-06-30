@@ -42,7 +42,7 @@ Use esta skill quando precisar:
 **Não use para:**
 - Tarefas triviais (use o workflow "simple")
 - Análise de codebase sem objetivo de implementação
-- Planejamento estratégico de produto (use roadmap-strategy)
+- Planejamento estratégico de produto (use roadmap)
 
 ---
 

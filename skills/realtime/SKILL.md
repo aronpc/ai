@@ -599,10 +599,10 @@ Antes de finalizar feature realtime:
 
 ## Referências Cruzadas
 
-- **Actions**: Use com `laravel-actions-events` para dispatch events
-- **Exceptions**: Trate erros de WebSocket com `laravel-exceptions`
-- **i18n**: Traduza mensagens realtime com `laravel-i18n`
-- **Architecture**: Integra com `laravel-architecture` para estrutura
+- **Actions**: Use com `actions` para dispatch events
+- **Exceptions**: Trate erros de WebSocket com `exceptions`
+- **i18n**: Traduza mensagens realtime com `i18n`
+- **Architecture**: Integra com `architecture` para estrutura
 
 ## Referências
 

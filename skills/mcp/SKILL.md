@@ -37,8 +37,8 @@ Use esta skill quando precisar:
 - Validar database migrations
 
 **Não use para:**
-- QA de código (use qa-validation)
-- Code review (use github-pr-review)
+- QA de código (use qa)
+- Code review (use pr-review)
 
 ---
 

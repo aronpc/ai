@@ -343,12 +343,12 @@ Antes de fazer commit:
 - [ ] Mensagem segue formato Conventional Commits
 - [ ] Atribuição AI removida (se presente)
 - [ ] Apenas arquivos relacionados stageados
-- [ ] Documentação atualizada (veja `documentation-updates`)
+- [ ] Documentação atualizada (veja `docs`)
 - [ ] Sem dados sensíveis ou tokens
 
 ## Documentação e Git
 
-**Integração com documentation-updates:**
+**Integração com docs:**
 
 Após implementar features, atualize a documentação em commits separados:
 
@@ -362,11 +362,11 @@ git add IMPLEMENTATION.md CHECKPOINT.md
 git commit -m "docs: Update implementation progress - Staff Management complete"
 ```
 
-Veja `documentation-updates` para:
+Veja `docs` para:
 - Quando atualizar IMPLEMENTATION.md (sempre após cada feature)
 - Quando atualizar CHECKPOINT.md (após marcos principais)
 - Quando atualizar README.md (raramente, apenas mudanças significativas)
-- Tracking de features em sprints (veja `sprint-management`)
+- Tracking de features em sprints (veja `sprint`)
 
 ## Referências
 
