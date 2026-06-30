@@ -1,0 +1,9 @@
+{
+  "name": "laravel-toolkit",
+  "description": "Skills para desenvolvimento Laravel, qualidade, testes, gestão de projetos, CI/CD e workflow Git",
+  "version": "5.0.0",
+  "author": {
+    "name": "Aron PC",
+    "email": "contato@aronpc.com.br"
+  }
+}

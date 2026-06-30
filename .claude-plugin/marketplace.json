@@ -6,40 +6,14 @@
   },
   "metadata": {
     "description": "Skills para desenvolvimento Laravel, gestão de projetos e automação GitHub",
-    "version": "4.0.0"
+    "version": "5.0.0"
   },
   "plugins": [
     {
       "name": "laravel-toolkit",
       "description": "Skills para desenvolvimento Laravel, qualidade, testes, gestão de projetos, CI/CD e workflow Git",
       "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/actions",
-        "./skills/architecture",
-        "./skills/cicd",
-        "./skills/codebase",
-        "./skills/coder",
-        "./skills/docs",
-        "./skills/enums",
-        "./skills/exceptions",
-        "./skills/i18n",
-        "./skills/issues",
-        "./skills/mcp",
-        "./skills/models",
-        "./skills/planner",
-        "./skills/pr-review",
-        "./skills/qa",
-        "./skills/realtime",
-        "./skills/roadmap",
-        "./skills/spec",
-        "./skills/sprint",
-        "./skills/standards",
-        "./skills/testing",
-        "./skills/ui-ux",
-        "./skills/ux",
-        "./skills/workflow"
-      ]
+      "strict": false
     }
   ]
 }
