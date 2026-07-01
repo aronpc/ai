@@ -67,7 +67,7 @@ Este documento mostra como as 24 skills se relacionam e podem ser usadas em conj
 
 ### 1. Planejamento & Estratégia
 
-| Skill | Input | Output | Referencia Para |
+| Skill | Input | Output | Referência Para |
 |-------|-------|--------|-----------------|
 | `roadmap` | Visão de produto | `roadmap.json` com features | `spec`, `sprint` |
 | `codebase` | Codebase atual | Lista de melhorias | `spec`, `sprint` |
@@ -75,7 +75,7 @@ Este documento mostra como as 24 skills se relacionam e podem ser usadas em conj
 
 ### 2. Especificação & Gestão
 
-| Skill | Input | Output | Referencia Para |
+| Skill | Input | Output | Referência Para |
 |-------|-------|--------|-----------------|
 | `spec` | Requisitos | `spec.md` completo | `planner` |
 | `sprint` | Features | `sprints/XXX.md` | `planner`, `coder` |
@@ -83,7 +83,7 @@ Este documento mostra como as 24 skills se relacionam e podem ser usadas em conj
 
 ### 3. Implementação Laravel
 
-| Skill | Quando Usar | Referencia Para |
+| Skill | Quando Usar | Referência Para |
 |-------|-------------|-----------------|
 | `architecture` | Actions, DTOs, Policies | `models`, `testing` |
 | `models` | Eloquent, relações | `architecture`, `enums` |
@@ -97,7 +97,7 @@ Este documento mostra como as 24 skills se relacionam e podem ser usadas em conj
 
 ### 4. Qualidade & Validação
 
-| Skill | Input | Output | Referencia Para |
+| Skill | Input | Output | Referência Para |
 |-------|-------|--------|-----------------|
 | `testing` | Código | Testes Pest | `qa` |
 | `qa` | Mudanças | Relatório QA | `pr-review`, `coder` |
@@ -106,7 +106,7 @@ Este documento mostra como as 24 skills se relacionam e podem ser usadas em conj
 
 ### 5. DevOps & GitHub
 
-| Skill | Quando Usar | Referencia Para |
+| Skill | Quando Usar | Referência Para |
 |-------|-------------|-----------------|
 | `issues` | Triagem de issues | `spec`, `sprint` |
 | `pr-review` | Review de PR | `qa` |

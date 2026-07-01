@@ -29,10 +29,10 @@ qa, docs, coder, codebase, ui-ux
 | Agente | Propósito | Skills Orquestradas |
 |--------|-----------|---------------------|
 | `feature-lifecycle` | Pipeline completo de feature | 14 skills |
-| `bugfix` | Investigação e correção de bugs | 7 skills |
-| `refactor-safe` | Refatoração com verificação contínua | 7 skills |
-| `sprint-executor` | Execução sequencial de tarefas do sprint | 7 skills |
-| `pr-guard` | Validação pre-merge adaptativa | 6 skills |
+| `bugfix` | Investigação e correção de bugs | 8 skills |
+| `refactor-safe` | Refatoração com verificação contínua | 5 skills |
+| `sprint-executor` | Execução sequencial de tarefas do sprint | 6 skills |
+| `pr-guard` | Validação pre-merge adaptativa | 3 skills |
 
 ### Hooks de Guardrails & Automação (8/8) — implementados via hooks/hooks.json + scripts
 

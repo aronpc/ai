@@ -1,23 +1,24 @@
 #!/usr/bin/env bash
 # sprint-auto-update.sh
-# Event: Stop
-# Short reminder when sprint files have uncommitted changes. Always exit 0.
+# Evento: Stop
+# Lembrete curto quando arquivos de sprint tem mudancas nao commitadas.
+# Sempre exit 0.
 
 set -u
 
 cat >/dev/null 2>&1 || true
 
-# Only relevant when the project tracks sprints.
+# So relevante quando o projeto rastreia sprints.
 [ -d "./sprints" ] || exit 0
 
 command -v git >/dev/null 2>&1 || exit 0
 git rev-parse --git-dir >/dev/null 2>&1 || exit 0
 
-# Uncommitted (staged or unstaged) changes under sprints/.
+# Mudancas nao commitadas (staged ou unstaged) sob sprints/.
 CHANGED="$(git status --short -- 'sprints/' 2>/dev/null)"
 [ -z "$CHANGED" ] && exit 0
 
-# Was tracking.md among the changed sprint files?
+# tracking.md estava entre os arquivos de sprint alterados?
 if ! printf '%s' "$CHANGED" | grep -q 'sprints/tracking.md'; then
   echo "Lembrete: arquivos de sprint foram modificados mas sprints/tracking.md pode estar desatualizado. Use /laravel-toolkit:sprint."
 else

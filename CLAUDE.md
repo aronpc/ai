@@ -8,7 +8,7 @@ Plugin do Claude Code distribuído via marketplace `aronpc-skills`. Contém **24
 
 ## Estrutura
 
-```
+```text
 .claude-plugin/
   plugin.json          # Manifesto do plugin (name: laravel-toolkit, version: 5.0.0)
   marketplace.json     # Manifesto do marketplace (name: aronpc-skills, strict: false)
@@ -39,8 +39,8 @@ commands/              # 24 command wrappers para autocomplete
 
 ## Regras
 
-- Nao versionar dumps externos ou artefatos gerados por outros projetos (ex.: `prompts.md` de projetos-alvo).
-- Nao modificar `phpstan.neon` (regra global do workspace).
-- Apos qualquer mudanca estrutural, manter **README.md**, **IMPLEMENTATION.md** e **CHECKPOINT.md** sincronizados com a realidade.
-- Hooks vivem em `hooks/hooks.json` + scripts — nao apenas como markdown descritivo.
-- Instalacao do plugin: `/plugin marketplace add aronpc/ai` seguido de `/plugin install laravel-toolkit@aronpc-skills`.
+- Não versionar dumps externos ou artefatos gerados por outros projetos (ex.: `prompts.md` de projetos-alvo).
+- Não modificar `phpstan.neon` (regra global do workspace).
+- Após qualquer mudança estrutural, manter **README.md**, **IMPLEMENTATION.md** e **CHECKPOINT.md** sincronizados com a realidade.
+- Hooks vivem em `hooks/hooks.json` + scripts — não apenas como markdown descritivo.
+- Instalação do plugin: `/plugin marketplace add aronpc/ai` seguido de `/plugin install laravel-toolkit@aronpc-skills`.

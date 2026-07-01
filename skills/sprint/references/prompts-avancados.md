@@ -316,15 +316,15 @@ Somente após confirmação:
 
 ### Integração com Outras Skills
 
-Ao criar um sprint, VERIFIQUE quais skills estão instaladas em `.ai/skills/` e USE-as:
+Ao criar um sprint, VERIFIQUE quais skills estão instaladas em `skills/` e USE-as:
 
 **Como detectar skills instaladas:**
 ```bash
 # Listar skills disponíveis
-ls -la .ai/skills/
+ls -la skills/
 
 # Ver se uma skill específica existe
-test -f .ai/skills/architecture/SKILL.md && echo "Instalada"
+test -f skills/architecture/SKILL.md && echo "Instalada"
 ```
 
 **Skills para integrar:**

@@ -131,7 +131,7 @@ php artisan boost:add-skill --all
 
 ## Estrutura do Projeto
 
-```
+```text
 ai/
 ├── .claude-plugin/
 │   ├── plugin.json           # Configuração do plugin Claude Code
@@ -155,7 +155,7 @@ ai/
 
 Após instalar, invoque qualquer skill via comando:
 
-```
+```text
 /laravel-toolkit:architecture    # Arquitetura Laravel
 /laravel-toolkit:testing         # Testes com Pest PHP
 /laravel-toolkit:sprint          # Gerenciamento de sprints
@@ -164,7 +164,7 @@ Após instalar, invoque qualquer skill via comando:
 
 Cada skill aceita argumentos opcionais com instruções específicas:
 
-```
+```text
 /laravel-toolkit:coder implementar CRUD de produtos
 /laravel-toolkit:spec criar spec para API de pagamentos
 ```

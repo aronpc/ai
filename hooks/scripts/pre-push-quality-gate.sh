@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # pre-push-quality-gate.sh
-# Event: PreToolUse / Bash
-# Before a `git push`, runs Pint, PHPStan and Pest when this is a Laravel
-# project (./artisan present) and the binaries exist in vendor/bin.
-# Any failure -> exit 2 (blocks). Not Laravel / missing tool -> exit 0.
+# Evento: PreToolUse / Bash
+# Antes de um `git push`, executa Pint, PHPStan e Pest quando este e um
+# projeto Laravel (./artisan presente) e os binarios existem em vendor/bin.
+# Qualquer falha -> exit 2 (bloqueia). Nao-Laravel / ferramenta ausente -> exit 0.
 
 set -u
 
@@ -14,18 +14,18 @@ command -v jq >/dev/null 2>&1 || exit 0
 COMMAND="$(printf '%s' "$INPUT" | jq -r '.tool_input.command // empty' 2>/dev/null)"
 [ -z "$COMMAND" ] && exit 0
 
-# Only act on git push.
+# So atua em git push.
 printf '%s' "$COMMAND" | grep -Eq 'git[[:space:]]+push' || exit 0
 
-# Only act on Laravel projects.
+# So atua em projetos Laravel.
 [ -f "./artisan" ] || exit 0
 
 run_check() {
-  # $1 = friendly name, rest = command + args
+  # $1 = nome amigavel, o restante = comando + argumentos
   local name="$1"; shift
   local bin="$1"
-  [ -x "$bin" ] || return 0  # binary absent -> skip silently
-  if ! "$@" >/dev/null 2>&1; then
+  [ -x "$bin" ] || return 0  # binario ausente -> pula silenciosamente
+  if ! timeout 120 "$@" >/dev/null 2>&1; then
     echo "Push bloqueado: ${name} falhou. Corrija antes de fazer push." >&2
     exit 2
   fi

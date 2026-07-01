@@ -6,6 +6,10 @@
 
 ---
 
+> **Nota de contexto (leia primeiro):** Este documento registra o **estado encontrado no início do review** (baseline pré-correção, capturado em 2026-06-30). As correções correspondentes aos problemas aqui diagnosticados **já foram aplicadas neste próprio PR #7**. Ou seja, o texto abaixo descreve o **diagnóstico**, não o estado atual do plugin — cada seção crítica traz um marcador de resolução (✅ RESOLVIDO no PR #7 / "Resoluções Aplicadas") indicando o que já foi corrigido. Não confunda o diagnóstico histórico com o estado presente do repositório.
+
+---
+
 ## Veredicto
 
 > **O plugin NÃO instala/funciona corretamente como está** — há **3 problemas estruturais bloqueantes**. O **conteúdo das skills é bom em substância**, mas o conjunto está comprometido por **cross-references quebradas, inconsistências de versão e documentação meta que afirma coisas falsas** (um `CLAUDE.md` que não existe, 8 hooks "100% completos" que nunca executam, `strict: true` que na verdade é `false`).
@@ -51,6 +55,8 @@ Consequência: o README manda invocar `/aronpc:architecture` e `claude plugin ad
   - **(a) Implementar de verdade:** criar `hooks/hooks.json` com `type: "command"` apontando para scripts shell reais (ex.: `pre-push-quality-gate` → roda `pint`/`phpstan`/`pest`; `laravel-convention-guard` → grep de padrões). Mover os `.md` atuais para `hooks/docs/` como especificação.
   - **(b) Ser honesto:** remover a alegação de que os hooks estão "implementados/100%" e marcá-los como "projetados, pendente de wiring".
 
+> **✅ RESOLVIDO no PR #7 — opção (a) implementada.** Os hooks agora são reais: existe `hooks/hooks.json` registrando os eventos (PreToolUse, PostToolUse, UserPromptSubmit, SessionStart, Stop) com `type: "command"` apontando para scripts shell executáveis (ex.: `pre-push-quality-gate` roda `pint`/`phpstan`/`pest`; `laravel-convention-guard` faz grep de padrões; `ai-attribution` bloqueia via `exit 2`). Os `.md` originais foram movidos para `hooks/docs/` como especificação. Os guardrails deixam de ser decorativos e passam a executar de fato.
+
 ---
 
 ## P1 — Afirmações falsas e inconsistências (corrigir junto com P0)
@@ -63,10 +69,25 @@ Consequência: o README manda invocar `/aronpc:architecture` e `claude plugin ad
 | P1.4 | **Estrutura documentada ≠ real** (README desenha `.claude-plugin/plugin.json`) | `README.md:147-148`, `IMPLEMENTATION.md:173` | Atualizar após mover o arquivo (P0.1) |
 | P1.5 | **Cross-references quebradas em 19/24 skills** (~53 ocorrências): rodapés "Referências Cruzadas" e "Quando NÃO usar" usam nomes mortos (`laravel-architecture`, `laravel-testing-pest`, `spec-creation`, `github-pr-review`, `laravel-filament`…) | ex. `architecture:337-340`, `models:714-717`, `roadmap:42-43`, `qa:48-50` | Find/replace em massa para os nomes flat reais; remover `laravel-filament` (skill inexistente) |
 | P1.6 | **Inconsistência de versões de stack** entre skills: `architecture`/`cicd` dizem PHP 8.5/Laravel 12; 9 outras dizem PHP 8.2/Laravel 11+; `enums` diz 8.1 | `architecture:5,44`, `cicd:63`, `models`, `testing` etc. | Padronizar a matriz de compatibilidade |
-| P1.7 | **README se autocontradiz sobre Filament**: "3.x/4.x" vs "Filament 5" na mesma página | `README.md:35` vs `:66` | Unificar; **verificar se Filament 5 já existe** antes de fixar (Filament 4 é a base conhecida) |
+| P1.7 | **README se autocontradiz sobre Filament**: "3.x/4.x" vs "Filament 5" na mesma página | `README.md:35` vs `:66` | Unificar em **Filament 4.x** — decisão do projeto (ver `CLAUDE.md`): a base de referência é Filament 4, não Filament 5 |
 | P1.8 | **Contagens "orquestra N skills" erradas em 4 de 5 agents** | `bugfix` (diz 7, tem 8), `refactor-safe` (diz 7, tem 5), `sprint-executor` (diz 7, tem 6), `pr-guard` (diz 6, tem 3) | Recontar ou listar as skills em vez de um número |
 
-> **Nota factual:** em 2026-06, **PHP 8.5 e Laravel 12 existem**. O problema de P1.6/P1.7 **não** é "versão inexistente" — é a **inconsistência interna** e a auto-contradição do README. A única versão a confirmar manualmente é **Filament 5**.
+> **Nota factual:** em 2026-06, **PHP 8.5 e Laravel 12 existem**. O problema de P1.6/P1.7 **não** é "versão inexistente" — é a **inconsistência interna** e a autocontradição do README. Quanto ao Filament, a decisão do projeto (registrada no `CLAUDE.md`) é **referenciar Filament 4.x**; a menção a "Filament 5" no README era justamente a autocontradição a ser eliminada, não uma versão a adotar.
+
+### Resoluções Aplicadas (P1) no PR #7
+
+Os itens abaixo foram **corrigidos neste PR**; permanecem na tabela apenas como registro do diagnóstico original.
+
+| # | Status no PR #7 | O que foi feito |
+|---|---|---|
+| P1.1 | ✅ Resolvido | `CLAUDE.md` **criado** na raiz do repositório, alinhando as menções em README/IMPLEMENTATION/CHECKPOINT. |
+| P1.2 | ✅ Resolvido | **Versão unificada em `5.0.0`** como fonte única de verdade (`plugin.json` + `marketplace.json` + CHECKPOINT + IMPLEMENTATION). |
+| P1.3 | ✅ Resolvido | Documentação de `strict` corrigida para refletir o valor real (`false`) do `marketplace.json`. |
+| P1.4 | ✅ Resolvido | Árvore/estrutura do README atualizada após mover o manifest para `.claude-plugin/plugin.json` (ver P0.1). |
+| P1.5 | ✅ Resolvido | **Cross-references corrigidas** nas skills: nomes flat reais aplicados em massa nos rodapés "Referências Cruzadas"/"Quando NÃO usar"; `laravel-filament` (skill inexistente) removida. |
+| P1.6 | ✅ Resolvido | **Matriz de compatibilidade padronizada** entre as skills (PHP/Laravel/Filament consistentes). |
+| P1.7 | ✅ Resolvido | Contradição do README **unificada em Filament 4.x**, conforme decisão do projeto no `CLAUDE.md`. |
+| P1.8 | ✅ Resolvido | **`name` adicionado aos 5 agents** (agora com `name` + `description` + `tools`); contagens "orquestra N skills" ajustadas. |
 
 ---
 
@@ -95,7 +116,7 @@ Consequência: o README manda invocar `/aronpc:architecture` e `claude plugin ad
 - **Progressive disclosure:** `models` (723), `i18n` (624), `ux` (622), `realtime` (611) são longas e **não têm** `references/` — candidatas a extrair exemplos longos para `references/`.
 
 ### Ruído no repositório
-- **`prompts.md` (545 KB, 17.432 linhas)** é um dump auto-gerado de **outro projeto** ("Auto Claude", Python — `apps/backend/prompts/`). Não é skill/command/agent/hook, não é referenciado por nada do plugin, não está no `.gitignore`, e infla o repo em ~36%. As skills são, na prática, um **port PT-BR/Laravel desses prompts EN**.
+- **`prompts.md` (545 KB, 17.432 linhas)** é um dump autogerado de **outro projeto** ("Auto Claude", Python — `apps/backend/prompts/`). Não é skill/command/agent/hook, não é referenciado por nada do plugin, não está no `.gitignore`, e infla o repo em ~36%. As skills são, na prática, um **port PT-BR/Laravel desses prompts EN**.
   - **Correção:** remover do pacote distribuível (ou mover para fora e ignorar via `.gitignore`).
 
 ---
@@ -104,7 +125,7 @@ Consequência: o README manda invocar `/aronpc:architecture` e `claude plugin ad
 
 1. **`scripts/migrate-skills.sh` é um stub morto** — define o mapa de 24 skills (nomes → namespaces `@laravel/…`) e só faz `echo`. Remover, ou completar se a migração de namespaces for adiante.
 2. **`INTEGRATION-MAP.md` e `RESTRUCTURE-PLAN.md` usam nomenclatura morta** (`laravel-architecture`, `roadmap-strategy`, `implementation-coder`…) que não corresponde aos diretórios flat reais. Como os agents mandam "seguir o INTEGRATION-MAP", isso confunde. Atualizar ou marcar como histórico.
-3. **Decisão sobre `commands/`** — pela spec, "custom commands foram merged into skills" e skills de plugin já são auto-descobertas como `/plugin:skill`. Os 24 wrappers são **redundantes** (dobram a manutenção). Recomendado **remover** `commands/` após confirmar o namespace; manter só se houver razão deliberada.
+3. **Decisão sobre `commands/`** — pela spec, "custom commands foram merged into skills" e skills de plugin já são autodescobertas como `/plugin:skill`. Os 24 wrappers são **redundantes** (dobram a manutenção). Recomendado **remover** `commands/` após confirmar o namespace; manter só se houver razão deliberada.
 4. **Simplificar frontmatter das skills** — `compatibility`, `metadata`, `category` (e provavelmente `allowed-tools`) não fazem parte do schema oficial de skills e tendem a ser ignorados. Reduzir ao essencial (`name` + `description`); confirmar `allowed-tools` antes de remover.
 5. **Adicionar `name:` (e opcional `model:`) aos 5 agents** — hoje só têm `description` + `tools`.
 6. **CI de validação do próprio plugin** — GitHub Action rodando `claude plugin validate` + lint de frontmatter YAML + checagem de cross-references, para impedir regressões como as de P1.5.
@@ -116,25 +137,37 @@ Consequência: o README manda invocar `/aronpc:architecture` e `claude plugin ad
 
 ## Roadmap de execução
 
-**Fase 1 — Desbloquear (P0, ~30 min):**
-1. `mv plugin.json .claude-plugin/plugin.json`
-2. Unificar nome → `laravel-toolkit` em `plugin.json` + `marketplace.json`; adicionar `version`
-3. Decidir hooks: criar `hooks/hooks.json` real **ou** rebaixar as alegações
-4. Validar: `claude plugin validate` / instalar via CLI e testar `/laravel-toolkit:architecture`
+> **Estado no PR #7:** a **Fase 1 (P0)** e a maior parte da **Fase 2 (P1)** já foram **entregues neste PR**, e boa parte das Fases 3–4 também. Os itens marcados **✅ Feito** foram aplicados; o roadmap abaixo mantém apenas o histórico e sinaliza o que realmente falta. Veja o "Resumo de Alterações Aplicadas" ao final desta seção.
 
-**Fase 2 — Verdade na documentação (P1, ~1 h):**
-5. Criar `CLAUDE.md` ou remover menções; corrigir versão única; corrigir `strict`; atualizar árvore do README e exemplos de invocação `/laravel-toolkit:`
-6. Find/replace em massa das cross-references (19 arquivos)
-7. Padronizar matriz de compatibilidade; resolver contradição Filament
-8. Corrigir contagens dos agents
+**Fase 1 — Desbloquear (P0):**
+1. ✅ Feito — `plugin.json` movido para `.claude-plugin/plugin.json`.
+2. ✅ Feito — nome unificado → `laravel-toolkit` em `plugin.json` + `marketplace.json`; `version` adicionada (`5.0.0`).
+3. ✅ Feito — hooks reais criados: `hooks/hooks.json` + scripts shell (opção (a)).
+4. ✅ Feito — validado via CLI; `/laravel-toolkit:architecture` carrega.
 
-**Fase 3 — Conteúdo (P2, ~2-3 h):**
-9. Corrigir os 7 bugs de código (testing, exceptions, models, enums)
-10. Generalizar leaks de projeto em `architecture`/`exceptions`
-11. Limpezas editoriais; mover `prompts.md` para fora; extrair `references/` das skills longas
+**Fase 2 — Verdade na documentação (P1):**
+5. ✅ Feito — `CLAUDE.md` criado; versão única; `strict` corrigido; árvore do README e exemplos de invocação `/laravel-toolkit:` atualizados.
+6. ✅ Feito — find/replace em massa das cross-references.
+7. ✅ Feito — matriz de compatibilidade padronizada; contradição do Filament resolvida (unificada em Filament 4.x).
+8. ✅ Feito — contagens dos agents corrigidas; `name` adicionado aos agents.
 
-**Fase 4 — Estratégico (P3, contínuo):**
-12. CI de validação, CHANGELOG, decidir sobre `commands/` e namespaces, reintegrar filament-check-pro
+**Fase 3 — Conteúdo (P2):**
+9. ✅ Feito — bugs de código corrigidos (testing, exceptions, models, enums).
+10. ✅ Feito — leaks de projeto generalizados em `architecture`/`exceptions` (nota de "domínio ilustrativo").
+11. ✅ Feito — `prompts.md` removido do pacote e ignorado via `.gitignore`. **Pendente:** extrair `references/` das skills longas (`models`, `i18n`, `ux`, `realtime`).
+
+**Fase 4 — Estratégico (P3):**
+12. **Parcialmente feito.** ✅ CI de validação e `CHANGELOG.md` adicionados; pasta `commands/` removida (colisão de namespace). **Decisões registradas:** namespaces `@laravel/…` **não** adotados (skills permanecem flat) e `filament-check-pro` **não** reintegrado (Filament coberto via Laravel Boost). **Pendente/contínuo:** demais melhorias estratégicas conforme necessidade.
+
+### Resumo de Alterações Aplicadas (neste PR #7)
+
+- `plugin.json` movido para `.claude-plugin/plugin.json`; identidade unificada em `laravel-toolkit`; versão única `5.0.0`.
+- `hooks/hooks.json` criado com scripts shell reais (guardrails passam a executar).
+- Cross-references corrigidas nas skills; `laravel-filament` removida.
+- 5 agents com `name` (+ `description` + `tools`); contagens ajustadas.
+- `CLAUDE.md` criado; documentação (README/IMPLEMENTATION/CHECKPOINT) sincronizada; `strict` corrigido.
+- Bugs de código das skills corrigidos; leaks de projeto generalizados; `prompts.md` removido/ignorado.
+- CI de validação + `CHANGELOG.md`; `commands/` removida.
 
 ---
 
