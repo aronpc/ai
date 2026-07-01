@@ -44,7 +44,10 @@ Use esta skill sempre que:
 
 ```bash
 composer require laravel/precognition
+# React puro (não-Inertia)
 npm install laravel-precognition-react
+# React + Inertia (use este pacote no lugar do anterior ao usar Inertia)
+npm install laravel-precognition-react-inertia
 ```
 
 ### Configuração Backend
@@ -72,7 +75,7 @@ preemptiva com `$request->isPrecognitive()`.
 
 ```typescript
 // resources/js/components/ProductForm.tsx
-import { precognition } from 'laravel-precognition-react';
+import { useForm } from 'laravel-precognition-react';
 
 interface ProductForm {
     name: string;
@@ -81,9 +84,10 @@ interface ProductForm {
 }
 
 export function ProductForm() {
-    const form = precognition<FormType>(
-        '/products',
+    // Ordem dos argumentos: MÉTODO, URL, dados iniciais
+    const form = useForm<ProductForm>(
         'post',
+        '/products',
         {
             name: '',
             price: 0,
@@ -125,34 +129,38 @@ export function ProductForm() {
 
 ```typescript
 // resources/js/pages/Products/Create.tsx
-import { useForm } from '@inertiajs/react';
-import { precognition } from 'laravel-precognition-react/inertia';
+// No modo Inertia, o useForm do Precognition já integra o Inertia
+// (não use o useForm do @inertiajs/react junto).
+import { useForm } from 'laravel-precognition-react-inertia';
 
 export default function CreateProduct() {
-    const { data, setData, errors, processing, post } = precognition(
-        useForm({
-            name: '',
-            price: 0,
-            category_id: 0,
-        })
-    );
+    // Ordem dos argumentos: MÉTODO, URL, dados iniciais
+    const form = useForm('post', '/products', {
+        name: '',
+        price: 0,
+        category_id: 0,
+    });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        post('/products');
+        // No modo Inertia, submit() recebe as visit options do Inertia
+        form.submit({
+            preserveScroll: true,
+            onSuccess: () => form.reset(),
+        });
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                value={data.name}
-                onChange={(e) => setData('name', e.target.value)}
-                onBlur={() => validate('name')}
+                value={form.data.name}
+                onChange={(e) => form.setData('name', e.target.value)}
+                onBlur={() => form.validate('name')}
             />
-            {errors.name && <span className="error">{errors.name}</span>}
+            {form.invalid('name') && <span className="error">{form.errors.name}</span>}
 
-            <button type="submit" disabled={processing}>
+            <button type="submit" disabled={form.processing}>
                 Save
             </button>
         </form>
@@ -437,14 +445,11 @@ export function Page() {
 
 ```typescript
 // Reduzir requests de validação
-const form = precognition(
-    '/products',
-    'post',
-    initialData,
-    {
-        throttle: 500, // esperar 500ms
-    }
-);
+// Ordem dos argumentos: MÉTODO, URL, dados iniciais
+const form = useForm('post', '/products', initialData);
+
+// Configura o debounce da validação preemptiva (em milissegundos)
+form.setValidationTimeout(500); // esperar 500ms
 ```
 
 ## Casos de Uso
@@ -458,14 +463,24 @@ interface Step3Data { description: string; }
 
 export function MultiStepForm() {
     const [step, setStep] = useState(1);
-    const step1 = precognition<Step1Data>('/products/step1', 'post', {});
-    const step2 = precognition<Step2Data>('/products/step2', 'post', {});
-    const step3 = precognition<Step3Data>('/products/step3', 'post', {});
+    // Ordem dos argumentos: MÉTODO, URL, dados iniciais
+    const step1 = useForm<Step1Data>('post', '/products/step1', {});
+    const step2 = useForm<Step2Data>('post', '/products/step2', {});
+    const step3 = useForm<Step3Data>('post', '/products/step3', {});
 
-    const nextStep = async () => {
-        const form = [step1, step2, step3][step - 1];
-        await form.validate();
-        if (form.valid) setStep(step + 1);
+    const nextStep = () => {
+        // Valida os campos do passo atual (mesmo os que o usuário não tocou)
+        // e só avança no callback de sucesso.
+        const steps = [
+            { form: step1, only: ['name'] },
+            { form: step2, only: ['price'] },
+            { form: step3, only: ['description'] },
+        ];
+        const { form, only } = steps[step - 1];
+        form.validate({
+            only,
+            onSuccess: () => setStep(step + 1),
+        });
     };
 
     return (
