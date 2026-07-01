@@ -5,7 +5,7 @@ description: >-
 compatibility: Qualquer projeto
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: planning
 allowed-tools:
   - Read
@@ -39,8 +39,8 @@ Use esta skill quando precisar:
 - Criar roadmap estruturado
 
 **Não use para:**
-- Especificações técnicas (use spec-creation)
-- Melhorias de código (use codebase-ideation)
+- Especificações técnicas (use spec)
+- Melhorias de código (use codebase)
 
 ---
 

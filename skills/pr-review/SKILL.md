@@ -5,7 +5,7 @@ description: >-
 compatibility: GitHub, GitLab
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: github
 allowed-tools:
   - Read
@@ -39,8 +39,8 @@ Use esta skill quando precisar:
 
 **Não use para:**
 - Análise de codebase sem PR específico
-- Sugestões de features (use codebase-ideation)
-- Planejamento de implementação (use implementation-planner)
+- Sugestões de features (use codebase)
+- Planejamento de implementação (use planner)
 
 ---
 

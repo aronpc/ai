@@ -25,7 +25,7 @@
 ### 1.1 architecture ✅
 
 - [x] SKILL.md com frontmatter válido
-- [x] Compatibilidade: PHP 8.5+, Laravel 12
+- [x] Compatibilidade: PHP 8.2+, Laravel 11+
 
 ### 1.2 models ✅
 
@@ -171,22 +171,19 @@
 ### 5.1 Plugin Configuration ✅
 
 - [x] `.claude-plugin/plugin.json` configurado
-- [x] `.claude-plugin/marketplace.json` com `strict: true` e `source: "./"`
+- [x] `.claude-plugin/marketplace.json` com `strict: false` e `source: "./"`
 - [x] Conflito plugin.json resolvido (plugin único)
 
-### 5.2 Command Wrappers (Autocomplete) ✅
+### 5.2 Command Wrappers — removidos no v5.0.0
 
-- [x] 24 commands criados em `commands/`
-- [x] Cada command referencia `${CLAUDE_PLUGIN_ROOT}/skills/[nome]/SKILL.md`
-- [x] Argument hint configurado para todas as commands
-- [x] Autocomplete funcionando no Claude Code
+- [x] Os 24 command wrappers foram removidos: colidiam com as skills no namespace `/laravel-toolkit:` (o wrapper sobrepunha a skill). Invocação agora é direta: `/laravel-toolkit:<skill>`.
 
 ### 5.3 Documentação do Projeto ✅
 
 - [x] CLAUDE.md com instruções do projeto
 - [x] README.md com instalação e overview
 - [x] INTEGRATION-MAP.md com fluxos e relações entre skills
-- [x] RESTRUCTURE-PLAN.md com plano de namespaces
+- [x] RESTRUCTURE-PLAN.md (histórico — namespaces não adotados; skills permanecem flat)
 - [x] LICENSE (MIT)
 
 **Status:** Infraestrutura 100% completa.
@@ -198,21 +195,21 @@
 ### 6.1 feature-lifecycle ✅
 
 - [x] Agent definition com system prompt completo
-- [x] Orquestra 14 skills: spec → planner → coder → testing → qa → workflow → docs → pr-review
+- [x] Orquestra 14 skills: spec, planner, architecture, coder, standards, models, enums, actions, i18n, testing, qa, workflow, docs, pr-review
 - [x] 7 fases: Especificação, Planejamento, Implementação, Testes, QA, Commit, PR
 - [x] Trigger: "implement feature", "new feature", "implementar feature"
 
 ### 6.2 bugfix ✅
 
 - [x] Agent definition com system prompt completo
-- [x] Orquestra 7 skills: issues → planner → coder → testing → qa → workflow
+- [x] Orquestra 8 skills: issues, planner, coder, standards, models, testing, qa, workflow
 - [x] 7 fases: Classificação, Investigação, Planejamento, Fix, Testes Regressão, Validação, Commit
 - [x] Trigger: "fix bug", "corrigir bug", "investigar erro"
 
 ### 6.3 refactor-safe ✅
 
 - [x] Agent definition com system prompt completo
-- [x] Orquestra 7 skills: codebase → planner → coder → standards → testing
+- [x] Orquestra 5 skills: codebase, planner, architecture, standards, workflow
 - [x] 5 fases: Análise, Planejamento, Execução Incremental (com rollback), Validação Final, Documentação
 - [x] Verificação contínua de testes entre cada passo (green-to-green)
 - [x] Trigger: "refactor", "refatorar", "extract", "simplificar"
@@ -220,7 +217,7 @@
 ### 6.4 sprint-executor ✅
 
 - [x] Agent definition com system prompt completo
-- [x] Orquestra 7 skills: sprint → planner → coder → testing → qa → workflow → docs
+- [x] Orquestra 6 skills: planner, coder, testing, docs, sprint, workflow
 - [x] 5 fases: Carregar Sprint, Classificar Tarefa, Executar, Atualizar Sprint, Continuar/Finalizar
 - [x] Classifica tarefas automaticamente (feature, bugfix, refactor, docs)
 - [x] Trigger: "execute sprint", "next task", "proxima tarefa"
@@ -228,7 +225,7 @@
 ### 6.5 pr-guard ✅
 
 - [x] Agent definition com system prompt completo
-- [x] Orquestra 6 skills: qa → pr-review → standards → testing → docs → workflow
+- [x] Orquestra 3 skills: qa, pr-review, standards
 - [x] 5 fases: Análise, Avaliação de Complexidade, Validação por Tier, Checks Transversais, Relatório
 - [x] Tiers adaptativos: Trivial, Low, Medium, High, Critical
 - [x] Trigger: "validate PR", "review PR", "PR ready?"
@@ -241,6 +238,7 @@
 
 ### 7.1 laravel-convention-guard ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook PreToolUse em Write/Edit
 - [x] Bloqueia: Services pattern, env() fora de config, credenciais hardcoded
 - [x] Avisa: DB facade, strict_types ausente, controller com lógica, nomenclatura incorreta
@@ -248,6 +246,7 @@
 
 ### 7.2 post-commit-doc-check ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook PostToolUse em Bash (git commit)
 - [x] Verifica se IMPLEMENTATION.md foi atualizado junto com código
 - [x] Valida formato Conventional Commits
@@ -256,6 +255,7 @@
 
 ### 7.3 pre-push-quality-gate ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook PreToolUse em Bash (git push)
 - [x] Detecta arquivos sensíveis (.env, chaves privadas)
 - [x] Detecta debug code (dd, dump, ray, var_dump)
@@ -264,6 +264,7 @@
 
 ### 7.4 sprint-context-loader ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook SessionStart
 - [x] Detecta sprint ativo automaticamente
 - [x] Mostra progresso e próxima tarefa
@@ -272,6 +273,7 @@
 
 ### 7.5 skill-auto-suggest ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook UserPromptSubmit
 - [x] Mapa completo de keywords → 24 skills
 - [x] Máximo 2 sugestões por prompt
@@ -280,6 +282,7 @@
 
 ### 7.6 sprint-auto-update ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook Stop
 - [x] Detecta modificações em arquivos de sprint
 - [x] Verifica se tracking.md está atualizado
@@ -288,6 +291,7 @@
 
 ### 7.7 tenancy-safety-check ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook PreToolUse em Write/Edit
 - [x] Detecta automaticamente se projeto é multi-tenant
 - [x] Verifica tenant scoping em Models, Actions, Controllers
@@ -296,6 +300,7 @@
 
 ### 7.8 ai-attribution-scrubber ✅
 
+- [x] Implementado via `hooks/hooks.json` + script
 - [x] Hook PreToolUse em Bash (git commit)
 - [x] Detecta e bloqueia atribuição AI em commits
 - [x] Padrões: Co-authored-by Claude/Anthropic, AI-generated, emojis
@@ -329,14 +334,13 @@
 - `@dev/` - 1 skill de implementação
 - `@ideation/` - 2 skills de ideação
 
-**Progresso:** 0% - Planejado
+**Status:** Decidido NÃO adotar — skills permanecem flat. RESTRUCTURE-PLAN.md mantido como histórico.
 
-### 8.2 Filament Check Pro 📋
+### 8.2 Filament Check Pro ✅
 
-- [ ] Reintegrar skill filament-check-pro (removida na reestruturação)
-- [ ] Branch: `feat/filament-check-pro-skill` disponível
+- [x] Decisão: NÃO reintegrar. Para Filament, use a skill nativa do Laravel Boost (Filament 4.x), conforme nota no README. A skill `filament-check-pro` foi descontinuada.
 
-**Progresso:** 0% - Planejado
+**Status:** Encerrado.
 
 ---
 

@@ -7,3 +7,6 @@
 *.swp
 *.swo
 *~
+
+# Dumps de prompts gerados por outros projetos (não versionar no plugin)
+/prompts.md

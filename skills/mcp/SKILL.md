@@ -5,7 +5,7 @@ description: >-
 compatibility: MCP tools
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: devops
 allowed-tools:
   - Read
@@ -37,8 +37,8 @@ Use esta skill quando precisar:
 - Validar database migrations
 
 **Não use para:**
-- QA de código (use qa-validation)
-- Code review (use github-pr-review)
+- QA de código (use qa)
+- Code review (use pr-review)
 
 ---
 

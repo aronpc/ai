@@ -20,7 +20,7 @@ Execute `git diff HEAD~1 --name-only` e analise:
   - Se NAO foi atualizado, emita aviso:
     ```
     Codigo foi commitado mas IMPLEMENTATION.md nao foi atualizado.
-    Use /aronpc:docs para atualizar a documentacao.
+    Use /laravel-toolkit:docs para atualizar a documentacao.
     Lembre-se: documentacao deve ser commitada separadamente do codigo.
     ```
 

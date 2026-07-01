@@ -5,7 +5,7 @@ description: >-
 compatibility: GitHub Actions, Docker, Laravel 11+
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: devops
 allowed-tools:
   - Read
@@ -60,7 +60,7 @@ on:
 
 1. **Checkout** - Código fonte
 2. **Setup Bun** - Gerenciador de pacotes JS
-3. **Setup PHP 8.5** - Runtime PHP
+3. **Setup PHP 8.2** - Runtime PHP
 4. **Composer install** - Dependências PHP (no-dev)
 5. **Build frontend** - Assets React/Inertia
 6. **Build Filament** - Assets admin
@@ -76,7 +76,7 @@ on:
 - name: Install PHP & Composer
   uses: shivammathur/setup-php@v2
   with:
-    php-version: '8.5'
+    php-version: '8.2'
     extensions: mbstring, dom, fileinfo, pdo, pdo_mysql
 ```
 
@@ -268,7 +268,7 @@ jobs:
       - name: Install PHP & Composer
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.5'
+          php-version: '8.2'
           extensions: mbstring, dom, fileinfo, pdo, pdo_mysql
 
       - name: Install Composer Dependencies

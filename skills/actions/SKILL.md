@@ -5,7 +5,7 @@ description: >-
 compatibility: PHP 8.2+, Laravel 11+, laravel-actions
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: laravel
 allowed-tools:
   - Read
@@ -305,10 +305,10 @@ public function boot(): void
 
 ## Referências Cruzadas
 
-- **Estrutura Actions/DTOs**: Veja `laravel-architecture` para estrutura completa de Actions e Value Objects
-- **Traduções**: Veja `laravel-i18n` para traduções de Events e mensagens de sistema
-- **Exceções**: Veja `laravel-exceptions` para criar exceções customizadas em Actions
-- **Testes**: Veja `laravel-testing-pest` para testes de Actions, Jobs e Events
+- **Estrutura Actions/DTOs**: Veja `architecture` para estrutura completa de Actions e Value Objects
+- **Traduções**: Veja `i18n` para traduções de Events e mensagens de sistema
+- **Exceções**: Veja `exceptions` para criar exceções customizadas em Actions
+- **Testes**: Veja `testing` para testes de Actions, Jobs e Events
 
 ## Referências
 

@@ -5,7 +5,7 @@ description: >-
 compatibility: PHP 8.2+, Laravel 11+, Laravel Reverb
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: laravel
 allowed-tools:
   - Read
@@ -599,10 +599,10 @@ Antes de finalizar feature realtime:
 
 ## Referências Cruzadas
 
-- **Actions**: Use com `laravel-actions-events` para dispatch events
-- **Exceptions**: Trate erros de WebSocket com `laravel-exceptions`
-- **i18n**: Traduza mensagens realtime com `laravel-i18n`
-- **Architecture**: Integra com `laravel-architecture` para estrutura
+- **Actions**: Use com `actions` para dispatch events
+- **Exceptions**: Trate erros de WebSocket com `exceptions`
+- **i18n**: Traduza mensagens realtime com `i18n`
+- **Architecture**: Integra com `architecture` para estrutura
 
 ## Referências
 

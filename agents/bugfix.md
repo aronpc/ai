@@ -1,4 +1,5 @@
 ---
+name: bugfix
 description: "Use this agent for autonomous bug investigation and fixing. Trigger when user says 'fix bug', 'corrigir bug', 'investigar erro', 'debug', provides a GitHub issue URL, or describes a bug/error to fix."
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "WebFetch"]
 ---

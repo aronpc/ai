@@ -1,6 +1,6 @@
-# AI Skills - AronPC
+# laravel-toolkit - AI Skills Plugin
 
-Coleção de **24 Agent Skills**, **5 agentes autônomos** e **8 hooks** para uso com Claude Code, Cursor e [Laravel Boost](https://github.com/consulting/laravel-boost).
+Coleção de **24 Agent Skills**, **5 agentes autônomos** e **8 hooks** para uso com Claude Code, organizado como plugin do marketplace `aronpc-skills`.
 
 ## Sobre
 
@@ -10,8 +10,7 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 
 - **24 skills** organizadas em 4 categorias (Laravel, Planejamento, GitHub/DevOps, Qualidade)
 - **5 agentes autônomos** que orquestram múltiplas skills (feature, bugfix, refactor, sprint, PR)
-- **8 hooks** de guardrails e automação (convenções, qualidade, segurança, sprint)
-- **Autocomplete** integrado via command wrappers para Claude Code
+- **8 hooks** de guardrails e automação (convenções, qualidade, segurança, sprint), implementados via `hooks/hooks.json`
 - **Marketplace** configurado como plugin único com auto-discovery
 - **Progressive disclosure** seguindo o padrão Agent Skills (metadados → instruções → referências)
 
@@ -32,7 +31,7 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 | `testing` | Testes completos com Pest PHP (Feature, Unit, HTTP, Datasets) |
 | `standards` | Padrões de código Laravel e PHP baseados nas diretrizes da Spatie |
 
-> **Nota:** `laravel-filament` não incluído - use a skill nativa do Laravel Boost para Filament 3.x/4.x
+> **Nota:** `laravel-filament` não incluído — use a skill nativa do Laravel Boost para Filament 4.x (compatível com Laravel 11+/PHP 8.2+; Filament 4.x via skill nativa do Laravel Boost)
 
 ### Skills Planejamento & Estratégia (4 skills)
 
@@ -63,7 +62,7 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 | `codebase` | Identificação de oportunidades de melhoria no codebase baseada em padrões existentes |
 | `ui-ux` | Identificação de melhorias de UI/UX com validação visual usando browser automation |
 
-**Total: 24 skills** (atualizado para PHP 8.5+, Laravel 12, Filament 5)
+**Total: 24 skills** (compatível com Laravel 11+/PHP 8.2+; Filament 4.x via skill nativa do Laravel Boost)
 
 ## Agentes Autônomos
 
@@ -72,14 +71,14 @@ Agentes orquestram múltiplas skills para executar workflows completos de forma 
 | Agente | Propósito | Skills Orquestradas |
 |--------|-----------|---------------------|
 | `feature-lifecycle` | Pipeline completo: spec → code → test → QA → PR | 14 skills |
-| `bugfix` | Investigação → fix → testes de regressão → commit | 7 skills |
-| `refactor-safe` | Refatoração com verificação contínua de testes | 7 skills |
-| `sprint-executor` | Executa tarefas do sprint ativo sequencialmente | 7 skills |
-| `pr-guard` | Validação pre-merge adaptativa por complexidade | 6 skills |
+| `bugfix` | Investigação → fix → testes de regressão → commit | 8 skills |
+| `refactor-safe` | Refatoração com verificação contínua de testes | 5 skills |
+| `sprint-executor` | Executa tarefas do sprint ativo sequencialmente | 6 skills |
+| `pr-guard` | Validação pre-merge adaptativa por complexidade | 3 skills |
 
 ## Hooks
 
-Guardrails e automações que rodam em eventos do Claude Code:
+Guardrails e automações implementados via `hooks/hooks.json` + scripts:
 
 | Hook | Evento | Descrição |
 |------|--------|-----------|
@@ -94,30 +93,19 @@ Guardrails e automações que rodam em eventos do Claude Code:
 
 ## Instalação
 
-### Opção 1: Claude Code Plugin (Recomendado)
-
-Instale como plugin do Claude Code com autocomplete integrado:
-
-```bash
-# Instalar plugin (inclui todas as 24 skills + autocomplete)
-claude plugin add aronpc/ai
-```
-
-Após a instalação, todas as skills ficam disponíveis via `/aronpc:nome-da-skill` com autocomplete.
-
-### Opção 2: Claude Code Marketplace
-
-Adicione via marketplace para gerenciamento de pacotes:
+### Opção 1: Claude Code Plugin via Marketplace (Recomendado)
 
 ```bash
 # 1. Adicionar marketplace
 /plugin marketplace add aronpc/ai
 
 # 2. Instalar plugin
-/plugin install aronpc@aronpc-skills
+/plugin install laravel-toolkit@aronpc-skills
 ```
 
-### Opção 3: Instalação Manual
+Após a instalação, todas as skills ficam disponíveis via `/laravel-toolkit:nome-da-skill` com autocomplete.
+
+### Opção 2: Instalação Manual
 
 ```bash
 # Clonar repositório
@@ -130,7 +118,7 @@ cp -r ai/skills/* ~/.claude/skills/
 cp -r ai/skills/* seu-projeto/.claude/skills/
 ```
 
-### Opção 4: Laravel Boost
+### Opção 3: Laravel Boost
 
 ```bash
 # Adicionar skill específica
@@ -142,14 +130,13 @@ php artisan boost:add-skill --all
 
 ## Estrutura do Projeto
 
-```
+```text
 ai/
 ├── .claude-plugin/
 │   ├── plugin.json           # Configuração do plugin Claude Code
-│   └── marketplace.json      # Configuração do marketplace
+│   └── marketplace.json      # Configuração do marketplace (strict: false)
 ├── agents/                   # 5 agentes autônomos
-├── hooks/                    # 8 hooks de guardrails e automação
-├── commands/                 # 24 command wrappers (autocomplete)
+├── hooks/                    # 8 hooks (hooks.json + scripts)
 ├── skills/                   # 24 Agent Skills
 │   └── [nome-skill]/
 │       ├── SKILL.md          # Obrigatório - Documentação principal
@@ -166,18 +153,18 @@ ai/
 
 Após instalar, invoque qualquer skill via comando:
 
-```
-/aronpc:architecture    # Arquitetura Laravel
-/aronpc:testing         # Testes com Pest PHP
-/aronpc:sprint          # Gerenciamento de sprints
-/aronpc:pr-review       # Review de Pull Requests
+```text
+/laravel-toolkit:architecture    # Arquitetura Laravel
+/laravel-toolkit:testing         # Testes com Pest PHP
+/laravel-toolkit:sprint          # Gerenciamento de sprints
+/laravel-toolkit:pr-review       # Review de Pull Requests
 ```
 
 Cada skill aceita argumentos opcionais com instruções específicas:
 
-```
-/aronpc:coder implementar CRUD de produtos
-/aronpc:spec criar spec para API de pagamentos
+```text
+/laravel-toolkit:coder implementar CRUD de produtos
+/laravel-toolkit:spec criar spec para API de pagamentos
 ```
 
 ## Licença

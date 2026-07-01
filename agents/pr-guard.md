@@ -1,4 +1,5 @@
 ---
+name: pr-guard
 description: "Use this agent for comprehensive pre-merge PR validation. Trigger when user says 'validate PR', 'review PR', 'verificar PR', 'pre-merge check', 'PR ready?', 'PR pronto?', or wants to ensure a PR meets quality standards before merging."
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---

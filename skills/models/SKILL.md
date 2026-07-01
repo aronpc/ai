@@ -5,7 +5,7 @@ description: >-
 compatibility: PHP 8.2+, Laravel 11+
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: laravel
 allowed-tools:
   - Read
@@ -323,7 +323,6 @@ use Illuminate\Database\Eloquent\Scope;
 final class TenantScope implements Scope
 {
     public function apply(Builder $builder, Model $model): void
-{
     {
         if (auth()->check()) {
             $builder->where('tenant_id', auth()->user()->tenant_id);
@@ -711,10 +710,10 @@ Antes de finalizar QUALQUER Model:
 
 ## Referências Cruzadas
 
-- **Architecture**: Models finos integrados com Actions de `laravel-architecture`
-- **Testing**: Testar Models com `laravel-testing-pest`
-- **Actions**: Lógica de negócio em `laravel-actions-events`
-- **i18n**: Enums traduzíveis com `laravel-i18n`
+- **Architecture**: Models finos integrados com Actions de `architecture`
+- **Testing**: Testar Models com `testing`
+- **Actions**: Lógica de negócio em `actions`
+- **i18n**: Enums traduzíveis com `i18n`
 
 ## Referências
 

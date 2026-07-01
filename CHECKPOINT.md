@@ -29,12 +29,12 @@ qa, docs, coder, codebase, ui-ux
 | Agente | Propósito | Skills Orquestradas |
 |--------|-----------|---------------------|
 | `feature-lifecycle` | Pipeline completo de feature | 14 skills |
-| `bugfix` | Investigação e correção de bugs | 7 skills |
-| `refactor-safe` | Refatoração com verificação contínua | 7 skills |
-| `sprint-executor` | Execução sequencial de tarefas do sprint | 7 skills |
-| `pr-guard` | Validação pre-merge adaptativa | 6 skills |
+| `bugfix` | Investigação e correção de bugs | 8 skills |
+| `refactor-safe` | Refatoração com verificação contínua | 5 skills |
+| `sprint-executor` | Execução sequencial de tarefas do sprint | 6 skills |
+| `pr-guard` | Validação pre-merge adaptativa | 3 skills |
 
-### Hooks de Guardrails & Automação (8/8)
+### Hooks de Guardrails & Automação (8/8) — implementados via hooks/hooks.json + scripts
 
 | Hook | Evento | Tipo |
 |------|--------|------|
@@ -49,10 +49,9 @@ qa, docs, coder, codebase, ui-ux
 
 ### Infraestrutura
 
-- Plugin configuration (plugin.json + marketplace.json)
-- Command wrappers para autocomplete (24 commands)
+- Plugin configuration (`.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json`, strict: false)
+- Hooks implementados (hooks/hooks.json + scripts)
 - Documentação completa (CLAUDE.md, README.md, INTEGRATION-MAP.md)
-- Script de migração para namespaces
 
 ### Marcos Recentes
 
@@ -70,7 +69,6 @@ qa, docs, coder, codebase, ui-ux
 - **Total de Skills:** 24
 - **Agentes Autônomos:** 5
 - **Hooks:** 8
-- **Commands de Autocomplete:** 24
 - **Skills com Referências:** 12 (50%)
 - **Skills com Scripts:** 1 (enums/make-enum.php)
 - **Documentação Auxiliar:** 6 arquivos
@@ -79,7 +77,7 @@ qa, docs, coder, codebase, ui-ux
 
 ## Próximos Passos
 
-- [ ] Reestruturação por namespaces (@laravel/, @github/, etc.) - ver RESTRUCTURE-PLAN.md
-- [ ] Reintegrar skill filament-check-pro
+- [x] Namespaces: decidido NÃO adotar — skills permanecem flat (RESTRUCTURE-PLAN.md mantido como histórico)
+- [x] Filament: decidido NÃO reintegrar filament-check-pro — usar a skill nativa do Laravel Boost (Filament 4.x)
 - [ ] Adicionar mais scripts executáveis às skills que precisam
 - [ ] Expandir referências para skills sem documentação adicional

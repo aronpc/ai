@@ -5,7 +5,7 @@ description: >-
 compatibility: Qualquer projeto
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: planning
 allowed-tools:
   - Read
@@ -41,9 +41,9 @@ Use esta skill quando precisar:
 - Coletar e organizar requisitos de stakeholders
 
 **Não use para:**
-- Planejamento estratégico de produto (use roadmap-strategy)
-- Ideias de melhoria sem requisito claro (use codebase-ideation)
-- Bug fixes simples (use quick-spec)
+- Planejamento estratégico de produto (use roadmap)
+- Ideias de melhoria sem requisito claro (use codebase)
+- Bug fixes simples (use `spec` com escopo reduzido)
 
 ---
 

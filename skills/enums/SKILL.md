@@ -5,7 +5,7 @@ description: >-
 compatibility: PHP 8.1+, archtechx/enums
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: laravel
 allowed-tools:
   - Read
@@ -281,7 +281,7 @@ use Illuminate\Validation\Rule;
 // Usando valores do enum
 'status' => 'required|in:' . implode(',', TaskStatus::values())
 
-// Usando Enum rule (Laravel 10+)
+// Usando Enum rule (Laravel 9.23+)
 'status' => ['required', Rule::enum(TaskStatus::class)];
 ```
 

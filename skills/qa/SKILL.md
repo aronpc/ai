@@ -5,7 +5,7 @@ description: >-
 compatibility: Projetos Laravel
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: quality
 allowed-tools:
   - Read
@@ -45,9 +45,9 @@ Use esta skill sempre que precisar:
 - Implementar padroes de qualidade
 
 **Nao use para:**
-- Code review social (use github-pr-review)
-- Planejamento de features (use spec-creation)
-- Analise arquitetural (use codebase-ideation)
+- Code review social (use pr-review)
+- Planejamento de features (use spec)
+- Analise arquitetural (use codebase)
 
 ---
 

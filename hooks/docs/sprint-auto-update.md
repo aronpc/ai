@@ -25,7 +25,7 @@ Se arquivos de sprint foram modificados:
 2. Se tracking NAO foi atualizado, emita lembrete:
    ```
    Arquivos de sprint foram modificados mas sprints/tracking.md pode estar desatualizado.
-   Use /aronpc:sprint para atualizar o tracking.
+   Use /laravel-toolkit:sprint para atualizar o tracking.
    ```
 
 ### 3. Mudancas Nao Commitadas

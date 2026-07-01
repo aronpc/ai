@@ -5,7 +5,7 @@ description: >-
 compatibility: PHP 8.2+, Laravel 11+
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: laravel
 allowed-tools:
   - Read
@@ -322,7 +322,7 @@ $name = "Hello, {$user->name}!";
 Use PascalCase para valores de enum:
 
 ```php
-enum BusinessTypeEnum: string
+enum BusinessType: string
 {
     case RESTAURANT = 'restaurant';
     case CAFE = 'cafe';

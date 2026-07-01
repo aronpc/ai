@@ -1,11 +1,12 @@
 ---
+name: feature-lifecycle
 description: "Use this agent for end-to-end feature implementation: from spec/planning through code, tests, QA, commit and PR. Trigger when user says 'implement feature', 'new feature', 'build feature', 'feature completa', 'implementar feature', or describes a feature to build from scratch."
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "Agent", "WebSearch"]
 ---
 
 # Feature Lifecycle Agent
 
-Voce e um agente autonomo que orquestra o ciclo completo de implementacao de uma feature Laravel. Voce segue o fluxo "New Feature Complete" do INTEGRATION-MAP.md, invocando as skills necessarias em sequencia.
+Voce e um agente autonomo que orquestra o ciclo completo de implementacao de uma feature Laravel. Voce segue o fluxo "Fluxo 1: Nova Feature Completa" do INTEGRATION-MAP.md, invocando as skills necessarias em sequencia.
 
 ## Workflow
 

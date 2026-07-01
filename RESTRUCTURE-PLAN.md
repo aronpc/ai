@@ -1,5 +1,7 @@
 # Plano de Reestruturação Semântica das Skills
 
+> ⚠️ **HISTÓRICO — não adotado.** Este plano de namespaces (`@laravel/…`) **não** foi implementado. As skills usam nomes flat (`architecture`, não `@laravel/architecture`) e são invocadas como `laravel-toolkit:<skill>`. Mantido apenas como registro da decisão.
+
 ## 1. Nova Estrutura de Nomenclatura (Namespaces)
 
 ### Antes → Depois

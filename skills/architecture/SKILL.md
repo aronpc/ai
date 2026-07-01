@@ -2,10 +2,10 @@
 name: architecture
 description: >-
   Define a arquitetura limpa de projetos Laravel com Actions, DTOs, Policies e Service Layer. Use quando precisar organizar estrutura de diretórios, definir padrões arquiteturais, ou planejar a organização de um projeto Laravel.
-compatibility: PHP 8.5+, Laravel 12, laravel-actions
+compatibility: PHP 8.2+, Laravel 11+, laravel-actions
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: laravel
 allowed-tools:
   - Read
@@ -41,11 +41,11 @@ Use esta skill sempre que:
 
 ## Stack Tecnológico
 
-**Stack:** Laravel 12 + React + Inertia.js + Filament 5 + Tailwind 4
+**Exemplo de stack — ajuste ao seu projeto:** Laravel 11+ + React + Inertia.js + Filament 4.x + Tailwind 4
 
 ### Pontos Chave
 
-- **Admin Panel:** Filament 5 (Super Admin)
+- **Admin Panel:** Filament 4.x (opcional)
 - **Actions Pattern:** Laravel Actions (lorisleiva/laravel-actions)
 - **Testing:** Pest PHP
 - **i18n:** English, Spanish, Portuguese BR
@@ -54,16 +54,15 @@ Use esta skill sempre que:
 
 ### Core Rules
 
-- PHP 8.5+, strict types: `declare(strict_types=1);`
+- PHP 8.2+, strict types: `declare(strict_types=1);`
 - Siga pint.json, PHPStan max level
 - Não use `DB::`, use `Model::query()`
 - Não use `env()` fora de arquivos de configuração
 - Sempre obtenha aprovação antes de novos diretórios/dependências
 - Delete `.gitkeep` ao adicionar arquivos
 
-### Laravel 12 Específico
+### Laravel 11+ Específico
 
-- Commands são registrados automaticamente de `app/Console/Commands/`
 - Commands são registrados automaticamente de `app/Console/Commands/`
 - Use `config('app.name')` não `env('APP_NAME')`
 
@@ -71,14 +70,14 @@ Use esta skill sempre que:
 
 ```
 app/
-├── Actions/          # Lógica de negócio (NÃO Services!)
-│   ├── Business/
-│   ├── Tenant/
-│   └── Billing/
-├── DataObjects/      # Value Objects (DTOs)
-│   ├── Business/
-│   ├── Menu/
-│   └── Order/
+├── Actions/          # Lógica de negócio (NÃO Services!) — subpastas por domínio (exemplos)
+│   ├── Domain1/
+│   ├── Domain2/
+│   └── Domain3/
+├── DataObjects/      # Value Objects (DTOs) — subpastas por domínio (exemplos)
+│   ├── Domain1/
+│   ├── Domain2/
+│   └── Domain3/
 ├── Enums/            # Todos os enums (nomes descritivos, sem sufixo)
 ├── Events/           # Eventos de domínio (past tense)
 ├── Listeners/        # Event listeners (imperative)
@@ -89,6 +88,8 @@ app/
 │   └── Requests/     # Form Requests (validation)
 └── Policies/         # Authorization logic
 ```
+
+> **Nota:** os exemplos de código nas seções a seguir usam um domínio ilustrativo (SaaS multi-tenant — `Business`, `Order`, `Tenant`) apenas para demonstração; mapeie-os aos domínios reais do seu projeto.
 
 ## Resumo de Arquitetura
 
@@ -334,10 +335,10 @@ final class BusinessPolicy
 
 ## Referências Cruzadas
 
-- **Traduções**: Veja `laravel-i18n` para traduções de Enums, mensagens e interfaces
-- **Exceções**: Veja `laravel-exceptions` para exceções de domínio e regras de negócio
-- **Testes**: Veja `laravel-testing-pest` para testes de Actions e Policies
-- **Events/Jobs**: Veja `laravel-actions-events` para patterns avançados de eventos
+- **Traduções**: Veja `i18n` para traduções de Enums, mensagens e interfaces
+- **Exceções**: Veja `exceptions` para exceções de domínio e regras de negócio
+- **Testes**: Veja `testing` para testes de Actions e Policies
+- **Events/Jobs**: Veja `actions` para patterns avançados de eventos
 
 ## Referências
 

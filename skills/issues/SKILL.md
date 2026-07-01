@@ -5,7 +5,7 @@ description: >-
 compatibility: GitHub, GitLab
 metadata:
   author: aronpc
-  version: 1.0.0
+  version: 5.0.0
   category: github
 allowed-tools:
   - Read
@@ -38,8 +38,8 @@ Use esta skill quando precisar:
 - Extrair requisitos de issues para specs
 
 **Não use para:**
-- Code review (use github-pr-review)
-- Planejamento de features (use spec-creation)
+- Code review (use pr-review)
+- Planejamento de features (use spec)
 
 ---
 

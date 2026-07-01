@@ -1,0 +1,49 @@
+name: Validate plugin
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar JSON dos manifests
+        run: |
+          for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json hooks/hooks.json; do
+            echo "→ $f"
+            jq -e . "$f" > /dev/null
+          done
+
+      - name: Coerência de nome (plugin.json vs marketplace.json)
+        run: |
+          pj=$(jq -r .name .claude-plugin/plugin.json)
+          mp=$(jq -r '.plugins[0].name' .claude-plugin/marketplace.json)
+          test "$pj" = "$mp" || { echo "name diverge: plugin=$pj marketplace=$mp"; exit 1; }
+          echo "name OK: $pj"
+
+      - name: Toda skill tem SKILL.md
+        run: |
+          rc=0
+          for d in skills/*/; do
+            [ -f "${d}SKILL.md" ] || { echo "FALTA: ${d}SKILL.md"; rc=1; }
+          done
+          exit $rc
+
+      - name: Sem cross-references obsoletas
+        run: |
+          if grep -rnE 'laravel-architecture|laravel-models|laravel-enums|laravel-exceptions|laravel-actions-events|laravel-i18n|laravel-ux|laravel-realtime|laravel-testing-pest|laravel-coding-standards|spec-creation|github-pr-review|github-issue-analysis|git-workflow-laravel|cicd-github-actions|mcp-validation|sprint-management|implementation-planner|roadmap-strategy|codebase-ideation|ui-ux-ideation|qa-validation|documentation-updates|implementation-coder|quick-spec|filament-check-pro|laravel-performance' skills/ ; then
+            echo "Cross-references obsoletas encontradas — use nomes flat."
+            exit 1
+          fi
+          echo "OK: sem nomes obsoletos."
+
+      - name: Sintaxe dos scripts de hook
+        run: for s in hooks/scripts/*.sh; do bash -n "$s"; done
+
+      - name: ShellCheck dos hooks
+        run: shellcheck -S error hooks/scripts/*.sh
