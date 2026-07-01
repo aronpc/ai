@@ -22,7 +22,7 @@ CHANGED="$(git status --short -- 'sprints/' 2>/dev/null)"
 if ! printf '%s' "$CHANGED" | grep -q 'sprints/tracking.md'; then
   echo "Lembrete: arquivos de sprint foram modificados mas sprints/tracking.md pode estar desatualizado. Use /laravel-toolkit:sprint."
 else
-  N="$(printf '%s' "$CHANGED" | wc -l | tr -d ' ')"
+  N="$(printf '%s' "$CHANGED" | grep -c .)"
   echo "Lembrete: ${N} arquivo(s) de sprint com mudancas nao commitadas."
 fi
 

@@ -335,11 +335,9 @@ test -f skills/architecture/SKILL.md && echo "Instalada"
 | `models` | Models/relacionamentos | Aplique melhores práticas Eloquent |
 | `testing` | Planejar testes | Use datasets, mocks, factories |
 | `standards` | Código gerado | Siga padrões Spatie/Laravel |
-| `filament-check-pro` | Resources Filament | Valide estrutura após gerar |
 | `workflow` | Branch do sprint | Siga conventional commits |
 | `i18n` | Multi-idioma | Planeje traduções desde início |
 | `realtime` | WebSockets/broadcasting | Use Reverb para tempo real |
-| `laravel-performance-*` | Performance críticas | Planeje cache, eager loading |
 | `exceptions` | Tratamento de erros | Use exceções customizadas |
 
 ### Exemplo de Interação

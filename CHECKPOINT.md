@@ -50,10 +50,8 @@ qa, docs, coder, codebase, ui-ux
 ### Infraestrutura
 
 - Plugin configuration (`.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json`, strict: false)
-- Command wrappers para autocomplete (24 commands)
 - Hooks implementados (hooks/hooks.json + scripts)
 - Documentação completa (CLAUDE.md, README.md, INTEGRATION-MAP.md)
-- Script de migração para namespaces
 
 ### Marcos Recentes
 
@@ -71,7 +69,6 @@ qa, docs, coder, codebase, ui-ux
 - **Total de Skills:** 24
 - **Agentes Autônomos:** 5
 - **Hooks:** 8
-- **Commands de Autocomplete:** 24
 - **Skills com Referências:** 12 (50%)
 - **Skills com Scripts:** 1 (enums/make-enum.php)
 - **Documentação Auxiliar:** 6 arquivos

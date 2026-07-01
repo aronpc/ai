@@ -36,7 +36,7 @@ jobs:
 
       - name: Sem cross-references obsoletas
         run: |
-          if grep -rnE 'laravel-architecture|laravel-models|laravel-enums|laravel-exceptions|laravel-actions-events|laravel-i18n|laravel-ux|laravel-realtime|laravel-testing-pest|laravel-coding-standards|spec-creation|github-pr-review|github-issue-analysis|git-workflow-laravel|cicd-github-actions|mcp-validation|sprint-management|implementation-planner|roadmap-strategy|codebase-ideation|ui-ux-ideation|qa-validation|documentation-updates|implementation-coder' skills/ ; then
+          if grep -rnE 'laravel-architecture|laravel-models|laravel-enums|laravel-exceptions|laravel-actions-events|laravel-i18n|laravel-ux|laravel-realtime|laravel-testing-pest|laravel-coding-standards|spec-creation|github-pr-review|github-issue-analysis|git-workflow-laravel|cicd-github-actions|mcp-validation|sprint-management|implementation-planner|roadmap-strategy|codebase-ideation|ui-ux-ideation|qa-validation|documentation-updates|implementation-coder|quick-spec|filament-check-pro|laravel-performance' skills/ ; then
             echo "Cross-references obsoletas encontradas — use nomes flat."
             exit 1
           fi

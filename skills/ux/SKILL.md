@@ -49,43 +49,24 @@ npm install laravel-precognition-react
 
 ### Configuração Backend
 
-```php
-<?php
-
-// app/Http/Middleware/HandlePrecognition.php
-namespace App\Http\Middleware;
-
-use Illuminate\Http\Request;
-use Laravel\Precognition\Concerns\HandlesPrecognition;
-
-final class HandlePrecognition
-{
-    use HandlesPrecognition;
-
-    public function handle(Request $request, Closure $next)
-    {
-        if ($this->isPrecognitionRequest($request)) {
-            $request->setPrecognitive();
-        }
-
-        return $next($request);
-    }
-}
-```
+O Laravel Precognition **já fornece** o middleware nativo
+`Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests`.
+Não é necessário criar um middleware custom — basta aplicá-lo à rota
+que deve suportar validação preemptiva (veja a próxima seção).
 
 ### Configurar Route
 
 ```php
-<?php
-
 // routes/web.php
 use App\Http\Controllers\ProductController;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 
-Route::middleware(['web', HandlePrecognition::class])
-    ->group(function () {
-        Route::post('/products', [ProductController::class, 'store']);
-    });
+Route::post('/products', [ProductController::class, 'store'])
+    ->middleware([HandlePrecognitiveRequests::class]);
 ```
+
+No FormRequest ou controller, é possível checar se a requisição é
+preemptiva com `$request->isPrecognitive()`.
 
 ### Frontend React
 

@@ -11,7 +11,6 @@ Este repositório contém **Agent Skills** personalizadas que seguem o padrão [
 - **24 skills** organizadas em 4 categorias (Laravel, Planejamento, GitHub/DevOps, Qualidade)
 - **5 agentes autônomos** que orquestram múltiplas skills (feature, bugfix, refactor, sprint, PR)
 - **8 hooks** de guardrails e automação (convenções, qualidade, segurança, sprint), implementados via `hooks/hooks.json`
-- **Autocomplete** integrado via command wrappers para Claude Code
 - **Marketplace** configurado como plugin único com auto-discovery
 - **Progressive disclosure** seguindo o padrão Agent Skills (metadados → instruções → referências)
 
@@ -138,7 +137,6 @@ ai/
 │   └── marketplace.json      # Configuração do marketplace (strict: false)
 ├── agents/                   # 5 agentes autônomos
 ├── hooks/                    # 8 hooks (hooks.json + scripts)
-├── commands/                 # 24 command wrappers (autocomplete)
 ├── skills/                   # 24 Agent Skills
 │   └── [nome-skill]/
 │       ├── SKILL.md          # Obrigatório - Documentação principal

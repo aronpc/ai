@@ -321,7 +321,7 @@ use App\Exceptions\Business\BusinessLimitExceededException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Http\Request;
-use Illuminate\Log\LogLevel;
+use Psr\Log\LogLevel;
 use Throwable;
 
 return Application::configure(basePath: dirname(__DIR__))

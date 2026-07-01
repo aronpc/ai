@@ -174,19 +174,16 @@
 - [x] `.claude-plugin/marketplace.json` com `strict: false` e `source: "./"`
 - [x] Conflito plugin.json resolvido (plugin único)
 
-### 5.2 Command Wrappers (Autocomplete) ✅
+### 5.2 Command Wrappers — removidos no v5.0.0
 
-- [x] 24 commands criados em `commands/`
-- [x] Cada command referencia `${CLAUDE_PLUGIN_ROOT}/skills/[nome]/SKILL.md`
-- [x] Argument hint configurado para todas as commands
-- [x] Autocomplete funcionando no Claude Code
+- [x] Os 24 command wrappers foram removidos: colidiam com as skills no namespace `/laravel-toolkit:` (o wrapper sobrepunha a skill). Invocação agora é direta: `/laravel-toolkit:<skill>`.
 
 ### 5.3 Documentação do Projeto ✅
 
 - [x] CLAUDE.md com instruções do projeto
 - [x] README.md com instalação e overview
 - [x] INTEGRATION-MAP.md com fluxos e relações entre skills
-- [x] RESTRUCTURE-PLAN.md com plano de namespaces
+- [x] RESTRUCTURE-PLAN.md (histórico — namespaces não adotados; skills permanecem flat)
 - [x] LICENSE (MIT)
 
 **Status:** Infraestrutura 100% completa.

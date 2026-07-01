@@ -43,7 +43,7 @@ Use esta skill quando precisar:
 **Não use para:**
 - Planejamento estratégico de produto (use roadmap)
 - Ideias de melhoria sem requisito claro (use codebase)
-- Bug fixes simples (use quick-spec)
+- Bug fixes simples (use `spec` com escopo reduzido)
 
 ---
 

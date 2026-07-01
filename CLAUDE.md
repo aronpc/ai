@@ -4,7 +4,7 @@ Instruções para agentes AI que trabalham **neste repositório** (o plugin em s
 
 ## O que é este repositório
 
-Plugin do Claude Code distribuído via marketplace `aronpc-skills`. Contém **24 skills**, **5 agentes autônomos**, **8 hooks** e **24 command wrappers** para desenvolvimento Laravel. O nome do plugin é `laravel-toolkit`; a invocação das skills é `/laravel-toolkit:<skill>`.
+Plugin do Claude Code distribuído via marketplace `aronpc-skills`. Contém **24 skills**, **5 agentes autônomos** e **8 hooks** para desenvolvimento Laravel. O nome do plugin é `laravel-toolkit`; a invocação das skills é `/laravel-toolkit:<skill>`.
 
 ## Estrutura
 
@@ -17,7 +17,6 @@ skills/<nome>/
   references/          # Opcional — documentação de referência adicional
 agents/                # Definições dos 5 agentes autônomos
 hooks/                 # hooks.json + scripts dos 8 hooks
-commands/              # 24 command wrappers para autocomplete
 ```
 
 ## Convenções
@@ -34,8 +33,7 @@ commands/              # 24 command wrappers para autocomplete
 1. Criar diretório `skills/<nome>/`.
 2. Criar `skills/<nome>/SKILL.md` com frontmatter `name` + `description` e o conteúdo da skill.
 3. Adicionar `"./skills/<nome>"` à lista `skills` em `.claude-plugin/marketplace.json`.
-4. Criar o command wrapper em `commands/` referenciando o SKILL.md.
-5. A auto-descoberta do marketplace reconhece a skill na próxima instalação.
+4. A auto-descoberta do marketplace reconhece a skill na próxima instalação.
 
 ## Regras
 
